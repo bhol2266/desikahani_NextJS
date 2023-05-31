@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: https://www.desikahaniya.in/search/label
+Disallow: https://www.desikahaniya.in/2018/10/
+Disallow: https://www.desikahaniya.in/search/label/
+Disallow: https://www.desikahaniya.in/?affID=FSK_PR_S
+Allow: /
+
+
+Sitemap: https://www.desikahaniya.in/sitemap.xml

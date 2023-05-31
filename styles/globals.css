@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Pushster&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Open+Sans&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jaldi&display=swap');
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+
+    .icon {
+        @apply h-6 w-6 mr-1 hover:scale-125 transform transition duration-200
+    }
+    .dark{
+        @apply bg-black text-white border-gray-800 
+    }
+    .light{
+        @apply bg-gray-100 text-black border-gray-300 
+    }
+
+    .header
+    {
+        @apply font-bold p-1 text-xl mt-10
+    }
+     
+    .para
+    {
+        @apply pb-3
+    }
+     
+ 
+
+    
+    
+}
