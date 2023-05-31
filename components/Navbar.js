@@ -25,7 +25,7 @@ var navigation = [
     { name: 'Home', href: '/', current: true },
     { name: 'Leaked Pictures', href: '/photo', current: false },
     { name: 'Audio Sex Story', href: `/tag/audio-sex-story`, current: false },
-    { name: 'Mobile App', href: "/desikahani.apk", current: false },
+    { name: 'Mobile App', href: "https://play.google.com/store/apps/details?id=com.bhola.desiKahaniyaAdult", current: false },
     { name: 'Sex Videos', href: "/videos", current: false },
     { name: 'अपनी कहानी भेजे', href: "/submitStory", current: false },
 
@@ -198,7 +198,7 @@ function Navbar() {
                                         {navigation.map((item) => (
 
 
-                                            <a href={item.href} key={item.name}  download={item.name === "Mobile App" ? true :false}>
+                                            <a href={item.href} key={item.name}  >
                                                 <Disclosure.Button
                                                     as="a"
                                                     className={classNames(

@@ -22,7 +22,7 @@ const MobileAppModal = () => {
 
         <div>
             {/* Make background darker */}
-            <div  className={`bg-black bg-opacity-40 fixed inset-0 z-20  ${MobileAppModalVisible ? "" : "hidden"} `} />
+            <div  className={`bg-black bg-opacity-40 fixed inset-0 z-20  ${MobileAppModalVisible ? "hidden" : "hidden"} `} />
 
             <div className={` fixed  transition-transform duration-300 ease-out  z-20  w-4/5 top-8 bottom-8 scrollbar-hide overflow-scroll mx-auto left-0 right-0 ${MobileAppModalVisible ? 'animate-colorModal' : 'translate-y-[3000px]'}`}>
 
