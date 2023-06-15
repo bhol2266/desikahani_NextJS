@@ -285,7 +285,7 @@ function Navbar() {
 
                 <div className='flex items-center justify-evenly  pl-2'>
 
-                    <a href='/desikahani.apk' download>
+                    <a href='https://play.google.com/store/apps/details?id=com.bhola.desiKahaniyaAdult' >
                         <p className=' text-[15px] md:text-xl   text-center p-1 pr-6 hover:text-orange-800 cursor-pointer'>Mobile App</p>
                     </a>
 
