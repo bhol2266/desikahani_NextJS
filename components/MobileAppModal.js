@@ -93,9 +93,9 @@ const MobileAppModal = () => {
                         <div className='xl:w-1/2'>
 
                             <div className='grid grid-cols-2 xl:grid-cols-2  lg:grid-cols-3'>
-                                <img src="/screenshots/ss1.png" className='rounded-xl   ' alt="" />
+                                {/* <img src="/screenshots/ss1.png" className='rounded-xl   ' alt="" />
                                 <img src="/screenshots/ss4.png" className='rounded-xl   ' alt="" />
-                                <img src="/screenshots/ss7.png" className='rounded-xl hidden   3xl:hidden lg:flex xl:hidden' alt="" />
+                                <img src="/screenshots/ss7.png" className='rounded-xl hidden   3xl:hidden lg:flex xl:hidden' alt="" /> */}
                                 {/* <img src="/screenshots/ss3.png" className='rounded-xl    hidden lg:flex xl:hidden' alt="" />
                                 <img src="/screenshots/ss4.png" className='rounded-xl    hidden' alt="" />
                                 <img src="/screenshots/ss5.png" className='rounded-xl    hidden ' alt="" /> */}
