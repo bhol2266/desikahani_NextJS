@@ -59,7 +59,7 @@ function PicsThumbnail({ data }) {
                         className='object-contain '
                         loading="lazy"
                         alt={data.Title}
-                        src={"src"}
+                        src={"https://images.pexels.com/photos/1376046/pexels-photo-1376046.jpeg?auto=compress&cs=tinysrgb&w=300&lazy=load"}
 
                     ></img>
                     <h1 className='text-xs lg:text-sm p-1 font-bold font-inter'>{data.Title}</h1>
