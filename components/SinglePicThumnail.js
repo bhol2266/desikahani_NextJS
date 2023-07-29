@@ -55,7 +55,7 @@ function SinglePicThumnail({ picData, index, href }) {
                     <img
                         loading="lazy"
                         alt={"image"}
-                        src={"https://images.pexels.com/photos/1376046/pexels-photo-1376046.jpeg?auto=compress&cs=tinysrgb&w=300&lazy=load"}
+                        src={"asdfsadfsadfds"}
                         height={1080}
                         width={1920}
                     ></img>

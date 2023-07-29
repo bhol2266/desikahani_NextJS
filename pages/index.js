@@ -124,6 +124,7 @@ export async function getStaticProps() {
 
   const resData = await rawResponse.json();
 
+  console.log(resData.data.finalDataArray);
   return {
     props: {
       finalDataArray: resData.data.finalDataArray,
