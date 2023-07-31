@@ -29,21 +29,22 @@ function Album({ dload_links, relatedAlbums, href }) {
   if (photoAlbum) {
     try {
       title = photoAlbum.trim().replaceAll("-", " ");
-    } catch (error) {}
+    } catch (error) { }
   }
 
   const displaypics = dload_links.map((picURL, index) => {
+
+    let indexx= index+1;
+    const digitalOceanUrl = "https://bucket2266.blr1.cdn.digitaloceanspaces.com/" + "FirebaseFolders/" + href + "/" + indexx + ".png";
     return (
-      <SinglePicThumnail
-        key={picURL}
-        picData={picURL}
-        index={index}
-        href={href}
+      <SinglePicThumnail key={picURL} picData={digitalOceanUrl} index={index} href={href}
       />
     );
   });
 
   const relatedPics = relatedAlbums.map((picData) => {
+    const digitalOceanUrl = "https://bucket2266.blr1.cdn.digitaloceanspaces.com/" + "FirebaseFolders/" + picData.fullalbum_href + "/thumbnail.png";
+    picData['thumbnail'] = digitalOceanUrl;
     return <PicsThumbnail key={picData._id} data={picData} />;
   });
 
@@ -93,9 +94,8 @@ function Album({ dload_links, relatedAlbums, href }) {
         </h1>
 
         <div
-          className={`${
-            !showBigImage ? "" : "hidden"
-          } grid grid-cols-2  gap-2 md:gap-3 lg:gap-4  md:grid-cols-3 `}
+          className={`${!showBigImage ? "" : "hidden"
+            } grid grid-cols-2  gap-2 md:gap-3 lg:gap-4  md:grid-cols-3 `}
         >
           {displaypics}
         </div>

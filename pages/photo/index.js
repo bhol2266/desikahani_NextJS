@@ -21,8 +21,13 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
   
     const displaypics = finalDataArray.map(picData => {
 
+
+        
+        const digitalOceanUrl="https://bucket2266.blr1.cdn.digitaloceanspaces.com/"+"FirebaseFolders/"+picData.fullalbum_href+"/thumbnail.png";
+        picData['thumbnail'] = digitalOceanUrl;
+
         return (
-            <PicsThumbnail key={picData.thumbnailUrl} data={picData} />
+            <PicsThumbnail key={digitalOceanUrl} data={picData} />
 
         )
     })
