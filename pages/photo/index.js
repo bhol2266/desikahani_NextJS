@@ -18,12 +18,30 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
     const { setdisclaimerShow, } = context;
     const router = useRouter();
 
-  
-    const displaypics = finalDataArray.map(picData => {
+
+    const displaypics = finalDataArray.map((picData, index) => {
 
 
-        
-        const digitalOceanUrl="https://bucket2266.blr1.cdn.digitaloceanspaces.com/"+"FirebaseFolders/"+picData.fullalbum_href+"/thumbnail.png";
+        let currentDate = new Date();
+        picData.date.day = currentDate.getDate().toString().padStart(2, '0');
+        picData.date.month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+        picData.date.year = currentDate.getFullYear().toString();
+
+   
+        let currentDate2 = new Date(`${picData.date.year}-${picData.date.month}-${picData.date.day}`);
+
+        // Subtract days
+        currentDate2.setDate(currentDate2.getDate() - index);
+
+        // Update the date object with the new values
+        picData.date.day = currentDate2.getDate().toString().padStart(2, '0');
+        picData.date.month = (currentDate2.getMonth() + 1).toString().padStart(2, '0');
+        picData.date.year = currentDate2.getFullYear().toString();
+
+
+
+
+        const digitalOceanUrl = "https://bucket2266.blr1.cdn.digitaloceanspaces.com/" + "FirebaseFolders/" + picData.fullalbum_href + "/thumbnail.png";
         picData['thumbnail'] = digitalOceanUrl;
 
         return (
@@ -68,7 +86,7 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
             {/* PAGINATION */}
             <Pagination data={{ url: `/photo`, currentPage: currentPage, lastPage: pagination_nav_pages[1] }} />
 
-       
+
             <MultiformatAds />
 
             <Outstreams />
