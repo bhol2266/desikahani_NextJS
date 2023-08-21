@@ -104,7 +104,7 @@ function Story({ story_details }) {
                             Text Size
                             {/* <img className='ml-2' src='https://cdn-icons.flaticon.com/png/512/2043/premium/2043488.png?token=exp=1647712043~hmac=80017e50d71fb76634fd067d627f6063' alt='loading' height={14} width={14}></img> */}
                         </Menu.Button>
-
+  
                     </div>
 
                     <Transition
