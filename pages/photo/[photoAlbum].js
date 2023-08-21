@@ -35,7 +35,8 @@ function Album({ dload_links, relatedAlbums, href }) {
   const displaypics = dload_links.map((picURL, index) => {
 
     let indexx= index+1;
-    const digitalOceanUrl = "https://bucket2266.blr1.cdn.digitaloceanspaces.com/" + "FirebaseFolders/" + href + "/" + indexx + ".png";
+    const digitalOceanUrl = "https://bucket2266.blr1.digitaloceanspaces.com/" + "NudePics/" + href + "/" + indexx + ".png";
+
     return (
       <SinglePicThumnail key={picURL} picData={digitalOceanUrl} index={index} href={href}
       />
@@ -43,7 +44,7 @@ function Album({ dload_links, relatedAlbums, href }) {
   });
 
   const relatedPics = relatedAlbums.map((picData) => {
-    const digitalOceanUrl = "https://bucket2266.blr1.cdn.digitaloceanspaces.com/" + "FirebaseFolders/" + picData.fullalbum_href + "/thumbnail.png";
+    const digitalOceanUrl = "https://bucket2266.blr1.digitaloceanspaces.com/" + "NudePics/" + picData.fullalbum_href + "/thumbnail.png";
     picData['thumbnail'] = digitalOceanUrl;
     return <PicsThumbnail key={picData._id} data={picData} />;
   });

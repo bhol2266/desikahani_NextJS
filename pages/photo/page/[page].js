@@ -50,7 +50,7 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
         picData.date.year = currentDate2.getFullYear().toString();
 
 
-        const digitalOceanUrl = "https://bucket2266.blr1.cdn.digitaloceanspaces.com/" + "FirebaseFolders/" + picData.fullalbum_href + "/thumbnail.png";
+        const digitalOceanUrl = "https://bucket2266.blr1.digitaloceanspaces.com/" + "NudePics/" + picData.fullalbum_href + "/thumbnail.png";
         picData['thumbnail'] = digitalOceanUrl;
 
         return (

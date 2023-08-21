@@ -68,7 +68,21 @@ function Story({ story_details }) {
         }
         videoPlayerRef.current.load();
         videoPlayerRef.current.play();
+
     }
+
+    const checkAudioDuration = () => {
+        const audioPlayer = videoPlayerRef.current;
+        if (audioPlayer) {
+            const duration = audioPlayer.duration;
+            if (duration < 30) {
+                audioPlayer.src = "https://bucket2266.s3.ap-south-1.amazonaws.com/Sexstory_Audiofiles/" + story + ".mp3"
+                audioPlayer.load();
+                console.log("https://bucket2266.s3.ap-south-1.amazonaws.com/Sexstory_Audiofiles/" + story + ".mp3");
+
+            }
+        }
+    };
 
 
 
@@ -142,7 +156,8 @@ function Story({ story_details }) {
 
             {story_details.audiolink &&
 
-                <audio ref={videoPlayerRef} className='w-full md:w-4/5 lg:w-2/5 p-1 bg-gray-500 rounded-full my-2' src={story_details.audiolink} controls onError={audioError} />
+                <audio onLoadedMetadata={checkAudioDuration}
+                    ref={videoPlayerRef} className='w-full md:w-4/5 lg:w-2/5 p-1 bg-gray-500 rounded-full my-2' src={story_details.audiolink} controls onError={audioError} />
             }
 
             {story_details.description.map(p => {
@@ -257,7 +272,7 @@ export async function getStaticProps(context) {
 
     const { story, story_Category } = context.params
 
-    const data= { story: story, story_Category: story_Category }
+    const data = { story: story, story_Category: story_Category }
     const rawResponse = await fetch(`${process.env.BACKEND_URL}story_detailsAPI`, {
         method: 'POST',
         headers: {
