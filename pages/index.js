@@ -112,6 +112,7 @@ export default function Home({ finalDataArray, pagination_nav_pages, currentPage
 
 export async function getStaticProps() {
 
+  console.log(`${process.env.BACKEND_URL}HomepageStoriesUpdate`);
   const data = { page: "1" }
   const rawResponse = await fetch(`${process.env.BACKEND_URL}HomepageStoriesUpdate`, {
     method: 'POST',
@@ -124,7 +125,7 @@ export async function getStaticProps() {
 
   const resData = await rawResponse.json();
 
-  console.log(resData.data.finalDataArray);
+  console.log(resData);
   return {
     props: {
       finalDataArray: resData.data.finalDataArray,
