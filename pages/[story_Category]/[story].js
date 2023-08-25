@@ -18,8 +18,8 @@ import Outstreams from '../../components/Ads/Outstream';
 
 function Story({ story_details }) {
 
+    // console.log(story_details);
 
-    const { MobileAppModalVisible, setMobileAppModalVisible } = useContext(videosContext);
     const videoPlayerRef = useRef(null)
     const [VideoErrorCounter, setVideoErrorCounter] = useState(0);
 
@@ -33,7 +33,6 @@ function Story({ story_details }) {
             var AdSeenCounter = parseInt(getCookie("AdSeenCounter"));
 
             if (AdSeenCounter < 2) {
-                setMobileAppModalVisible(true)
                 console.log(AdSeenCounter + 1);
                 setCookie("AdSeenCounter", AdSeenCounter + 1)
             }
@@ -71,14 +70,46 @@ function Story({ story_details }) {
 
     }
 
-    const checkAudioDuration = () => {
+    const checkAudioDuration = async () => {
+
+        const response = await fetch("https://bucket2266.s3.ap-south-1.amazonaws.com/Sexstory_Audiofiles/aage-peechhe-doubble-sex.mp3");
+        const status = response.status;
+        if (status == 403) {
+            alert(status)
+        }
+
         const audioPlayer = videoPlayerRef.current;
         if (audioPlayer) {
             const duration = audioPlayer.duration;
             if (duration < 30) {
-                audioPlayer.src = "https://bucket2266.s3.ap-south-1.amazonaws.com/Sexstory_Audiofiles/" + story + ".mp3"
-                audioPlayer.load();
-                console.log("https://bucket2266.s3.ap-south-1.amazonaws.com/Sexstory_Audiofiles/" + story + ".mp3");
+
+
+                const response = await fetch("https://bucket2266.s3.ap-south-1.amazonaws.com/Sexstory_Audiofiles/" + story + ".mp3");
+                const status = response.status;
+                if (status == 200) {
+                    audioPlayer.src = "https://bucket2266.s3.ap-south-1.amazonaws.com/Sexstory_Audiofiles/" + story + ".mp3"
+                    audioPlayer.load();
+                } else {
+
+                    const options = {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ href: story_details.href, date: story_details.date })
+                    };
+
+                    await fetch(process.env.BACKEND_URL+"downloadAudio", options)
+                        .then(response => response.json())
+                        .then(result => {
+                            audioPlayer.src = "https://bucket2266.s3.ap-south-1.amazonaws.com/Sexstory_Audiofiles/" + story + ".mp3"
+                            audioPlayer.load();
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+
+                }
 
             }
         }
@@ -104,7 +135,7 @@ function Story({ story_details }) {
                             Text Size
                             {/* <img className='ml-2' src='https://cdn-icons.flaticon.com/png/512/2043/premium/2043488.png?token=exp=1647712043~hmac=80017e50d71fb76634fd067d627f6063' alt='loading' height={14} width={14}></img> */}
                         </Menu.Button>
-  
+
                     </div>
 
                     <Transition
