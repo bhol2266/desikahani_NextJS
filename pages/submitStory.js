@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
-
+ 
 const categories = [
     {
         category_title: 'Desi Kahani',
