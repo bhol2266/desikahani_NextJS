@@ -98,10 +98,9 @@ export default function Home({ finalDataArray, pagination_nav_pages, currentPage
       </main>
 
       <footer >
-        <a className='' href="https://www.chutlunds.live/">.</a>
-
+        <a className='' href="https://www.fuckvideo.live/">.</a>
         <a className='' href="https://www.chutlunds.com/">.</a>
-
+        <a className='' href="https://www.desikahaniya.in/">.</a>
       </footer>
     </div>
   )

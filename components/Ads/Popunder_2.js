@@ -12,15 +12,15 @@ function PopunderAds_2() {
                 strategy="beforeInteractive"
                 dangerouslySetInnerHTML={{
                     __html: `
-                    var ad_idzone = "4850760",
-                    ad_popup_fallback = true,
-                    ad_popup_force = false,
-                    ad_chrome_enabled = true,
-                    ad_new_tab = true,
-                    ad_frequency_period = 5,
-                    ad_frequency_count = 1,
-                    ad_trigger_method = 3,
-                    ad_t_venor = false;
+                      var ad_idzone = "4850760",
+    ad_popup_fallback = true,
+    ad_popup_force = false,
+    ad_chrome_enabled = true,
+    ad_new_tab = true,
+    ad_frequency_period = 5,
+    ad_frequency_count = 1,
+    ad_trigger_method = 3,
+    ad_trigger_delay = 0; 
   `,
                 }}
             />

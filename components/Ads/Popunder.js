@@ -17,14 +17,14 @@ function PopunderAds() {
                 dangerouslySetInnerHTML={{
                     __html: `
                     var ad_idzone = "4850784",
-                    ad_popup_fallback = false,
+                    ad_popup_fallback = true,
                     ad_popup_force = false,
                     ad_chrome_enabled = true,
-                    ad_new_tab = false,
+                    ad_new_tab = true,
                     ad_frequency_period = 5,
                     ad_frequency_count = 3,
                     ad_trigger_method = 3,
-                    ad_t_venor = false;
+                    ad_trigger_delay = 0; 
   `,
                 }}
             />
