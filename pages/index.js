@@ -8,7 +8,6 @@ import Link from 'next/link'
 
 import { db, storage } from '../firebase'
 import { ref, uploadString, getDownloadURL, uploadBytes } from "firebase/storage";
-import RecommendedAds from '../components/Ads/RecommendedAds';
 import Stories from '../components/Stories';
 import Script from 'next/script';
 import Pagination from '../components/Pagination'

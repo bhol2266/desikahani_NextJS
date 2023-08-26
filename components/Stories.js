@@ -3,9 +3,7 @@ import ReactPaginate from "react-paginate";
 import { useContext, useEffect } from 'react'
 import videosContext from '../context/videos/videosContext'
 
-import BannerAds from './Ads/BannerAds'
 import Outstream from './Ads/Outstream'
-import RecommendedAds from './Ads/RecommendedAds'
 import StoryThumbnail from "./StoryThumbnail";
 import MultiformatAds from "./Ads/MultiFormatAds";
 

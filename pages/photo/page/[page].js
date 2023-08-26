@@ -3,7 +3,6 @@ import {
 } from '@heroicons/react/solid';
 import { useRouter } from "next/router";
 import { useContext, useEffect } from 'react';
-import BannerAds from "../../../components/Ads/BannerAds";
 import Outstreams from "../../../components/Ads/Outstream";
 import PicsThumbnail from "../../../components/PicsThumbnail";
 import videosContext from '../../../context/videos/videosContext';
