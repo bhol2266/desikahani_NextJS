@@ -23,6 +23,7 @@ import Link from 'next/link';
 
 var navigation = [
     { name: 'Home', href: '/', current: true },
+    { name: 'Desi Girls - Video Chat', href: 'https://play.google.com/store/apps/details?id=com.bhola.livevideochat&hl=en-IN', current: false },
     { name: 'Leaked Pictures', href: '/photo', current: false },
     { name: 'Audio Sex Story', href: `/tag/audio-sex-story`, current: false },
     { name: 'Mobile App', href: "https://play.google.com/store/apps/details?id=com.bhola.desiKahaniyaAdult", current: false },
@@ -341,8 +342,8 @@ function Navbar() {
                             </div>
                         }
 
-                        <a target="_blank" href={countryBlocked ? "https://go.xxxiijmp.com/?userId=9ea31ff27db3b7242eabcc2d26ac0eaf38f093c68528e70c2e7f5a72df55c42e" : "https://chaturbate.com/in/?tour=LQps&campaign=3v7pk&track=default&room=ukdevelopers"} rel="noopener noreferrer">
-                            <div className='  flex  items-center 
+                        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.bhola.livevideochat&hl=en-IN" rel="noopener noreferrer">
+                            <div className='hidden  flex  items-center 
                              cursor-pointer hover:scale-105   '>
                                 <img
                                     src='/livesex.png'
@@ -350,7 +351,7 @@ function Navbar() {
                                     width={40}
                                     alt='loading'
                                 ></img>
-                                <p className='font-bold '>Live Sex</p>
+                                <p className='font-bold '>Desi Girls - Video Chat</p>
                             </div>
                         </a>
                     </div>
