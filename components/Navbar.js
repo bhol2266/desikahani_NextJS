@@ -26,7 +26,7 @@ var navigation = [
     { name: 'Leaked Pictures', href: '/photo', current: false },
     { name: 'Audio Sex Story', href: `/tag/audio-sex-story`, current: false },
     { name: 'Mobile App', href: "https://play.google.com/store/apps/details?id=com.bhola.desiKahaniyaAdult", current: false },
-    { name: 'Sex Videos', href: "/videos", current: false },
+    { name: 'Sex Videos', href: "https://www.fuckvideo.live/", current: false },  // route "/videos"
     { name: 'अपनी कहानी भेजे', href: "/submitStory", current: false },
 
 
@@ -295,7 +295,7 @@ function Navbar() {
                         <p className=' text-[15px] md:text-xl   text-center p-1 pr-6 hover:text-orange-800 '>Leaked Pictures</p>
                     </Link>
 
-                    <Link href='/videos'>
+                    <Link href='https://www.fuckvideo.live/'>
                         <p className=' text-[15px] md:text-xl   text-center p-1 pr-6 hover:text-orange-800 '>Sex Videos</p>
                     </Link>
 
