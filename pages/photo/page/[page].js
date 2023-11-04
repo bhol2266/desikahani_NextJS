@@ -1,16 +1,11 @@
-import {
-    ArrowLeftIcon, ArrowRightIcon
-} from '@heroicons/react/solid';
+import Head from 'next/head';
 import { useRouter } from "next/router";
-import { useContext, useEffect } from 'react';
-import Outstreams from "../../../components/Ads/Outstream";
+import { useContext } from 'react';
+import { BeatLoader } from 'react-spinners';
+import Pagination from '../../../components/Pagination';
 import PicsThumbnail from "../../../components/PicsThumbnail";
 import videosContext from '../../../context/videos/videosContext';
-import Link from 'next/link'
-import Head from 'next/head'
-import MultiformatAds from '../../../components/Ads/MultiFormatAds';
-import Pagination from '../../../components/Pagination'
-import { BeatLoader } from 'react-spinners';
+import Outstreams from '../../../components/Ads/Outstream';
 
 
 function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
@@ -28,7 +23,7 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
         )
     }
 
-    const displaypics = finalDataArray.map((picData,index) => {
+    const displaypics = finalDataArray.map((picData, index) => {
 
 
         let currentDate = new Date();
@@ -83,7 +78,6 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
                 <meta name="twitter:data1" content="85" />
             </Head>
 
-            <MultiformatAds />
 
             <div className="grid grid-cols-2 p-1 sm:grid-cols-1 gap-x-1  md:grid-cols-3 lg:grid-cols-4 space-x-2 space-y-4 ">
 
@@ -92,8 +86,6 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
 
             {/* PAGINATION */}
             <Pagination data={{ url: `/photo`, currentPage: currentPage, lastPage: pagination_nav_pages[1] }} />
-
-            <MultiformatAds />
 
             <Outstreams />
 

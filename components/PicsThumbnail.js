@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { useRouter } from "next/router";
-import { Banner, Outstream } from "exoclick-react";
-import Link from 'next/link'
-import PopunderAds from './Ads/Popunder';
-import { initializeApp } from 'firebase/app';
 import 'firebase/storage';
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import Link from 'next/link';
+import React, { useState } from 'react';
+import PopunderAds from './Ads/Popunder';
+import Outstreams from './Ads/Outstream';
+import BannerAds from './Ads/BannerAds';
 
 
 // Your Firebase configuration
@@ -51,6 +49,7 @@ function PicsThumbnail({ data }) {
     return (
         <div>
             <PopunderAds />
+            <BannerAds/>
             <div className={`animate-fade flex flex-col justify-center rounded-lg md:hover:scale-105 transform transition duration-150 bg-white`}>
 
                 <Link href={`/photo/${data.fullalbum_href}`}>

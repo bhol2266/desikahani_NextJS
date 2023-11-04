@@ -1,43 +1,14 @@
 import Script from "next/script";
-import { useEffect } from "react";
 
 function PopunderAds() {
 
-    useEffect(() => {
-        console.log(window.location.href, 'PopunderAds');
-    }, []);
 
     return (
         <div className="flex items-center justify-center">
 
 
-            <Script
-                id="popunder"
-                strategy="beforeInteractive"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                    var ad_idzone = "4850784",
-                    ad_popup_fallback = true,
-                    ad_popup_force = false,
-                    ad_chrome_enabled = true,
-                    ad_new_tab = true,
-                    ad_frequency_period = 5,
-                    ad_frequency_count = 3,
-                    ad_trigger_method = 3,
-                    ad_trigger_delay = 0; 
-  `,
-                }}
-            />
 
-
-            <Script
-                strategy="afterInteractive"
-                src="https://a.pemsrv.com/popunder1000.js"
-            />
-
-
-
-
+            <Script type="text/javascript" src="//cdn.tsyndicate.com/sdk/v1/p.js" data-ts-spot="23395d6a784c45439655dca196008e40" data-ts-extid="{extid}" data-ts-session-duration="300" data-ts-count="5" data-ts-mode="selective" async defer></Script>
 
 
         </div>

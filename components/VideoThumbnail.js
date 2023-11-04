@@ -1,12 +1,11 @@
 import {
-    PencilAltIcon, EyeIcon
+    EyeIcon
 } from '@heroicons/react/solid';
-import { useContext, useEffect, useState } from "react";
-import ReactCountryFlag from "react-country-flag";
-import { BeatLoader } from 'react-spinners';
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import PopunderAds from './Ads/Popunder';
+import Outstreams from './Ads/Outstream';
+import BannerAds from './Ads/BannerAds';
 
 
 function VideoThumbnail({ story_details }) {
@@ -29,6 +28,8 @@ function VideoThumbnail({ story_details }) {
         <div className="lg:px-4 shadow-orange-100 shadow-2xl    rounded-lg "  >
 
            <PopunderAds/>
+           <Outstreams/>
+           <BannerAds/>
 
             <Link href={`/videos/${href}`}>
                 <img src={thumbnail} alt="" className='w-full  aspect-video mb-2 object-contain' />

@@ -1,10 +1,9 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import PicsThumbnail from "../../components/PicsThumbnail";
+import React, { useState } from "react";
 import { BeatLoader } from "react-spinners";
-import MultiformatAds from "../../components/Ads/MultiFormatAds";
 import Outstreams from "../../components/Ads/Outstream";
+import PicsThumbnail from "../../components/PicsThumbnail";
 import SinglePicThumnail from "../../components/SinglePicThumnail";
 
 function Album({ dload_links, relatedAlbums, href }) {
@@ -85,7 +84,6 @@ function Album({ dload_links, relatedAlbums, href }) {
         <meta name="twitter:data1" content="85" />
       </Head>
 
-      <MultiformatAds />
 
       <div className="flex flex-col">
         <h1
@@ -125,8 +123,6 @@ function Album({ dload_links, relatedAlbums, href }) {
           </div>
         </div>
       </div>
-
-      <MultiformatAds />
 
       <Outstreams />
     </div>

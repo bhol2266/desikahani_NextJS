@@ -1,20 +1,16 @@
-import React, { useContext } from 'react'
 import Head from 'next/head'
-import { Fragment, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React, { useContext, useEffect, useState } from 'react'
 
 import {
-    PencilAltIcon, EyeIcon, ChevronRightIcon, ScaleIcon, FolderIcon, TagIcon
-} from '@heroicons/react/solid';
-import { Menu, Transition } from '@headlessui/react'
-import { BeatLoader } from 'react-spinners';
-import { useRef } from 'react';
+    FolderIcon, TagIcon
+} from '@heroicons/react/solid'
+import { getCookie, setCookie } from 'cookies-next'
+import { useRef } from 'react'
+import { BeatLoader } from 'react-spinners'
 import VideoThumbnail from '../../../components/VideoThumbnail'
 import videosContext from '../../../context/videos/videosContext'
-import { setCookie, getCookie } from 'cookies-next';
-import MultiformatAds from '../../../components/Ads/MultiFormatAds'
-import Outstreams from '../../../components/Ads/Outstream'
 
 
 function Story({ story_details,finalDataArray }) {
@@ -149,9 +145,7 @@ function Story({ story_details,finalDataArray }) {
 
                 </div>
 
-                <MultiformatAds />
-                <Outstreams />
-
+              
 
 
 

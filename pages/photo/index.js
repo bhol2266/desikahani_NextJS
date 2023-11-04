@@ -1,15 +1,10 @@
-import {
-    ArrowLeftIcon, ArrowRightIcon
-} from '@heroicons/react/solid';
+import Head from 'next/head';
 import { useRouter } from "next/router";
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import Outstreams from "../../components/Ads/Outstream";
+import Pagination from '../../components/Pagination';
 import PicsThumbnail from "../../components/PicsThumbnail";
 import videosContext from '../../context/videos/videosContext';
-import Link from 'next/link'
-import Head from 'next/head'
-import MultiformatAds from '../../components/Ads/MultiFormatAds';
-import Pagination from '../../components/Pagination'
 
 function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
 
@@ -75,7 +70,6 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
             </Head>
 
 
-            <MultiformatAds />
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3 lg:gap-4  md:grid-cols-5 lg:grid-cols-6">
 
@@ -86,7 +80,6 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
             <Pagination data={{ url: `/photo`, currentPage: currentPage, lastPage: pagination_nav_pages[1] }} />
 
 
-            <MultiformatAds />
 
             <Outstreams />
 

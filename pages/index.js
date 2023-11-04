@@ -1,16 +1,13 @@
 import Head from 'next/head'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 
 import React from 'react'
 
 import videosContext from '../context/videos/videosContext'
-import Link from 'next/link'
 
-import { db, storage } from '../firebase'
-import { ref, uploadString, getDownloadURL, uploadBytes } from "firebase/storage";
-import Stories from '../components/Stories';
-import Script from 'next/script';
+import Script from 'next/script'
 import Pagination from '../components/Pagination'
+import Stories from '../components/Stories'
 
 export default function Home({ finalDataArray, pagination_nav_pages, currentPage }) {
 

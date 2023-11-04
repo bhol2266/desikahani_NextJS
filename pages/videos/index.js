@@ -1,11 +1,8 @@
-import React from 'react'
-import { useRouter } from 'next/router'
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import React from 'react';
+import Pagination from '../../components/Pagination';
 import VideoThumbnail from "../../components/VideoThumbnail";
-import MultiformatAds from "../../components/Ads/MultiFormatAds";
-import Outstreams from "../../components/Ads/Outstream";
-import Pagination from '../../components/Pagination'
 
 function Index({ finalDataArray, categoryTitle, categoryDescription, pagination_nav_pages, currentPage, CategoryHref }) {
 
@@ -22,7 +19,6 @@ function Index({ finalDataArray, categoryTitle, categoryDescription, pagination_
             </Head>
 
 
-            <MultiformatAds />
 
 
 
@@ -47,9 +43,6 @@ function Index({ finalDataArray, categoryTitle, categoryDescription, pagination_
 
             {/* PAGINATION */}
             <Pagination data={{ url: `/videos`, currentPage: currentPage, lastPage: pagination_nav_pages[1], }} />
-
-            <MultiformatAds />
-            <Outstreams />
 
 
         </div>

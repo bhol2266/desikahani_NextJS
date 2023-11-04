@@ -1,10 +1,8 @@
-import React from 'react'
-import { useRouter } from 'next/router'
-import Head from 'next/head'
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import React from 'react';
 import { BeatLoader } from 'react-spinners';
-import MultiformatAds from '../../../../../components/Ads/MultiFormatAds';
-import Outstreams from '../../../../../components/Ads/Outstream';
-import Pagination from '../../../../../components/Pagination'
+import Pagination from '../../../../../components/Pagination';
 import VideoThumbnail from '../../../../../components/VideoThumbnail';
 
 
@@ -31,7 +29,6 @@ function TagPage({ finalDataArray, categoryTitle, categoryDescription, paginatio
             <p className='text-lg  m-2 mx-4 md:text-xl font-light text-sb font-hindi'>{categoryDescription}</p>
             <p className='text-lg text-right font-medium m-2 mx-4 md:text-xl '>{`PAGE : ${currentPage}`}</p>
 
-            <MultiformatAds />
 
             <div className='grid grid-cols-1 gap-6 md:gap-6 lg:gap-8 lg:grid-cols-2 xl:grid-cols-3 px-1'
             >
@@ -48,8 +45,7 @@ function TagPage({ finalDataArray, categoryTitle, categoryDescription, paginatio
             {/* PAGINATION */}
             <Pagination data={{ url: `/videos/tag/${CategoryHref}`, currentPage: currentPage.toString(), lastPage: pagination_nav_pages[1], }} />
 
-            <MultiformatAds />
-            <Outstreams />
+   
 
         </div>
     )

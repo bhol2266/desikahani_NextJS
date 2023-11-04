@@ -1,11 +1,10 @@
 import {
-    PencilAltIcon, EyeIcon
+    EyeIcon,
+    PencilAltIcon
 } from '@heroicons/react/solid';
-import { useContext, useEffect, useState } from "react";
-import ReactCountryFlag from "react-country-flag";
-import { BeatLoader } from 'react-spinners';
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import BannerAds from './Ads/BannerAds';
 import PopunderAds from './Ads/Popunder';
 
 
@@ -26,6 +25,7 @@ function StoryThumbnail({ story_details }) {
         <div className=" p-4 shadow-orange-100 shadow-2xl  my-2  rounded-lg "  >
 
             <PopunderAds />
+            <BannerAds />
 
             <Link href={`/${category}/${title}`}>
                 <h2 className='text-[24px] sm:text-[27px] font-Opensans text-orange-800 cursor-pointer hover:text-green-800  '>{story_details.Title}</h2>
