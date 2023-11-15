@@ -23,7 +23,7 @@ import Link from 'next/link';
 
 var navigation = [
     { name: 'Home', href: '/', current: true },
-    { name: 'Desi Girls - Video Chat', href: 'https://play.google.com/store/apps/details?id=com.bhola.livevideochat&hl=en-IN', current: false },
+    { name: 'Desi Girls - Video Chat', href: 'https://play.google.com/store/apps/details?id=com.bhola.realvideochat1&hl=en-IN', current: false },
     { name: 'Leaked Pictures', href: '/photo', current: false },
     { name: 'Audio Sex Story', href: `/tag/audio-sex-story`, current: false },
     { name: 'Mobile App', href: "https://play.google.com/store/apps/details?id=com.bhola.desiKahaniyaAdult", current: false },
@@ -342,7 +342,7 @@ function Navbar() {
                             </div>
                         }
 
-                        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.bhola.livevideochat&hl=en-IN" rel="noopener noreferrer">
+                        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.bhola.realvideochat1&hl=en-IN" rel="noopener noreferrer">
                             <div className='hidden  flex  items-center 
                              cursor-pointer hover:scale-105   '>
                                 <img
