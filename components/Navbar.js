@@ -27,7 +27,7 @@ var navigation = [
     { name: 'Leaked Pictures', href: '/photo', current: false },
     { name: 'Audio Sex Story', href: `/tag/audio-sex-story`, current: false },
     { name: 'Mobile App', href: "https://play.google.com/store/apps/details?id=com.bhola.desiKahaniyaAdult", current: false },
-    { name: 'Sex Videos', href: "https://chutlunds.com/", current: false },  // route "/videos"
+    { name: 'Sex Videos', href: "https://fuckvideo.live/", current: false },  // route "/videos"
     { name: 'अपनी कहानी भेजे', href: "/submitStory", current: false },
 
 
