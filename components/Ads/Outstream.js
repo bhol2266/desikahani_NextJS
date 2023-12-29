@@ -25,7 +25,18 @@ function Outstreams() {
         <div className="fixed bottom-4 right-0 z-10 w-2/5  lg:w-1/5 ">
 <div id="ts_ad_video_yioip"></div>
 
-
+            <Script src="//cdn.tsyndicate.com/sdk/v1/outstream.video.js"  strategy="beforeInteractive" />
+            <Script
+                id={uniqid}
+                dangerouslySetInnerHTML={{
+                    __html: `  TSOutstreamVideo({
+                        spot: "9281f9dd2b014c03bc02351e085c3f6a",
+                        containerId: "ts_ad_video_yioip",
+                        cookieExpires: "4",
+                         extid: "{extid}",
+                    });`,
+                }}
+            />
 
 
         </div>
