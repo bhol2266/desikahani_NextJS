@@ -10,7 +10,7 @@ function BannerAds() {
 
     
 
-            <Script type="text/javascript" src="//cdn.tsyndicate.com/sdk/v1/bi.js" data-ts-spot="70ab475a1b264d00ab8d62ee9cd7bb71" data-ts-width="300" data-ts-height="250" data-ts-extid="{extid}" async defer></Script>
+            {/* <Script type="text/javascript" src="//cdn.tsyndicate.com/sdk/v1/bi.js" data-ts-spot="70ab475a1b264d00ab8d62ee9cd7bb71" data-ts-width="300" data-ts-height="250" data-ts-extid="{extid}" async defer></Script> */}
 
         </div>
     )
