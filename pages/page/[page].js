@@ -5,7 +5,7 @@ import Head from 'next/head'
 import Link from 'next/link';
 import { BeatLoader } from 'react-spinners';
 import Pagination from '../../components/Pagination';
-
+ 
 function Page({ finalDataArray, pagination_nav_pages, currentPage }) {
 
     const router = useRouter();
