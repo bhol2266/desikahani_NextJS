@@ -21,9 +21,9 @@ function Page({ finalDataArray, pagination_nav_pages, currentPage }) {
     return (
         <div>
             <Head>
-                <title>Free Desi kahani | Hindi sex story audio - हिंदी सेक्स कहानियाँ</title>
+                <title>Antarvasna Hindi sex stories - Free Sex kahani</title>
                 <meta name="description"
-                    content="Free Desi kahani Sex Stories, Antarvasna video, Antarvasna audio, Devar bhabhi sex story, Jija saali sex stories, desi sex story." />
+                    content="New best Hindi Sex Stories for free, Indian sexy stories daily of hot girls, bhabhi and aunties. फ्री सेक्स कहानी पर असली अन्तर्वासना स्टोरी का मजा लें." />
 
             </Head>
 

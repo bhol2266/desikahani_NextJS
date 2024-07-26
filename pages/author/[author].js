@@ -20,7 +20,7 @@ function Author({ finalDataArray, categoryTitle, categoryDescription, }) {
     return (
         <div>
             <Head>
-                <title>{`${categoryTitle}- Free Desi Kahani Sex Stories`} </title>
+                <title>{`${categoryTitle}- Free Hindi Sex Stories`} </title>
                 <meta name="description"
                     content={`${categoryDescription}`} />
             </Head>
@@ -78,7 +78,7 @@ export async function getStaticProps(context) {
             finalDataArray: resData.data.finalDataArray,
             categoryTitle: resData.data.categoryTitle,
             categoryDescription: resData.data.categoryDescription,
-        
+
         }
     }
 

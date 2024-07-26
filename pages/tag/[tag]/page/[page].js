@@ -20,7 +20,7 @@ function Index({ finalDataArray, categoryTitle, categoryDescription, pagination_
     return (
         <div>
             <Head>
-                <title>{`${categoryTitle}- Free Desi Kahani Sex Stories`} </title>
+                <title>{`${categoryTitle}- Free Hindi Sex Stories`} </title>
                 <meta name="description"
                     content={`${categoryDescription}`} />
             </Head>

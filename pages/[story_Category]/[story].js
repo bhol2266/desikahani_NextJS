@@ -131,7 +131,7 @@ function Story({ story_details }) {
 
             <div className='flex items-center justify-between'>
 
-                <h1 className='text-[24px] sm:text-[27px] text-orange-800 font-inter'>{story_details.Title}</h1>
+                <h1 itemProp="headline" className='text-[24px] sm:text-[27px] text-orange-800 font-inter'>{story_details.Title}</h1>
                 <Menu as="div" className={` relative  text-left  md:scale-125 `}>
                     <div className=' w-fit '>
                         <Menu.Button className="inline-flex justify-center cursor-pointer  w-full rounded-md  shadow-sm px-2 py-2 bg-orange-200 text-sm font-medium text-gray-700 ">

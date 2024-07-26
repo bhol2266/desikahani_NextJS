@@ -28,7 +28,7 @@ function StoryThumbnail({ story_details }) {
             <BannerAds />
 
             <Link href={`/${category}/${title}`}>
-                <h2 className='text-[24px] sm:text-[27px] font-Opensans text-orange-800 cursor-pointer hover:text-green-800  '>{story_details.Title}</h2>
+                <h2 itemProp="headline" className='text-[24px] sm:text-[27px] font-Opensans text-orange-800 cursor-pointer hover:text-green-800  '>{story_details.Title}</h2>
             </Link>
             <div className='flex items-center text-sm  my-2 space-x-2'>
 

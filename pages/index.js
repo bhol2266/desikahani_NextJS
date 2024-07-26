@@ -5,7 +5,7 @@ import React from 'react';
 import videosContext from '../context/videos/videosContext';
 import Pagination from '../components/Pagination';
 import Stories from '../components/Stories';
-
+import Link from 'next/link';
 export default function Home({ finalDataArray, pagination_nav_pages, currentPage }) {
   const { setcurrentLocation } = useContext(videosContext);
 
@@ -33,10 +33,10 @@ export default function Home({ finalDataArray, pagination_nav_pages, currentPage
   return (
     <div className="w-full">
       <Head>
-        <title>Free Desi Kahani | Hindi Sex Story Audio - हिंदी सेक्स कहानियाँ</title>
+        <title>Antarvasna Hindi sex stories - Free Sex kahani</title>
         <meta
           name="description"
-          content="Free Desi kahani Sex Stories, Antarvasna video, Antarvasna audio, Devar bhabhi sex story, Jija saali sex stories, desi sex story."
+          content="New best Hindi Sex Stories for free, Indian sexy stories daily of hot girls, bhabhi and aunties. फ्री सेक्स कहानी पर असली अन्तर्वासना स्टोरी का मजा लें."
         />
         <meta name="google-site-verification" content="ISzQqvv3rsqe3r08y3fuJIyHglFZLrrTQBHb_9UrNUg" />
       </Head>
@@ -57,11 +57,11 @@ export default function Home({ finalDataArray, pagination_nav_pages, currentPage
         <div className="w-full">
           <div className='mx-auto items-center justify-center shadow-md rounded-lg md:px-24 py-3 '>
 
-            <h1 className="text-center font-light text-sb font-hindi text-[22px] md:text-[30px] " itemprop="headline">
-              <a href="/" rel="home">Free Hindi Sex Stories</a>
+            <h1 className="text-center font-light text-sb font-hindi text-[22px] md:text-[30px] " itemProp="headline">
+              <Link href="/" rel="home">Free Hindi Sex Stories</Link>
             </h1>
 
-            <p className="text-center " itemprop="description">अन्तर्वासना की हॉट हिंदी सेक्स कहानियाँ</p>
+            <p className="text-center " itemProp="description">अन्तर्वासना की हॉट हिंदी सेक्स कहानियाँ</p>
           </div>
 
 

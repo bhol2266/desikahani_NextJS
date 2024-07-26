@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
 
       <Head>
         <meta name='asg_verification' content='vVcWCcbbgmnqv221hpAjPojb' />
-        <meta name="Trafficstars" content="48726"/>
+        <meta name="Trafficstars" content="48726" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charset="UTF-8" />
         <meta property="og:locale" content="hi_IN" />
-    <meta name="exoclick-site-verification" content="2c0b50803051bac3cb5d4f191fa315c6"/>
+        <meta name="exoclick-site-verification" content="2c0b50803051bac3cb5d4f191fa315c6" />
       </Head>
 
 
