@@ -26,29 +26,8 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
     const displaypics = finalDataArray.map((picData, index) => {
 
 
-        let currentDate = new Date();
-        picData.date.day = currentDate.getDate().toString().padStart(2, '0');
-        picData.date.month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
-        picData.date.year = currentDate.getFullYear().toString();
-
-
-        let currentDate2 = new Date(`${picData.date.year}-${picData.date.month}-${picData.date.day}`);
-
-        // Subtract days
-        let daysBefore = Number(currentPage) * 12 + index
-        currentDate2.setDate(currentDate2.getDate() - daysBefore);
-
-        // Update the date object with the new values
-        picData.date.day = currentDate2.getDate().toString().padStart(2, '0');
-        picData.date.month = (currentDate2.getMonth() + 1).toString().padStart(2, '0');
-        picData.date.year = currentDate2.getFullYear().toString();
-
-
-        const digitalOceanUrl = "https://bucket2266.blr1.digitaloceanspaces.com/" + "NudePics/" + picData.fullalbum_href + "/thumbnail.png";
-        picData['thumbnail'] = digitalOceanUrl;
-
         return (
-            <PicsThumbnail key={picData._id} data={picData} />
+            <PicsThumbnail key={picData.title} data={picData} />
 
         )
     })
@@ -85,7 +64,7 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
             </div>
 
             {/* PAGINATION */}
-            <Pagination data={{ url: `/photo`, currentPage: currentPage, lastPage: pagination_nav_pages[1] }} />
+            <Pagination data={{ url: `/photo`, currentPage:  pagination_nav_pages[0], lastPage: pagination_nav_pages[1] }} />
 
             <Outstreams />
 
@@ -105,11 +84,15 @@ export async function getStaticPaths() {
     };
 }
 
+
+
 export async function getStaticProps(context) {
 
     const { page } = context.params;
 
-    const data = { page: page }
+    const data = { page: page };
+
+
     const rawResponse = await fetch(`${process.env.BACKEND_URL}HomepagePics`, {
         method: 'POST',
         headers: {
@@ -122,12 +105,19 @@ export async function getStaticProps(context) {
 
     const resData = await rawResponse.json();
 
+    if (!resData.success) {
+        // Handle error
+        return {
+            notFound: true,
+        };
+    }
+
+
     return {
         props: {
             finalDataArray: resData.data.finalDataArray,
-            pagination_nav_pages: resData.data.pagination_nav_pages,
-            currentPage: page,
+            pagination_nav_pages: resData.data.paginationNavPages,
+            currentPage: 1,
         }
     }
 }
-

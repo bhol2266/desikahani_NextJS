@@ -6,7 +6,10 @@ import Outstreams from "../../components/Ads/Outstream";
 import PicsThumbnail from "../../components/PicsThumbnail";
 import SinglePicThumnail from "../../components/SinglePicThumnail";
 
-function Album({ dload_links, relatedAlbums, href }) {
+function Album({ data }) {
+
+  console.log(data);
+
   const [showBigImage, setshowBigImage] = useState(false);
   const [BigImageURL, setBigImageURL] = useState("");
 
@@ -31,21 +34,16 @@ function Album({ dload_links, relatedAlbums, href }) {
     } catch (error) { }
   }
 
-  const displaypics = dload_links.map((picURL, index) => {
+  const displaypics = data.imageArray.map((picURL, index) => {
 
-    let indexx= index+1;
-    const digitalOceanUrl = "https://bucket2266.blr1.digitaloceanspaces.com/" + "NudePics/" + href + "/" + indexx + ".png";
-
+    let indexx = index + 1;
     return (
-      <SinglePicThumnail key={picURL} picData={digitalOceanUrl} index={index} href={href}
-      />
+      <SinglePicThumnail key={picURL} picURL={picURL} index={index} />
     );
   });
 
-  const relatedPics = relatedAlbums.map((picData) => {
-    const digitalOceanUrl = "https://bucket2266.blr1.digitaloceanspaces.com/" + "NudePics/" + picData.fullalbum_href + "/thumbnail.png";
-    picData['thumbnail'] = digitalOceanUrl;
-    return <PicsThumbnail key={picData._id} data={picData} />;
+  const relatedPics = data.relatedAlbums.map((picData) => {
+    return <PicsThumbnail key={picData.title} data={picData} />;
   });
 
   return (
@@ -134,7 +132,7 @@ export default Album;
 export async function getStaticPaths() {
   return {
     paths: [
-      { params: { photoAlbum: "chudasi-nri-biwi-ki-nude-aur-sex-photos" } },
+      { params: { photoAlbum: "mumbai-ki-hot-figure-bhabhi-ke-hotel-chudai-photos" } },
     ],
     fallback: true, // false or 'blocking'
   };
@@ -142,7 +140,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { photoAlbum } = context.params;
-  const data = { photoAlbum: photoAlbum };
+
+  const data = { href: photoAlbum };
+
   const rawResponse = await fetch(`${process.env.BACKEND_URL}fullalbum`, {
     method: "POST",
     headers: {
@@ -154,15 +154,18 @@ export async function getStaticProps(context) {
 
   const resData = await rawResponse.json();
 
-  // sortImageList
-  const sortedImageArray = resData.dataobject.imageArray;
-  sortedImageArray.sort((a, b) => a.localeCompare(b));
+  if (!resData.success) {
+    // Handle error, for example by returning a 404 page
+    return {
+      notFound: true,
+    };
+  }
+
 
   return {
     props: {
-      dload_links: sortedImageArray,
-      relatedAlbums: resData.finalDataArray,
-      href: photoAlbum,
+      data: resData.data,
     },
   };
 }
+

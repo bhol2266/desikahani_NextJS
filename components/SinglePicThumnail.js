@@ -20,42 +20,18 @@ const firebaseConfig = {
 
 
 
-function SinglePicThumnail({ picData, index, href }) {
-
-
-
-    const [src, setsrc] = useState(picData);
-
-
-
-//     function fetchImageURLfirebase() {
-//         const location = JSON.parse(localStorage.getItem("location"))
-//             const app = initializeApp(firebaseConfig);
-//             const storage = getStorage(app);
-
-//             getDownloadURL(ref(storage, `picsModel/${href}/${index + 1}.png`))
-//                 .then((url) => {
-//                     setsrc(url)
-//                 })
-//                 .catch((error) => {
-//                     console.log(error);
-//                 });
-        
-//     }
-//     useEffect(() => {
-//         fetchImageURLfirebase()
-//     }, []);
+function SinglePicThumnail({ picURL, index }) {
 
 
 
     return (
         <>
-            <div key={picData} className={` mb-2 animate-fade flex   flex-col justify-center  cursor-pointer  shadow-md  border-2 rounded-lg overflow-hidden	 md:hover:scale-105 transform transition duration-150 bg-white`}>
-                <a target="_self" href={picData}>
+            <div key={picURL} className={` mb-2 animate-fade flex   flex-col justify-center  cursor-pointer  shadow-md  border-2 rounded-lg overflow-hidden	 md:hover:scale-105 transform transition duration-150 bg-white`}>
+                <a target="_self" href={picURL}>
                     <img
                         loading="lazy"
-                        alt={"image"}
-                        src={src}
+                        alt={picURL}
+                        src={picURL}
                         height={1080}
                         width={1920}
                     ></img>
