@@ -57,7 +57,7 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
                 <meta property="og:title" content="Indian Nude Photos | Desi Scandals" />
                 <meta property="og:description"
                     content="Yaha par aap enjoy kar sakte ho Indian girls ki nude aur sex photos alag alag category mein. Hot Girl ke nude selfies ya phir chudai ka xxx photos wives ka." />
-                <meta property="og:url" content="https://www.desikahaniya.in/photo" />
+                <meta property="og:url" content="https://www.Hindisexstory.app/photo" />
                 <meta property="og:site_name" content="Free Hindi Sex Stories" />
 
 

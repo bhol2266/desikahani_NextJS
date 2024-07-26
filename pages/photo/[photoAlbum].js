@@ -70,7 +70,7 @@ function Album({ dload_links, relatedAlbums, href }) {
         />
         <meta
           property="og:url"
-          content={`https://www.desikahaniya.in/photo/${photoAlbum}`}
+          content={`https://www.HindiSexstory.app/photo/${photoAlbum}`}
         />
         <meta property="og:site_name" content="Free Hindi Sex Stories" />
 

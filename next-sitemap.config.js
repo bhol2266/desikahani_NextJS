@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-    siteUrl: "https://www.desikahaniya.in/",
+    siteUrl: "https://www.Hindisexstory.app/",
     generateRobotsTxt: true,
     // exclude: ['/contact', '/dmca', '/faq', '/parentalcontrol', '/privacy', '/terms',]
 }

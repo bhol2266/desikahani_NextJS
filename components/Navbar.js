@@ -142,7 +142,7 @@ function Navbar() {
                                     <div>
 
                                         <Link href='/'>
-                                            <p className=' align-center text-center font-footer font-semibold lg:text-2xl text-2xl pl-1 pr-1 cursor-pointer lg:text-left lg:ml-6'>DesiKahaniya.in</p>
+                                            <p className=' align-center text-center font-footer font-semibold lg:text-2xl text-2xl pl-1 pr-1 cursor-pointer lg:text-left lg:ml-6'>Hindisexstory.app</p>
                                         </Link>
                                         <p className=' align-center text-center font-footer font-extralight text-xs cursor-pointer lg:text-left lg:ml-6'>अन्तर्वासना की हॉट हिंदी सेक्स कहानियाँ</p>
                                     </div>
@@ -324,7 +324,7 @@ function Navbar() {
                         <img src='/apple-touch-icon.png' className='rounded-full h-14  ml-3 xl:ml-4 ' />
                         <div>
                             <Link href='/'>
-                                <p className=' align-center text-center font-footer font-semibold text-2xl cursor-pointer lg:text-left lg:ml-1'>DesiKahaniya.in</p>
+                                <p className=' align-center text-center font-footer font-semibold text-2xl cursor-pointer lg:text-left lg:ml-1'>Hindisexstory.app</p>
                             </Link>
                             <p className=' align-center text-center font-footer font-extralight text-sm cursor-pointer lg:text-left lg:ml-1'>अन्तर्वासना की हॉट हिंदी सेक्स कहानियाँ</p>
                         </div>

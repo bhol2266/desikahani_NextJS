@@ -72,7 +72,7 @@ const scrape = async (url) => {
 
     $('div div div div  div div a').each((i, el) => {
         const href = $(el).attr("href")
-        hrefArray.push(`https://www.desikahaniya.in/${href}`)
+        hrefArray.push(`https://www.Hindisexstory.app/${href}`)
     })
 
     var set = new Set(hrefArray);
@@ -148,7 +148,7 @@ var index = 4;
 
 for (let i = 0; i < 2; i++) {
     for (let i = 1; i < 7; i++) {
-        await scrape(`https://www.desikahaniya.in/category/${categories[index].href}/page/${i}`)
+        await scrape(`https://www.Hindisexstory.app/category/${categories[index].href}/page/${i}`)
     }
     console.log(`PAGE-${categories[index].href} COMPLETED!`);
     fs.writeFileSync(`JsonData/Android/${categories[index].href}.json`, JSON.stringify(finalDataArray));
