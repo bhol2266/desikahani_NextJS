@@ -72,7 +72,7 @@ export default Pics
 export async function getStaticProps(context) {
     const data = { page: "1" };
 
-    const rawResponse = await fetch(`${process.env.BACKEND_URL}HomepagePics`, {
+    const rawResponse = await fetch(`https://my-worker.ukdevelopers007.workers.dev/desikahaniya/getHomepagePics`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

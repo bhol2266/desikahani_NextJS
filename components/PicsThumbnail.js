@@ -27,7 +27,6 @@ function PicsThumbnail({ data }) {
     const url = data.fullalbum_href;
     const parts = url.split('/');
     const href = parts[parts.length - 2];
-    // console.log(href);
 
     return (
         <div>

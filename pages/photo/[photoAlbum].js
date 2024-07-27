@@ -8,7 +8,6 @@ import SinglePicThumnail from "../../components/SinglePicThumnail";
 
 function Album({ data }) {
 
-  console.log(data);
 
   const [showBigImage, setshowBigImage] = useState(false);
   const [BigImageURL, setBigImageURL] = useState("");
@@ -143,7 +142,7 @@ export async function getStaticProps(context) {
 
   const data = { href: photoAlbum };
 
-  const rawResponse = await fetch(`${process.env.BACKEND_URL}fullalbum`, {
+  const rawResponse = await fetch(`https://my-worker.ukdevelopers007.workers.dev/desikahaniya/fullalbum`, {
     method: "POST",
     headers: {
       Accept: "application/json",
