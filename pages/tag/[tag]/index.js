@@ -25,7 +25,7 @@ function Index({ finalDataArray, categoryTitle, categoryDescription, pagination_
                 <meta name="description"
                     content={`${categoryDescription}`} />
             </Head>
-            <h1 className='text-xl font-semibold m-2 mx-4  md:text-2xl font-inter'>{`${categoryTitle} - Desi Kahani`}</h1>
+            <h1 className='text-xl font-semibold m-2 mx-4  md:text-2xl font-inter'>{`${categoryTitle} - Hindi sex story`}</h1>
 
             <p className='text-lg font-medium m-2 mx-4 md:text-xl font-inter'>{categoryDescription}</p>
             <p className='text-lg text-right  m-2 mx-4 md:text-xl font-light text-sb font-hindi '>{`PAGE : 1`}</p>
