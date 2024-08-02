@@ -1,24 +1,24 @@
-import cheerio from 'cheerio';
-import fs from 'fs/promises'; // Use the promise-based API of the 'fs' module
+async function fetchData() {
+  const url = 'https://my-worker.ukdevelopers007.workers.dev/desikahaniya/getPicsWithCategory';
 
-const url = 'https://www.antarvasnaphotos.com/page/1';
+  const data = '{"category":"bollywood","page":"1"}';
 
-async function scrapePage() {
   try {
-    // Fetch the HTML from the URL
-    const response = await fetch(url);
+      const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: data,
+      });
 
-    // Convert the response to text
-    const html = await response.text();
-
-    // Save the HTML to a local file
-    await fs.writeFile('home.html', html);
-    console.log('HTML content saved to home.html');
-
-
+      // Handle the response here
+      const result = await response.json();
+      console.log(result);
   } catch (error) {
-    console.error('Error scraping the page:', error);
+      console.error('Error fetching data:', error);
   }
 }
 
-scrapePage();
+// Call the async function
+fetchData();

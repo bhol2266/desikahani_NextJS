@@ -1,4 +1,6 @@
 import Link from "next/link";
+import categories_photo from '@/JsonData/photos/categories_list.json'
+import { useRouter } from 'next/router'
 
 
 
@@ -8,6 +10,10 @@ const Pagination = ({ data }) => {
     const url = data.url;
     const currentPage = data.currentPage
     const lastPage = data.lastPage
+
+    const router = useRouter();
+    const routePath = router.asPath;
+    const isPhotoPage = routePath.includes('/photo');
 
 
     return (
@@ -37,6 +43,24 @@ const Pagination = ({ data }) => {
                     </div>
                 </Link>
             </div>
+
+            {isPhotoPage &&
+                <p className=" text-center mx-auto text-[18px] border-gray-400 rounded-md text-black font-semibold  p-1 pl-4 pr-2 cursor-pointer bg-white opacity-75 mt-[30px]">
+                    Photo Categories
+                </p>
+            }
+
+            {isPhotoPage && (
+                <div className="md:hidden   mx-[16px] mt-4">
+                    {categories_photo.map(category => (
+                        <Link key={category.href} href={`/photo/category/${category.href}`}>
+                            <p className=" font-inter text-left my-2 py-1.5 px-8  text-sm hover:bg-orange-200 rounded-md text-semiblack  cursor-pointer underline">
+                                {category.category_title}
+                            </p>
+                        </Link>
+                    ))}
+                </div>
+            )}
 
 
         </div>

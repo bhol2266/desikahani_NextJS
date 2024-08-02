@@ -1,4 +1,6 @@
-/** @type {import('next').NextConfig} */
+const path = require('path');
+
+
 const nextConfig = {
   reactStrictMode: false,
   env: {
@@ -12,6 +14,11 @@ const nextConfig = {
     GOOGLE_CLIENT_ID:'737624608726-qa70ffm7anrn03v0qu8pgoed8bcfsfk5.apps.googleusercontent.com',
     GOOGLE_CLIENT_SECRET:'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',
   },
+  webpack: (config) => {
+    config.resolve.alias['@'] = path.resolve(__dirname);
+    return config;
+  },
+
 }
 
 module.exports = nextConfig

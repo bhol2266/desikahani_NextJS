@@ -5,6 +5,8 @@ import { BeatLoader } from "react-spinners";
 import Outstreams from "../../components/Ads/Outstream";
 import PicsThumbnail from "../../components/PicsThumbnail";
 import SinglePicThumnail from "../../components/SinglePicThumnail";
+import categories_photo from '@/JsonData/photos/categories_list.json'
+import Link from "next/link";
 
 function Album({ data }) {
 
@@ -12,7 +14,9 @@ function Album({ data }) {
   const [showBigImage, setshowBigImage] = useState(false);
   const [BigImageURL, setBigImageURL] = useState("");
 
+
   const router = useRouter();
+
   if (router.isFallback) {
     return (
       <div className="flex justify-center mx-auto mt-10 ">
@@ -119,6 +123,20 @@ function Album({ data }) {
             {relatedPics}
           </div>
         </div>
+      </div>
+
+      <p className=" text-center mx-auto text-[18px] border-gray-400 rounded-md text-black font-semibold  p-1 pl-4 pr-2 cursor-pointer bg-white opacity-75 mt-[30px]">
+        Photo Categories
+      </p>
+
+      <div className="md:hidden   mx-[16px] mt-4">
+        {categories_photo.map(category => (
+          <Link key={category.href} href={`/photo/category/${category.href}`}>
+            <p className=" font-inter text-left my-2 py-1.5 px-8  text-sm hover:bg-orange-200 rounded-md text-semiblack  cursor-pointer underline">
+              {category.category_title}
+            </p>
+          </Link>
+        ))}
       </div>
 
       <Outstreams />
