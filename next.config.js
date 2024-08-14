@@ -5,7 +5,9 @@ const nextConfig = {
   reactStrictMode: false,
   env: {
     // BACKEND_URL: 'https://cronjob-yr9s.onrender.com/', 
-    BACKEND_URL: 'https://clownfish-app-jn7w9.ondigitalocean.app/desikahaniya/',   
+    BACKEND_URL: 'https://clownfish-app-jn7w9.ondigitalocean.app/desikahaniya/', 
+    CLOUDFLARE_WORKER:'https://my-worker.ukdevelopers007.workers.dev/desikahaniya/',  
+    CLOUDFLARE_R2_AUDIOSTORY:'https://pub-46cdeefeaf774247ab99232ab1ebaa66.r2.dev/Audio_sex_stories/',  
     // BACKEND_URL: 'http://localhost:5000/desikahaniya/', 
    // FRONTEND_URL: 'http://localhost:3000/', 
      FRONTEND_URL: 'http://Hindisexstory.app/',

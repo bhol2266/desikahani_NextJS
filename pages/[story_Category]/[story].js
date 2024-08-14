@@ -102,7 +102,7 @@ function Story({ story_details }) {
                         body: JSON.stringify({ href: story_details.href, date: story_details.date })
                     };
 
-                    await fetch(process.env.BACKEND_URL+"downloadAudio", options)
+                    await fetch(process.env.BACKEND_URL + "downloadAudio", options)
                         .then(response => response.json())
                         .then(result => {
                             audioPlayer.src = "https://bucket2266.s3.ap-south-1.amazonaws.com/Sexstory_Audiofiles/" + story + ".mp3"
@@ -190,8 +190,12 @@ function Story({ story_details }) {
 
             {story_details.audiolink &&
 
-                <audio onLoadedMetadata={checkAudioDuration}
-                    ref={videoPlayerRef} className='w-full md:w-4/5 lg:w-2/5 p-1 bg-gray-500 rounded-full my-2' src={story_details.audiolink} controls onError={audioError} />
+                <audio onLoadedMetadata={checkAudioDuration} ref={videoPlayerRef} className='w-full md:w-4/5 lg:w-2/5 p-1 bg-gray-500 rounded-full my-2'
+
+                src={story_details.audiolink}
+
+                    // src={`${process.env.CLOUDFLARE_R2_AUDIOSTORY}${story}.mp3`}
+                    controls onError={audioError} />
             }
 
             {story_details.description.map(p => {
@@ -318,10 +322,26 @@ export async function getStaticProps(context) {
 
     var story_details = await rawResponse.json();
 
+    const isAudioStory = story_details.data?.audiolink ? true : false;
+
+    if (isAudioStory) {
+
+        const rawResponse2 = fetch(`${process.env.CLOUDFLARE_WORKER}uploadAudio_CloudflareR2`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ story: story, audiolink: story_details.data.audiolink })
+        });
+
+    }
+
+
 
     return {
         props: {
-            story_details: story_details.data
+            story_details: story_details.data,
         }
     }
 
