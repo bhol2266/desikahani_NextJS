@@ -68,6 +68,7 @@ function Story({ story_details }) {
         if (VideoErrorCounter > 2) {
             return
         }
+        videoPlayerRef.current.src = story_details.audiolink
         videoPlayerRef.current.load();
         videoPlayerRef.current.play();
 
@@ -191,10 +192,8 @@ function Story({ story_details }) {
             {story_details.audiolink &&
 
                 <audio onLoadedMetadata={checkAudioDuration} ref={videoPlayerRef} className='w-full md:w-4/5 lg:w-2/5 p-1 bg-gray-500 rounded-full my-2'
-
-                src={story_details.audiolink}
-
-                    // src={`${process.env.CLOUDFLARE_R2_AUDIOSTORY}${story}.mp3`}
+                    // src={story_details.audiolink}
+                    src={`${process.env.CLOUDFLARE_R2_AUDIOSTORY}${story}.mp3`}
                     controls onError={audioError} />
             }
 
