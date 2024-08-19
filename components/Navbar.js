@@ -24,7 +24,7 @@ import Link from 'next/link';
 var navigation = [
     { name: 'Home', href: '/', current: true },
     { name: 'Desi Girls - Video Chat', href: 'https://play.google.com/store/apps/details?id=com.bhola.livevideochat&hl=en-IN', current: false },
-    { name: 'Leaked Pictures', href: '/photo', current: false },
+    // { name: 'Leaked Pictures', href: '/photo', current: false },
     { name: 'Audio Sex Story', href: `/tag/audio-sex-story`, current: false },
     { name: 'Mobile App', href: "https://play.google.com/store/apps/details?id=com.bhola.desiKahaniyaAdult", current: false },
     { name: 'Sex Videos', href: "https://fuckvideo.live/", current: false },  // route "/videos"
@@ -292,9 +292,9 @@ function Navbar() {
 
                 
 
-                    <Link href='/photo'>
+                    {/* <Link href='/photo'>
                         <p className=' text-[15px] md:text-xl   text-center p-1 pr-6 hover:text-orange-800 '>Leaked Pictures</p>
-                    </Link>
+                    </Link> */}
 
                     <Link href='https://fuckvideo.live/'>
                         <p className=' text-[15px] md:text-xl   text-center p-1 pr-6 hover:text-orange-800 '>Sex Videos</p>
