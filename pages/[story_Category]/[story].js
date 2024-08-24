@@ -17,14 +17,29 @@ import {
 import { BeatLoader } from 'react-spinners'
 import BannerAds from '../../components/Ads/BannerAds'
 import Outstreams from '../../components/Ads/Outstream'
+import { BannedKeywords } from '../../JsonData/BannedKeywords'
 
 
 function Story({ story_details }) {
 
-    // console.log(story_details);
+    const router = useRouter();
 
     const videoPlayerRef = useRef(null)
     const [VideoErrorCounter, setVideoErrorCounter] = useState(0);
+    const [storyRemoved, setStoryRemoved] = useState(false)
+
+
+    useEffect(() => {
+        // Check if the story contains any banned keywords
+        const { story, story_Category } = router.query
+        const urlString = `${story_Category}-${story}`.toLowerCase()
+        const containsBannedKeyword = BannedKeywords.some(keyword =>
+            urlString.includes(keyword.toLowerCase())
+        )
+        if (containsBannedKeyword) {
+            setStoryRemoved(true)
+        }
+    }, [router.query])
 
     useEffect(() => {
 
@@ -45,11 +60,20 @@ function Story({ story_details }) {
 
     const [textSize, settextSize] = useState('20px')
 
-    const router = useRouter();
     if (router.isFallback) {
         return (
             <div className="flex justify-center mx-auto mt-10 ">
                 <BeatLoader loading size={25} color={'orange'} />
+            </div>
+        )
+    }
+
+    if (storyRemoved) {
+        return (
+            <div className="flex justify-center mx-auto mt-10">
+                <p className="text-red-600 text-2xl font-bold">
+                    Story removed
+                </p>
             </div>
         )
     }
@@ -118,6 +142,9 @@ function Story({ story_details }) {
             }
         }
     };
+
+
+
 
 
 

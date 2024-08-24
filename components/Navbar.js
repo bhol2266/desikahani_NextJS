@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, } from 'react';
 import { useContext } from 'react'
 import videosContext from '../context/videos/videosContext'
 import ReactCountryFlag from "react-country-flag"
+import { categories } from '../JsonData/stories/categories_list';
 
 import { Fragment } from 'react'
 
@@ -34,69 +35,7 @@ var navigation = [
 
 ]
 
-const categories = [
 
-    {
-        category_title: 'Aunty Sex Story',
-        href: 'aunty-sex'
-    },
-
-
-    {
-        category_title: 'Bhabhi Sex',
-        href: 'bhabhi-sex'
-    },
-    {
-        category_title: 'Desi Kahani',
-        href: 'desi-kahani'
-    },
-
-    {
-        category_title: 'Family Sex Stories',
-        href: 'family-sex-stories'
-    },
-    {
-        category_title: 'First Time Sex',
-        href: 'first-time-sex'
-    },
-    {
-        category_title: 'Gay Sex Stories In Hindi',
-        href: 'gay-sex-story-hindi'
-    },
-    {
-        category_title: 'Group Sex Stories',
-        href: 'group-sex-stories'
-    },
-    {
-        category_title: 'Indian Sex Stories',
-        href: 'indian-sex-stories'
-    },
-    {
-        category_title: 'Sali Sex',
-        href: 'sali-sex'
-    },
-    {
-        category_title: 'Teacher Sex',
-        href: 'teacher-sex'
-    },
-    {
-        category_title: 'Teenage Girl',
-        href: 'teenage-girl'
-    },
-    {
-        category_title: 'XXX Kahani',
-        href: 'xxx-kahani'
-    },
-    {
-        category_title: 'अन्तर्वासना',
-        href: 'antarvasna'
-    },
-    {
-        category_title: 'हिंदी सेक्स स्टोरीज',
-        href: 'hindi-sex-stories'
-    },
-
-]
 
 
 
