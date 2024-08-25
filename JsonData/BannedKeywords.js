@@ -26,9 +26,5 @@ export const BannedKeywords = [
     "sister",
     "brother",
     "father",
-    "maa",
-    "mommy",
-    "bhabhi",
-    "aunty"
-
+    "mommy"
 ];
