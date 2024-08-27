@@ -44,7 +44,9 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charset="UTF-8" />
         <meta property="og:locale" content="hi_IN" />
-        <meta name="6a97888e-site-verification" content="88008ee61e65e4ea8aca9c929f644f18"/>
+
+        <meta name="6a97888e-site-verification" content="2c270e52114fa1f1ec9574ed3f642a9c"/>
+
       </Head>
 
 
