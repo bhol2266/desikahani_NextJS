@@ -186,7 +186,7 @@ export async function getStaticProps(context) {
 
 
     const data = { id: video }
-    const rawResponse = await fetch(`${process.env.FRONTEND_URL}api/videos/getSingleVideo`, {
+    const rawResponse = await fetch(`${process.env.BACKEND_URL}videoPageData`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

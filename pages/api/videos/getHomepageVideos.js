@@ -17,7 +17,7 @@ export default async function handler(req, res) {
         }
 
         const { page } = req.body;
-        const pageNumber = parseInt(page, 10);
+        const pageNumber = parseInt(page);
 
 
         const pageSize = 60;

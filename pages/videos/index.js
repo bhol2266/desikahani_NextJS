@@ -36,7 +36,7 @@ function Index({ finalDataArray, categoryTitle, categoryDescription, pagination_
 export default Index
 
 export async function getStaticProps() {
-    const rawResponse = await fetch(`${process.env.FRONTEND_URL}api/videos/getHomepageVideos`, {
+    const rawResponse = await fetch(`${process.env.BACKEND_URL}getHomepageVideos`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

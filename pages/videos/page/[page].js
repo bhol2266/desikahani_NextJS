@@ -71,7 +71,7 @@ export async function getStaticProps(context) {
     const { page } = context.params
 
 
-    const rawResponse = await fetch(`${process.env.FRONTEND_URL}api/videos/getHomepageVideos`, {
+    const rawResponse = await fetch(`${process.env.BACKEND_URL}getHomepageVideos`, {
         method: 'POST', // Specify the method as POST
         headers: {
             'Content-Type': 'application/json', // Set the Content-Type to application/json
