@@ -65,20 +65,20 @@ function TagPage({ finalDataArray, categoryTitle, categoryDescription, paginatio
 export default TagPage
 
 
-// export async function getStaticPaths() {
+export async function getStaticPaths() {
 
-//     return {
-//         paths: [{
-//             params: {
-//                 tag: 'fetish',
-//                 page: '1'
-//             }
-//         }],
-//         fallback: true // false or 'blocking'
-//     };
-// }
+    return {
+        paths: [{
+            params: {
+                tag: 'Fetish',
+                page: '1'
+            }
+        }],
+        fallback: true // false or 'blocking'
+    };
+}
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
 
 
     const { page, tag } = context.params

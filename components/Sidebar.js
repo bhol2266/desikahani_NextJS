@@ -102,7 +102,7 @@ function Sidebar() {
 
         {isVideoPage && (
           video_categories.map(tag => (
-            <Link key={tag} href={`/tag/${tag.replace(/ /g, '_').trim()}`}>
+            <Link key={tag} href={`/videos/tag/${tag.replace(/ /g, '_').trim()}`}>
               <p className="w-56 font-inter shadow-lg my-2 py-2 font-semibold text-md hover:bg-orange-200 rounded-md text-orange-900 p-1 pl-4 pr-2 cursor-pointer bg-white">
                 {tag}
               </p>

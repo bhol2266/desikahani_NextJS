@@ -165,22 +165,22 @@ function Story({ video_details, relatetdVideos }) {
 export default Story
 
 
-// export async function getStaticPaths() {
+export async function getStaticPaths() {
 
 
-//     return {
-//         paths: [{
-//             params: {
-//                 video: 'dever-fuck-me-in-the-car-with-hindi-dirty-talk-after-seeing-me-with-my-boyfriend-in-hotel'
-//             }
-//         }],
-//         fallback: true // false or 'blocking'
-//     };
-// }
+    return {
+        paths: [{
+            params: {
+                video: 'dever-fuck-me-in-the-car-with-hindi-dirty-talk-after-seeing-me-with-my-boyfriend-in-hotel'
+            }
+        }],
+        fallback: true // false or 'blocking'
+    };
+}
 
 
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
 
     const { video } = context.params
 

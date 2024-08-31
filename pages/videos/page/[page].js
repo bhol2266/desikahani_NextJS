@@ -55,17 +55,17 @@ function Category({ finalDataArray, categoryTitle, categoryDescription, paginati
 export default Category
 
 
-// export async function getStaticPaths() {
+export async function getStaticPaths() {
 
-//     return {
+    return {
 
-//         paths: [{ params: { page: '1' } }, { params: { page: '2' } }],
-//         fallback: true // false or 'blocking'
-//     };
-// }
+        paths: [{ params: { page: '1' } }, { params: { page: '2' } }],
+        fallback: true // false or 'blocking'
+    };
+}
 
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
 
 
     const { page } = context.params
