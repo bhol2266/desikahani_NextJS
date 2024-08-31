@@ -5,7 +5,10 @@ module.exports = {
   theme: {
     extend: {
 
-       animation: {
+      aspectRatio: {
+        'custom': '16 / 11',
+      },
+      animation: {
         spii: 'wiggle 2s linear infinite',
         movement: 'movement 1s linear 1',
         colorModal: 'modal 0.5s ease-out 1',
@@ -27,14 +30,14 @@ module.exports = {
         }
       },
 
-     
+
       screens: {
         "sm": "500px",
         'md': '750px',
         'lg': "1000px",
-        '2xl':"1250px",
-        '3xl':"1600px",
-        
+        '2xl': "1250px",
+        '3xl': "1600px",
+
       },
       colors: {
         'github': '#24292F',

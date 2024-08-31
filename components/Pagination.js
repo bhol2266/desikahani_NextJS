@@ -1,5 +1,7 @@
 import Link from "next/link";
 import categories_photo from '@/JsonData/photos/categories_list.json'
+import { video_categories } from '../JsonData/videos/Categories'
+
 import { useRouter } from 'next/router'
 
 
@@ -14,6 +16,7 @@ const Pagination = ({ data }) => {
     const router = useRouter();
     const routePath = router.asPath;
     const isPhotoPage = routePath.includes('/photo');
+    const isVideoPage = routePath.includes('/videos');
 
 
     return (
@@ -56,6 +59,17 @@ const Pagination = ({ data }) => {
                         <Link key={category.href} href={`/photo/category/${category.href}`}>
                             <p className=" font-inter text-left my-2 py-1.5 px-8  text-sm hover:bg-orange-200 rounded-md text-semiblack  cursor-pointer underline">
                                 {category.category_title}
+                            </p>
+                        </Link>
+                    ))}
+                </div>
+            )}
+            {isVideoPage && (
+                <div className="md:hidden   mx-[16px] mt-4">
+                    {video_categories.map(tag => (
+                        <Link key={tag} href={`/tag/${tag.replace(/ /g, '_').trim()}`}>
+                            <p className=" font-inter text-left my-2 py-1.5 px-8  text-sm hover:bg-orange-200 rounded-md text-semiblack  cursor-pointer underline">
+                                {tag}
                             </p>
                         </Link>
                     ))}

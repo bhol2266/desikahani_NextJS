@@ -28,7 +28,7 @@ var navigation = [
     { name: 'Nude Pics', href: '/photo', current: false },
     { name: 'Audio Sex Story', href: `/tag/audio-sex-story`, current: false },
     { name: 'Mobile App', href: "https://play.google.com/store/apps/details?id=com.bhola.desiKahaniyaAdult", current: false },
-    { name: 'Sex Videos', href: "https://fuckvideo.live/", current: false },  // route "/videos"
+    { name: 'Sex Videos', href: "/videos", current: false },  // route "/videos"
     { name: 'अपनी कहानी भेजे', href: "/submitStory", current: false },
 
 
@@ -235,7 +235,7 @@ function Navbar() {
                         <p className=' text-[15px] md:text-xl   text-center p-1 pr-6 hover:text-orange-800 '>Nude Pics</p>
                     </Link>
 
-                    <Link href='https://fuckvideo.live/'>
+                    <Link href='/videos'>
                         <p className=' text-[15px] md:text-xl   text-center p-1 pr-6 hover:text-orange-800 '>Sex Videos</p>
                     </Link>
 
