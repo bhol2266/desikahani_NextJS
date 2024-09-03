@@ -65,7 +65,7 @@ function VideoThumbnail({ videoObj }) {
                         key={tag}
                         href={`/videos/tag/${tag.replace(/ /g, "-")}`}
                     >
-                        <p className='whitespace-nowrap hover:text-orange-800 text-gray-600 cursor-pointer underline text-xs font-semibold lg:text-md font-arial'>
+                        <p className='whitespace-nowrap hover:text-orange-800 text-gray-600 cursor-pointer underline text-xs  lg:text-md font-arial'>
                             {tag}
                         </p>
                     </Link>
