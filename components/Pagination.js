@@ -1,8 +1,10 @@
 import Link from "next/link";
 import categories_photo from '@/JsonData/photos/categories_list.json'
-import { video_categories } from '../JsonData/videos/Categories'
+import video_categories from '../JsonData/videos/Categories.json'
+import { CiVideoOn } from "react-icons/ci";
 
 import { useRouter } from 'next/router'
+import { useEffect } from "react";
 
 
 
@@ -17,6 +19,8 @@ const Pagination = ({ data }) => {
     const routePath = router.asPath;
     const isPhotoPage = routePath.includes('/photo');
     const isVideoPage = routePath.includes('/videos');
+
+    
 
 
     return (
@@ -47,6 +51,8 @@ const Pagination = ({ data }) => {
                 </Link>
             </div>
 
+
+
             {isPhotoPage &&
                 <p className=" text-center mx-auto text-[18px] border-gray-400 rounded-md text-black font-semibold  p-1 pl-4 pr-2 cursor-pointer bg-white opacity-75 mt-[30px]">
                     Photo Categories
@@ -65,16 +71,41 @@ const Pagination = ({ data }) => {
                 </div>
             )}
             {isVideoPage && (
-                <div className="md:hidden   mx-[16px] mt-4">
-                    {video_categories.map(tag => (
-                        <Link key={tag} href={`/tag/${tag.replace(/ /g, '_').trim()}`}>
-                            <p className=" font-inter text-left my-2 py-1.5 px-8  text-sm hover:bg-orange-200 rounded-md text-semiblack  cursor-pointer underline">
-                                {tag}
-                            </p>
-                        </Link>
-                    ))}
+
+                <div className={`md:hidden mx-[16px] mt-4 grid grid-cols-3 py-3 sm:grid-cols-3 gap-2 md:gap-3 lg:gap-4 md:grid-cols-4 lg:grid-cols-5`}>
+                    {video_categories.map(category => {
+                        const imageSrc = `/CategoryPics/${category.category.replace(/ /g, '-')}.jpg`;
+                        const categorySlug = category.category.toLowerCase().trim().substring(0, category.category.indexOf('.png'));
+
+                        return (
+                            <Link key={category.category} href={`/category/${categorySlug}`}>
+                                <div className='relative hover:scale-105 transform transition duration-150 rounded  aspect-video'>
+                                    <img
+                                        className='object-cover h-full w-full'
+                                        alt={category.category}
+                                        src={imageSrc}
+                                        loading="lazy"
+                                    />
+                                    <div className="flex items-center space-x-2 justify-start pt-1">
+
+                                        <h2 className='font-inter rounded-b  text-sm lg:text-lg px-1 bottom-0  text-center z-10 text-gray-600 '>
+                                            {category.category}
+                                        </h2>
+
+                                        <div className="flex items-center ">
+                                            <CiVideoOn className="text-gray-500" />
+                                            <span className="text-xs text-gray-500">{`(15k)`}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+                        );
+                    })}
                 </div>
+
             )}
+
+
 
 
         </div>

@@ -5,7 +5,7 @@ import axios from 'axios'
 import { categories } from '@/JsonData/stories/categories_list'
 import categories_photo from '@/JsonData/photos/categories_list.json'
 import { monthArray } from '@/JsonData/stories/categories_list'
-import { video_categories } from '../JsonData/videos/Categories'
+import video_categories from '../JsonData/videos/Categories.json'
 
 
 function Sidebar() {
@@ -61,6 +61,7 @@ function Sidebar() {
     if (latestStories.length === 0) {
       fetchLatestStories();
     }
+    
   }, []);
 
   // Determine text and categories to display based on route path
@@ -102,9 +103,9 @@ function Sidebar() {
 
         {isVideoPage && (
           video_categories.map(tag => (
-            <Link key={tag} href={`/videos/tag/${tag.replace(/ /g, '_').trim()}`}>
+            <Link key={tag.category} href={`/videos/tag/${tag.category.replace(/ /g, '_').trim()}`}>
               <p className="w-56 font-inter shadow-lg my-2 py-2 font-semibold text-md hover:bg-orange-200 rounded-md text-orange-900 p-1 pl-4 pr-2 cursor-pointer bg-white">
-                {tag}
+                {tag.category}
               </p>
             </Link>
           ))
