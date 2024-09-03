@@ -20,7 +20,7 @@ const Pagination = ({ data }) => {
     const isPhotoPage = routePath.includes('/photo');
     const isVideoPage = routePath.includes('/videos');
 
-    
+
 
 
     return (
@@ -78,7 +78,7 @@ const Pagination = ({ data }) => {
                         const categorySlug = category.category.toLowerCase().trim().substring(0, category.category.indexOf('.png'));
 
                         return (
-                            <Link key={category.category} href={`/category/${categorySlug}`}>
+                            <Link key={category.category} href={`/video/tag/${category.category.replace(/ /g, '-')}`}>
                                 <div className='relative hover:scale-105 transform transition duration-150 rounded  aspect-video'>
                                     <img
                                         className='object-cover h-full w-full'
@@ -86,7 +86,7 @@ const Pagination = ({ data }) => {
                                         src={imageSrc}
                                         loading="lazy"
                                     />
-                                    <div className="flex items-center space-x-2 justify-start pt-1">
+                                    <div className="flex items-center justify-start pt-1">
 
                                         <h2 className='font-inter rounded-b  text-sm lg:text-lg px-1 bottom-0  text-center z-10 text-gray-600 '>
                                             {category.category}
