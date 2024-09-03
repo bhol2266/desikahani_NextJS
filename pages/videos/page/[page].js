@@ -5,6 +5,7 @@ import { BeatLoader } from 'react-spinners';
 import Outstreams from '../../../components/Ads/Outstream';
 import Pagination from '../../../components/Pagination';
 import VideoThumbnail from '../../../components/VideoThumbnail';
+import Videos from '../../../components/Videos';
 
 
 function Category({ finalDataArray, categoryTitle, categoryDescription, pagination_nav_pages, currentPage, CategoryHref }) {
@@ -33,13 +34,8 @@ function Category({ finalDataArray, categoryTitle, categoryDescription, paginati
 
             <div className='grid grid-cols-1 gap-6 md:gap-6 lg:gap-8 lg:grid-cols-2 xl:grid-cols-3 px-1'
             >
-                 {
-                    finalDataArray.map(videoObj => {
-                        return (
-                            <VideoThumbnail key={videoObj.id} videoObj={videoObj} />
-                        )
-                    })
-                }
+                                 < Videos finalDataArray={finalDataArray} />
+                                 
 
             </div>
 

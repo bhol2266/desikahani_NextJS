@@ -6,6 +6,7 @@ import { BeatLoader } from 'react-spinners';
 import VideoThumbnail from '../../../../components/VideoThumbnail';
 import Outstreams from '../../../../components/Ads/Outstream';
 import Pagination from '../../../../components/Pagination';
+import Videos from '../../../../components/Videos';
 
 export function formatTag(input) {
     // Replace hyphens with spaces
@@ -37,7 +38,7 @@ function Tag({ finalDataArray, categoryTitle, categoryDescription, pagination_na
                 <meta name="description"
                     content={`${categoryDescription}`} />
             </Head>
-            
+
             <h1 className='text-xl font-semibold m-2 mx-4  md:text-2xl font-inter'>{`${formatTag(categoryTitle)} - Desi Sex Videos`}</h1>
             <p className='text-lg  m-2 mx-4 md:text-xl font-light text-sb font-hindi'>{categoryDescription}</p>
             <p className='text-lg text-right font-medium m-2 mx-4 md:text-xl '>{`PAGE : ${currentPage}`}</p>
@@ -45,13 +46,7 @@ function Tag({ finalDataArray, categoryTitle, categoryDescription, pagination_na
 
             <div className='grid grid-cols-1 gap-6 md:gap-6 lg:gap-8 lg:grid-cols-2 xl:grid-cols-3 px-1'
             >
-                {
-                     finalDataArray.map(videoObj => {
-                        return (
-                            <VideoThumbnail key={videoObj.id} videoObj={videoObj} />
-                        )
-                    })
-                }
+                < Videos finalDataArray={finalDataArray} />
 
             </div>
 

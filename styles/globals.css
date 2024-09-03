@@ -47,6 +47,9 @@
         @apply pb-3
     }
      
+    .icon {
+        @apply h-5 md:h-6 mr-[3px] lg:mr-1 transform transition duration-200;
+    }
  
 
     

@@ -53,7 +53,7 @@ function MyApp({ Component, pageProps }) {
       <VideoState>
 
         <Navbar />
-        <div className='flex pt-1 md:pt-3  px-1  2xl:px-28 bg-orange-50'>
+        <div className='flex pt-1 md:pt-3  px-1  3xl:px-[50px] bg-orange-50'>
           <Sidebar />
           <Component {...pageProps} />
         </div>

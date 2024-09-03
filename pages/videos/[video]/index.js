@@ -14,6 +14,7 @@ import VideoThumbnail from '../../../components/VideoThumbnail'
 import videosContext from '../../../context/videos/videosContext'
 import { setCookie, getCookie } from 'cookies-next';
 import Outstreams from '../../../components/Ads/Outstream'
+import Videos from '../../../components/Videos'
 
 
 function Story({ video_details, relatetdVideos }) {
@@ -105,7 +106,6 @@ function Story({ video_details, relatetdVideos }) {
 
 
 
-            <p className={`text-gray-800 font-hindi tracking-wide text-[14px] sm:text-[18px] px-2`} >{"video_details.description"}</p>
 
 
             <div className='my-2 px-2' >
@@ -137,13 +137,8 @@ function Story({ video_details, relatetdVideos }) {
 
                 <div className='grid grid-cols-1 gap-6 md:gap-6 lg:gap-8 lg:grid-cols-2 xl:grid-cols-3 px-2'
                 >
-                    {
-                        relatetdVideos.map(videoObj => {
-                            return (
-                                <VideoThumbnail key={videoObj.id} videoObj={videoObj} />
-                            )
-                        })
-                    }
+                    < Videos finalDataArray={relatetdVideos} />
+
 
 
                 </div>
