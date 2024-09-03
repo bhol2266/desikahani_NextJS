@@ -72,7 +72,7 @@ function VideoThumbnail({ videoObj }) {
                 ))}
             </div>
 
-
+ 
 
         </Link>
     );
