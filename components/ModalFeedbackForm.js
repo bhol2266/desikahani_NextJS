@@ -36,7 +36,7 @@ export const ModalFeedbackForm = () => {
         formData.append('message', messageText);
 
         try {
-            const rawResponse = await fetch(`/api/hello`, {
+            const rawResponse = await fetch(`/api/FeedbackSubmit`, {
                 method: 'POST',
                 body: formData,
             });
