@@ -1,7 +1,12 @@
+import React, { useContext } from 'react';
 import Link from 'next/link';
-import React from 'react';
+import videosContext from '../context/videos/videosContext';
+
 
 const PrivacyPolicy = () => {
+
+    const { showFeedBackFrom, setshowFeedBackFrom } = useContext(videosContext);
+
     return (
         <section>
             <div className="static-page__title">Privacy Policy</div>
@@ -410,9 +415,13 @@ const PrivacyPolicy = () => {
                 </p>
                 <h2 className="text-xl  font-semibold mt-6 mb-4">Contact Information</h2>
                 <p className="mb-4 text-[15px] lg:text-lg text-gray-600">
-                    For any questions or concerns about these Privacy Policy, please contact us at <Link legacyBehavior href="mailto:ukdevelopers007@gmail.com"><a className="text-red-500 hover:underline">ukdevelopers007@gmail.com</a></Link>
-
-                </p>
+          If you have any questions or concerns about the Privacy Policy or the{' '}
+          <Link legacyBehavior href="/">
+            <a className="text-red-500 hover:underline">Website</a>
+          </Link>, please contact us using our{' '}
+          <span onClick={() => { setshowFeedBackFrom(true) }} className="text-red-500 hover:underline text-semibold cursor-pointer">Contact Form</span>
+          .
+        </p>
             </div>
         </section>
     );

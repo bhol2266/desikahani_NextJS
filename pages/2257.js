@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
+import videosContext from '../context/videos/videosContext';
+
 
 const USC2257Statement = () => {
+  const { showFeedBackFrom, setshowFeedBackFrom } = useContext(videosContext);
+
   return (
     <section>
       <div className="static-page__title text-3xl font-semibold mb-6">18 USC 2257 Statement</div>
@@ -39,9 +43,8 @@ const USC2257Statement = () => {
         <br />
         <p className="mb-4 text-[15px] lg:text-lg text-gray-600">
           Please, use{' '}
-          <Link href="/information/#support" legacyBehavior>
-            <a className="text-red-500 hover:underline text-semibold">Contact Form</a>
-          </Link>{' '}
+          <span onClick={() => { setshowFeedBackFrom(true) }} className="text-red-500 hover:underline text-semibold cursor-pointer">Contact Form</span>
+          {' '}
           to report abuse about inappropriate content.
         </p>
         <br />

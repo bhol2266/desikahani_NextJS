@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
+import videosContext from '../context/videos/videosContext';
 
 const DMCA = () => {
+
+  const { showFeedBackFrom, setshowFeedBackFrom } = useContext(videosContext);
+
+
   return (
     <section>
       <div className="static-page__title text-3xl font-semibold mb-6">DMCA / Content Removal</div>
@@ -19,9 +24,8 @@ const DMCA = () => {
           Notifications should be e-mailed to{' '}
           <a href="mailto:ukdevelopers007@gmail.com" className="text-red-500 hover:underline">ukdevelopers007@gmail.com</a> 
           with Subject ‘DMCA’ or use{' '}
-          <Link href="/information/#support" legacyBehavior>
-            <a className="text-red-500 hover:underline text-semibold">Contact Form</a>
-          </Link>{' '}
+          <p onClick={()=>{setshowFeedBackFrom(true)}} className="text-red-500 hover:underline text-semibold cursor-pointer">Contact Form</p>
+
           to notifications.
         </p>
         <div className="dasdew"></div>

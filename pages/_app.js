@@ -1,16 +1,13 @@
-import Script from 'next/script'
+import Head from 'next/head'
+import Router from 'next/router'
+import NProgress from 'nprogress'
 import Footer from '../components/Footer'
+import { ModalFeedbackForm } from '../components/ModalFeedbackForm'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import VideoState from '../context/videos/VideoState'
 import '../styles/globals.css'
 import '../styles/nProgress.css'
-import Head from 'next/head'
-import Router from 'next/router'
-import NProgress from 'nprogress'
-import videosContext from '../context/videos/videosContext'
-import { useContext } from 'react'
-import MobileAppModal from '../components/MobileAppModal'
 
 function MyApp({ Component, pageProps }) {
 
@@ -45,7 +42,7 @@ function MyApp({ Component, pageProps }) {
         <meta charset="UTF-8" />
         <meta property="og:locale" content="hi_IN" />
 
-        <meta name="6a97888e-site-verification" content="2c270e52114fa1f1ec9574ed3f642a9c"/>
+        <meta name="6a97888e-site-verification" content="2c270e52114fa1f1ec9574ed3f642a9c" />
 
       </Head>
 
@@ -58,6 +55,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </div>
         <hr />
+        <ModalFeedbackForm />
         <Footer />
       </VideoState>
     </>

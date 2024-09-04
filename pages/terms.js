@@ -1,7 +1,11 @@
+import React, { useContext } from 'react';
 import Link from 'next/link';
-import React from 'react';
+import videosContext from '../context/videos/videosContext';
 
 const TermsAndConditions = () => {
+
+  const { showFeedBackFrom, setshowFeedBackFrom } = useContext(videosContext);
+
   return (
 
     <section className="py-8 px-4 max-w-3xl mx-auto">
@@ -10,8 +14,8 @@ const TermsAndConditions = () => {
         <p className="mb-4 text-[15px] lg:text-lg text-gray-600">
           These Terms and Conditions constitute a binding agreement between you and the operators of this{' '}
           <Link legacyBehavior href="/">
-  <a className="text-red-500 hover:underline">Website</a>
-</Link> (hereinafter `&quot;`Website`&quot;`, “We” or “Us”)
+            <a className="text-red-500 hover:underline">Website</a>
+          </Link> (hereinafter `&quot;`Website`&quot;`, “We” or “Us”)
           regarding your use of The Website and all other services provided by The Website.
         </p>
         <p className="mb-4 text-[15px] lg:text-lg text-gray-600">
@@ -333,12 +337,11 @@ const TermsAndConditions = () => {
         <p className="mb-4 text-[15px] lg:text-lg text-gray-600">
           If you have any questions or concerns about the Terms &amp; Conditions or the{' '}
           <Link legacyBehavior href="/">
-  <a className="text-red-500 hover:underline">Website</a>
-</Link>, please contact us using our{' '}
-<Link legacyBehavior href="/information/#support">
-  <a className="text-red-500 hover:underline">Contact Form</a>
-</Link>.
-  </p>
+            <a className="text-red-500 hover:underline">Website</a>
+          </Link>, please contact us using our{' '}
+          <span onClick={() => { setshowFeedBackFrom(true) }} className="text-red-500 hover:underline text-semibold cursor-pointer">Contact Form</span>
+          .
+        </p>
       </div>
     </section>
   );

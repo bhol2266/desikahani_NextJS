@@ -13,6 +13,7 @@ const VideoState = (props) => {
     const [spinnerLoading, setspinnerLoading] = useState(false)
     const [DarkTheme, setDarkTheme] = useState('')
     const [currentLocation, setcurrentLocation] = useState(null)
+    const [showFeedBackFrom, setshowFeedBackFrom] = useState(false)
 
     const [MobileAppModalVisible, setMobileAppModalVisible] = useState(false);
 
@@ -35,7 +36,7 @@ const VideoState = (props) => {
 
 
     return (
-        <videosContext.Provider value={{ spinnerLoading, setSpinner, setDarkThemeFunc, DarkTheme, currentLocation, setcurrentLocation,MobileAppModalVisible, setMobileAppModalVisible }}>
+        <videosContext.Provider value={{ spinnerLoading, setSpinner, setDarkThemeFunc, DarkTheme, currentLocation, setcurrentLocation,MobileAppModalVisible, setMobileAppModalVisible,showFeedBackFrom, setshowFeedBackFrom }}>
             {props.children}
         </videosContext.Provider>
     )
