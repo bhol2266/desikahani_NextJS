@@ -32,7 +32,6 @@ function Story({ story_details }) {
     useEffect(() => {
         const currentUrl = window.location.href;
         const isBanned = BannedUrls.some(url => currentUrl === url);
-
         if (isBanned) {
             setStoryRemoved(true);
         } else {
