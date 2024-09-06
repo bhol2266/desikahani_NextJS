@@ -17,7 +17,7 @@ import {
 import { BeatLoader } from 'react-spinners'
 import BannerAds from '../../components/Ads/BannerAds'
 import Outstreams from '../../components/Ads/Outstream'
-import { BannedKeywords } from '../../JsonData/BannedKeywords'
+import { BannedUrls } from '../../JsonData/BannedUrls'
 
 
 function Story({ story_details }) {
@@ -30,16 +30,18 @@ function Story({ story_details }) {
 
 
     useEffect(() => {
-        // Check if the story contains any banned keywords
-        const { story, story_Category } = router.query
-        const urlString = `${story_Category}-${story}`.toLowerCase()
-        const containsBannedKeyword = BannedKeywords.some(keyword =>
-            urlString.includes(keyword.toLowerCase())
-        )
-        if (containsBannedKeyword) {
-            setStoryRemoved(true)
+        const currentUrl = window.location.href;
+
+        alert(currentUrl);
+        
+        const isBanned = BannedUrls.some(url => currentUrl === url);
+
+        if (isBanned) {
+            setStoryRemoved(true);
+        } else {
+            setStoryRemoved(false); // Optionally handle the case when the URL is not banned
         }
-    }, [router.query])
+    }, [router.query]);
 
     useEffect(() => {
 
