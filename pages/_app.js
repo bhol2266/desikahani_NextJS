@@ -11,6 +11,7 @@ import '../styles/nProgress.css'
 import { useRouter } from 'next/router'
 
 import VideoFilterButton from '../components/VideoFilterButton'
+import Outstreams from '../components/Ads/Outstream'
 function MyApp({ Component, pageProps }) {
 
   const router = useRouter();
@@ -68,7 +69,9 @@ function MyApp({ Component, pageProps }) {
         }
 
         <ModalFeedbackForm />
+      
         <Footer />
+
       </VideoState>
     </>
   )

@@ -53,9 +53,6 @@ function Index({ finalDataArray, currentPage, pagination_nav_pages, category_tit
             {/* PAGINATION */}
             <Pagination data={{ url: `/photo/category/${category}`, currentPage: pagination_nav_pages[0], lastPage: pagination_nav_pages[1] }} />
 
-
-          
-            <Outstreams />
         </div>
     );
 }

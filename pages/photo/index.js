@@ -59,9 +59,6 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
 
 
 
-            <Outstreams />
-
-
         </div>
     )
 }

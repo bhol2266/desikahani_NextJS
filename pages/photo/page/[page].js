@@ -66,7 +66,6 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
             {/* PAGINATION */}
             <Pagination data={{ url: `/photo`, currentPage:  pagination_nav_pages[0], lastPage: pagination_nav_pages[1] }} />
 
-            <Outstreams />
 
 
         </div>

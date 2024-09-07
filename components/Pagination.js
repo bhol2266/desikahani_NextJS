@@ -5,8 +5,7 @@ import { CiVideoOn } from "react-icons/ci";
 
 import { useRouter } from 'next/router'
 import { useEffect } from "react";
-import { Outstream } from "exoclick-react";
-
+import Outstreams from "./Ads/Outstream";
 
 
 const Pagination = ({ data }) => {
@@ -107,13 +106,11 @@ const Pagination = ({ data }) => {
             )}
 
 
-            <div className="">
-                <Outstream />
-                <Outstream />
-                <Outstream />
+            <div className='sm:flex items-center justify-center sm:w-1/2 lg:w-1/4 mx-auto mt-4'>
+                <Outstreams />
+                <Outstreams />
+                <Outstreams />
             </div>
-
-
 
 
         </div>

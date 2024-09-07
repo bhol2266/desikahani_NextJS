@@ -6,19 +6,12 @@ import { useEffect, useState } from 'react';
 function Outstreams() {
 
 
-    const [videoPage, setvideoPage] = useState(false);
-    const router = useRouter();
 
     var randLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
     var uniqid = randLetter + Date.now();
 
 
-    useEffect(() => {
-        if (window.location.href.includes('video')) {
-            setvideoPage(true)
-        }
-
-    }, []);
+ 
 
     return (
 
