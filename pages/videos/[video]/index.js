@@ -135,13 +135,7 @@ function Story({ video_details, relatetdVideos }) {
 
                 <p className='mt-4 mb-2  text-lg text-red-800 font-semibold px-2'>ऐसी ही कुछ और वीडियो</p>
 
-                <div className='grid grid-cols-1 gap-6 md:gap-6 lg:gap-8 lg:grid-cols-2 xl:grid-cols-3 px-2'
-                >
-                    < Videos finalDataArray={relatetdVideos} />
-
-
-
-                </div>
+                < Videos finalDataArray={relatetdVideos} />
 
                 <div className='sm:flex items-center justify-center sm:w-1/2 lg:w-1/4 mx-auto mt-4'>
                     <Outstreams />
