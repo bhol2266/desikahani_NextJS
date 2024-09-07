@@ -37,7 +37,6 @@ function Category({ finalDataArray, categoryTitle, categoryDescription, paginati
             {/* PAGINATION */}
             <Pagination data={{ url: `/videos`, currentPage: currentPage, lastPage: pagination_nav_pages[1], }} />
 
-            <Outstreams />
 
         </div>
     )

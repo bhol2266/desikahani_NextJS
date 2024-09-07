@@ -50,7 +50,6 @@ function Tag({ finalDataArray, categoryTitle, categoryDescription, pagination_na
             {/* PAGINATION */}
             <Pagination data={{ url: `/videos/tag/${CategoryHref}`, currentPage: currentPage.toString(), lastPage: pagination_nav_pages[1], }} />
 
-            <Outstreams />
 
         </div>
     )

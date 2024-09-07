@@ -143,10 +143,6 @@ function Story({ video_details, relatetdVideos }) {
 
                 </div>
 
-                <Outstreams />
-
-
-
 
 
             </div>

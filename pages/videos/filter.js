@@ -29,7 +29,6 @@ function Index({ finalDataArray, categoryTitle, categoryDescription, pagination_
             {/* PAGINATION */}
             <Pagination data={{ url: `/videos`, currentPage, lastPage: pagination_nav_pages[1] }} />
 
-            <Outstreams />
         </div>
     )
 }
