@@ -43,12 +43,7 @@ function Tag({ finalDataArray, categoryTitle, categoryDescription, pagination_na
             <p className='text-lg  m-2 mx-4 md:text-xl font-light text-sb font-hindi'>{categoryDescription}</p>
             <p className='text-lg text-right font-medium m-2 mx-4 md:text-xl '>{`PAGE : ${currentPage}`}</p>
 
-
-            <div className='grid grid-cols-1 gap-6 md:gap-6 lg:gap-8 lg:grid-cols-2 xl:grid-cols-3 px-1'
-            >
-                < Videos finalDataArray={finalDataArray} />
-
-            </div>
+            < Videos finalDataArray={finalDataArray} />
 
 
 

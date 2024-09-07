@@ -7,7 +7,7 @@ import Videos from '../../components/Videos';
 
 function Index({ finalDataArray, categoryTitle, categoryDescription, pagination_nav_pages, currentPage }) {
 
-    
+
     return (
         <div>
             <Head>
@@ -23,7 +23,6 @@ function Index({ finalDataArray, categoryTitle, categoryDescription, pagination_
             <p className='text-lg text-right font-medium m-2 mx-4 md:text-xl'>{`PAGE : ${currentPage}`}</p>
 
 
-
             < Videos finalDataArray={finalDataArray} />
 
 
@@ -37,13 +36,20 @@ function Index({ finalDataArray, categoryTitle, categoryDescription, pagination_
 
 export default Index
 
-export async function getStaticProps() {
-    const rawResponse = await fetch(`${process.env.BACKEND_URL}getHomepageVideos`, {
+export async function getServerSideProps(context) {
+
+    const { sort, duration, page } = context.query;
+
+console.log({ sort, duration, page });
+
+
+
+    const rawResponse = await fetch(`${process.env.BACKEND_URL}getQueryVideos`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ page: '1' })
+        body: JSON.stringify({ page: page, sort: sort, duration: duration })
     });
 
     const resData = await rawResponse.json();

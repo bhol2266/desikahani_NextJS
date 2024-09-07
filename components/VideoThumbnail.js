@@ -2,18 +2,23 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import Link from 'next/link';
 import { FaRegThumbsUp } from "react-icons/fa";
 import { ClockIcon } from "@heroicons/react/solid";
+import { useState } from "react";
 
 function VideoThumbnail({ videoObj }) {
 
 
     const { id, thumbnail, duration, trailer, addedTime, views, tags, title, likePercent } = videoObj;
+    const [showDuration, setshowDuration] = useState(true)
 
     const stopMovie = (e) => {
         e.target.load();
+        setshowDuration(true)
     };
 
     const playMovie = (e) => {
         e.target.play();
+        setshowDuration(false)
+
     };
 
     return (
@@ -24,7 +29,7 @@ function VideoThumbnail({ videoObj }) {
                     src={thumbnail}
                     alt="Video Thumbnail"
                 />
-                <div className="absolute bottom-1.5 right-2 bg-black bg-opacity-60 text-white text-xs md:text-sm lg:text-md 2xl:text-lg px-2 py-1 rounded">
+                <div className={`${showDuration ? "absolute" : "hidden"}  z-10 bottom-1.5 right-2 bg-black bg-opacity-60 text-white text-xs md:text-sm lg:text-md 2xl:text-lg px-2 py-1 rounded`}>
                     <span className="font-inter">{duration}</span>
                 </div>
                 <video
@@ -72,7 +77,7 @@ function VideoThumbnail({ videoObj }) {
                 ))}
             </div>
 
- 
+
 
         </Link>
     );

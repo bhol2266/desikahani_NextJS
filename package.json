@@ -13,7 +13,7 @@
     "sitemap": "next-sitemap --config next-sitemap.config.js"
   },
   "dependencies": {
-    "@headlessui/react": "^1.4.2",
+    "@headlessui/react": "^2.1.5",
     "axios": "^0.24.0",
     "cheerio": "^1.0.0-rc.10",
     "cookies-next": "^2.1.1",

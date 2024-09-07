@@ -22,10 +22,10 @@ function Outstreams() {
 
     return (
 
-        <div className="fixed bottom-4 right-0 z-10 w-2/5  lg:w-1/5 ">
-<div id="ts_ad_video_yioip"></div>
+        <div className="fixed bottom-4 left-0 z-10 w-2/5  lg:w-1/5 ">
+            <div id="ts_ad_video_yioip"></div>
 
-            <Script src="//cdn.tsyndicate.com/sdk/v1/outstream.video.js"  strategy="beforeInteractive" />
+            <Script src="//cdn.tsyndicate.com/sdk/v1/outstream.video.js" strategy="beforeInteractive" />
             <Script
                 id={uniqid}
                 dangerouslySetInnerHTML={{

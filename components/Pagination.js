@@ -78,7 +78,7 @@ const Pagination = ({ data }) => {
                         const categorySlug = category.category.toLowerCase().trim().substring(0, category.category.indexOf('.png'));
 
                         return (
-                            <Link key={category.category} href={`/video/tag/${category.category.replace(/ /g, '-')}`}>
+                            <Link key={category.category} href={`/videos/tag/${category.category.replace(/ /g, '-')}`}>
                                 <div className='relative hover:scale-105 transform transition duration-150 rounded  aspect-video'>
                                     <img
                                         className='object-cover h-full w-full'

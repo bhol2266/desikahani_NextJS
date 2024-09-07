@@ -196,7 +196,7 @@ function Navbar() {
                                     return (
                                         <Menu.Item key={item.category_title}  >
                                             {({ active }) => (
-                                                <p onClick={() => { router.push(`/category/${item.href}`) }} className='block   px-4 py-2 text-sm  hover:bg-orange-200 hover:text-orange-800 cursor-pointer bg-orange-100'
+                                                <p onClick={() => { router.push(`/category/${item.href}`) }} className='block   px-4 py-2 text-sm font-normal  hover:bg-orange-200 hover:text-semiblack cursor-pointer bg-orange-100'
                                                 >
                                                     {item.category_title}
                                                 </p>

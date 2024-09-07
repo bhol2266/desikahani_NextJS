@@ -8,8 +8,13 @@ import Sidebar from '../components/Sidebar'
 import VideoState from '../context/videos/VideoState'
 import '../styles/globals.css'
 import '../styles/nProgress.css'
+import { useRouter } from 'next/router'
 
+import VideoFilterButton from '../components/VideoFilterButton'
 function MyApp({ Component, pageProps }) {
+
+  const router = useRouter();
+  const currentRoute = router.pathname;
 
   Router.events.on("routeChangeStart", (url) => {
     console.log('routeChangeStart');
@@ -55,6 +60,13 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </div>
         <hr />
+        {currentRoute.includes("/videos") &&
+          <div className=' sticky bottom-0 right-0'>
+            <VideoFilterButton />
+          </div>
+
+        }
+
         <ModalFeedbackForm />
         <Footer />
       </VideoState>
