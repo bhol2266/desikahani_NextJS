@@ -16,7 +16,6 @@ function Stories({ stories }) {
                     })
                 }
             </div>
-            <Outstream />
         </div>
     );
 }

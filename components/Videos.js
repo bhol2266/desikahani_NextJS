@@ -33,6 +33,7 @@ function Videos({ finalDataArray, type }) {
 
     return (
         <div className="h-fit  basicMargin">
+
             <div className={`grid py-1 gap-2  3xl:gap-4 grid-cols-2 lg:grid-cols-3  3xl:grid-cols-5`}>
                 {
                     finalDataArray.map(videoObj => (
@@ -51,16 +52,7 @@ function Videos({ finalDataArray, type }) {
                 </div>
             }
 
-            {pageLoaded &&
-                <>
-                    {currentPath !== "blocked" &&
-                        <>
-                            <PopunderAds />
-                            <Outstream />
-                        </>
-                    }
-                </>
-            }
+          
 
             <InterstitialAds />
         </div>

@@ -5,6 +5,7 @@ import { CiVideoOn } from "react-icons/ci";
 
 import { useRouter } from 'next/router'
 import { useEffect } from "react";
+import { Outstream } from "exoclick-react";
 
 
 
@@ -104,6 +105,13 @@ const Pagination = ({ data }) => {
                 </div>
 
             )}
+
+
+            <div className="">
+                <Outstream />
+                <Outstream />
+                <Outstream />
+            </div>
 
 
 

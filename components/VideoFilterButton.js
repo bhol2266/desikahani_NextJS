@@ -103,12 +103,12 @@ export default function VideoFilterButton() {
     };
 
     return (
-        <div className="relative p-4 w-fit ml-auto">
+        <div className="relative p-4 w-fit ml-auto z-50">
             <Popover as={Fragment}>
                 {({ open }) => (
                     <>
                         <Popover.Button className="rounded bg-orange-800 p-2 w-fit">
-                            <IoFilter className='text-white w-[20px] h-[20px]' />
+                            <IoFilter className='text-white w-[24px] h-[24px]' />
                         </Popover.Button>
 
                         <Popover.Panel className="absolute right-4 -top-[200px] z-10 mt-2 w-[250px] bg-white border border-gray-200 rounded-lg shadow-lg">

@@ -22,7 +22,7 @@ function Outstreams() {
 
     return (
 
-        <div className="fixed bottom-4 left-0 z-10 w-2/5  lg:w-1/5 ">
+        <div className="  ">
             <div id="ts_ad_video_yioip"></div>
 
             <Script src="//cdn.tsyndicate.com/sdk/v1/outstream.video.js" strategy="beforeInteractive" />
