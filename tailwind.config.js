@@ -37,6 +37,7 @@ module.exports = {
         'lg': "1000px",
         '2xl': "1250px",
         '3xl': "1600px",
+        '4xl': "1900px",
 
       },
       colors: {

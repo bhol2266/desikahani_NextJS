@@ -22,7 +22,7 @@ function VideoThumbnail({ videoObj }) {
     };
 
     return (
-        <Link href={`/videos/${id}`} className="animate-fade flex flex-col items-start justify-center cursor-pointer rounded-md overflow-hidden transform transition duration-150 mb-3 2xl:mb-4">
+        <Link href={`/videos/${id}`} className="select-none animate-fade flex flex-col items-start justify-center cursor-pointer rounded-md overflow-hidden transform transition duration-150 mb-3 2xl:mb-4">
             <div className={`relative w-full overflow-hidden aspect-custom sm:aspect-video`}>
                 <img
                     className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 ease-in-out"

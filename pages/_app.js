@@ -56,9 +56,12 @@ function MyApp({ Component, pageProps }) {
       <VideoState>
 
         <Navbar />
-        <div className='flex pt-1 md:pt-3  px-1  3xl:px-[50px] bg-orange-50'>
-          <Sidebar />
-          <Component {...pageProps} />
+        <div className='bg-orange-50'>
+
+          <div className=' 4xl:w-[85%] 3xl:w-[90%] flex mx-auto justify-center pt-1 md:pt-3  px-1   '>
+            <Sidebar />
+            <Component {...pageProps} />
+          </div>
         </div>
         <hr />
         {currentRoute.includes("/videos") &&
@@ -69,7 +72,7 @@ function MyApp({ Component, pageProps }) {
         }
 
         <ModalFeedbackForm />
-      
+
         <Footer />
 
       </VideoState>

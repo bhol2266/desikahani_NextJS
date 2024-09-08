@@ -1,59 +1,28 @@
-import React, { useContext } from 'react'
 import Head from 'next/head'
-import { Fragment, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React, { useContext, useEffect, useState } from 'react'
 
 import {
-    PencilAltIcon, EyeIcon, ChevronRightIcon, ScaleIcon, FolderIcon, TagIcon
-} from '@heroicons/react/solid';
-import { Menu, Transition } from '@headlessui/react'
-import { BeatLoader } from 'react-spinners';
-import { useRef } from 'react';
-import VideoThumbnail from '../../../components/VideoThumbnail'
-import videosContext from '../../../context/videos/videosContext'
-import { setCookie, getCookie } from 'cookies-next';
+    TagIcon,
+    VideoCameraIcon
+} from '@heroicons/react/solid'
+import { getCookie, setCookie } from 'cookies-next'
+import { useRef } from 'react'
+import { BeatLoader } from 'react-spinners'
 import Outstreams from '../../../components/Ads/Outstream'
 import Videos from '../../../components/Videos'
+import videosContext from '../../../context/videos/videosContext'
 
 
-function Story({ video_details, relatetdVideos }) {
+function Video({ video_details, relatetdVideos }) {
 
 
     const videoPlayerRef = useRef(null)
 
-    const { MobileAppModalVisible, setMobileAppModalVisible } = useContext(videosContext);
     const [VideoErrorCounter, setVideoErrorCounter] = useState(0);
 
-    useEffect(() => {
-
-        if (typeof getCookie("AdSeenCounter") == "undefined") {
-            setCookie("AdSeenCounter", 0)
-        }
-
-        setTimeout(() => {
-            var AdSeenCounter = parseInt(getCookie("AdSeenCounter"));
-
-            if (AdSeenCounter < 2) {
-                setMobileAppModalVisible(true)
-                console.log(AdSeenCounter + 1);
-                setCookie("AdSeenCounter", AdSeenCounter + 1)
-            }
-        }, 60000);
-
-    }, []);
-
-
-    // var finalDataArray = []
-    // for (let index = 1; index < 67; index++) {
-
-    //     var data = require(`../../../JsonData/Videos/Videos_${index}.json`);
-    //     data.forEach(obj => {
-    //         finalDataArray.push(obj)
-    //     })
-
-    // }
-
+  
 
     const router = useRouter();
     if (router.isFallback) {
@@ -78,7 +47,7 @@ function Story({ video_details, relatetdVideos }) {
     }
 
     return (
-        <div className="md:w-3/5 py-4   rounded-lg "  >
+        <div className="  py-2   rounded-lg "  >
             <Head>
                 <meta name="referrer" content="no-referrer" />
                 <title>{`${video.replace('-', ' ')} `}</title>
@@ -92,25 +61,19 @@ function Story({ video_details, relatetdVideos }) {
             </div>
 
 
-            <div className=' hover:brightness-75 group  relative shadow-2xl mb-4 xl:mb-8'>
+            <div className=' hover:brightness-75 group  relative mb-4 xl:mb-8 '>
 
-                <video key={video_details.videoSrc} ref={videoPlayerRef} poster={video_details.thumbnail} autoPlay className={`w-full aspect-video object-contain`} width="852" height="480 " controls >
-                    <source onError={videoErrorHandling} src={video_details.videoSrc} type="video/mp4" />
+                <div className=' shadow-2xl mb-2'>
 
-                </video>
+                    <video key={video_details.videoSrc} ref={videoPlayerRef} poster={video_details.thumbnail} autoPlay className={`w-full aspect-video object-contain`} width="852" height="480 " controls >
+                        <source onError={videoErrorHandling} src={video_details.videoSrc} type="video/mp4" />
 
-            </div>
-
-
-
+                    </video>
+                </div>
 
 
-
-
-
-            <div className='my-2 px-2' >
                 <div className='flex'>
-                    <FolderIcon className='icon text-orange-700' />
+                    <VideoCameraIcon className='icon text-orange-700' />
                     <p>{video_details.title}</p>
                 </div>
                 <div className='flex'>
@@ -129,6 +92,18 @@ function Story({ video_details, relatetdVideos }) {
                 </div>
 
 
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <div className='my-2 px-2' >
 
 
 
@@ -151,7 +126,7 @@ function Story({ video_details, relatetdVideos }) {
     )
 }
 
-export default Story
+export default Video
 
 
 export async function getStaticPaths() {

@@ -1,11 +1,9 @@
-import React from 'react'
-import Head from 'next/head'
-import VideoThumbnail from "../../components/VideoThumbnail";
-import Outstreams from "../../components/Ads/Outstream";
-import Pagination from '../../components/Pagination'
+import Head from 'next/head';
+import React from 'react';
+import PaginationVideosFilter from '../../components/PaginationVideosFilter';
 import Videos from '../../components/Videos';
 
-function Index({ finalDataArray, categoryTitle, categoryDescription, pagination_nav_pages, currentPage }) {
+function Index({ finalDataArray, categoryTitle, categoryDescription, pagination_nav_pages, currentPage, sort, duration }) {
 
 
     return (
@@ -26,8 +24,9 @@ function Index({ finalDataArray, categoryTitle, categoryDescription, pagination_
             < Videos finalDataArray={finalDataArray} />
 
 
+
             {/* PAGINATION */}
-            <Pagination data={{ url: `/videos`, currentPage, lastPage: pagination_nav_pages[1] }} />
+            <PaginationVideosFilter data={{ url: `/videos/filter/?sort=${sort}&duration=${duration}`, currentPage, lastPage: pagination_nav_pages[1] }} />
 
         </div>
     )
@@ -39,7 +38,7 @@ export async function getServerSideProps(context) {
 
     const { sort, duration, page } = context.query;
 
-console.log({ sort, duration, page });
+    console.log({ sort, duration, page });
 
 
 
@@ -59,7 +58,9 @@ console.log({ sort, duration, page });
             pagination_nav_pages: resData.pagination_nav_pages,
             categoryDescription: "देसी लड़की, भाभी, आंटी के बेस्ट पोर्न क्लिप्स, सेल्फी सेक्स चैट, हिंदी वेब सीरीज, कॉलेज गर्ल एम एम एस. ब्लू फिल्म का मजा लें.",
             categoryTitle: "Hindi sex videos",
-            currentPage: "1"
+            currentPage: page,
+            sort: sort,
+            duration: duration
         }
     }
 }
