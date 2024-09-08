@@ -6,8 +6,6 @@ import VideoThumbnail from "./VideoThumbnail";
 import {
     LightningBoltIcon,
 } from '@heroicons/react/solid';
-import InterstitialAds from "./Ads/InterstitialAds";
-import Outstream from './Ads/Outstream';
 import PopunderAds from "./Ads/Popunder";
 
 function Videos({ finalDataArray, type }) {
@@ -61,7 +59,6 @@ function Videos({ finalDataArray, type }) {
                 </>
             }
 
-            <InterstitialAds />
         </div>
     );
 }
