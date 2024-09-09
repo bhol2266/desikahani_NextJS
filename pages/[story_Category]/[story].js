@@ -18,6 +18,7 @@ import { BeatLoader } from 'react-spinners'
 import BannerAds from '../../components/Ads/BannerAds'
 import Outstreams from '../../components/Ads/Outstream'
 import { BannedUrls } from '../../JsonData/BannedUrls'
+import DisqusComments from '../../components/DisqusComments'
 
 
 function Story({ story_details }) {
@@ -301,6 +302,8 @@ function Story({ story_details }) {
                 </div>
 
             </div>
+
+            <DisqusComments story_details={story_details}/>
 
             <BannerAds />
             <Outstreams />
