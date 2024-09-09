@@ -70,14 +70,15 @@ const Carousel = ({ imageUrls }) => {
             {/* Slider controls */}
             <button
                 type="button"
-                className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                className=" absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 onClick={handlePrev}
                 data-carousel-prev
             >
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <ChevronLeftIcon className="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" />
-                    <span className="sr-only">Previous</span>
-                </span>
+
+                <div className='h-10 w-10 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
+                    <ChevronLeftIcon className="w-4 h-4 text-white " aria-hidden="true" />
+                </div>
+
             </button>
 
             <button
@@ -86,10 +87,10 @@ const Carousel = ({ imageUrls }) => {
                 onClick={handleNext}
                 data-carousel-next
             >
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <ChevronRightIcon className="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" />
-                    <span className="sr-only">Next</span>
-                </span>
+                <div className='h-10 w-10 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
+                    <ChevronRightIcon className="w-4 h-4 text-white " aria-hidden="true" />
+                </div>
+
             </button>
         </div>
     );
