@@ -18,13 +18,7 @@ const Carousel = ({ imageUrls }) => {
         }
     }, [CarouselIndex, imageUrls.length]);
 
-    // Show thumbnails when an image is clicked and hide them after 3 seconds
-    useEffect(() => {
-        if (showThumbnails) {
-            const timer = setTimeout(() => setShowThumbnails(false), 100000);
-            return () => clearTimeout(timer);
-        }
-    }, [showThumbnails]);
+
 
     const handlePrev = () => {
         setCurrentIndex((prevIndex) =>
@@ -42,7 +36,7 @@ const Carousel = ({ imageUrls }) => {
 
     const handleIndicatorClick = (index) => {
         setCurrentIndex(index);
-        setShowThumbnails(true); // Show thumbnails when clicking on indicator
+        setShowThumbnails(true); 
     };
 
     return (
@@ -59,7 +53,7 @@ const Carousel = ({ imageUrls }) => {
                             src={image}
                             className="rounded-lg w-screen h-screen object-contain"
                             alt={`Slide ${index + 1}`}
-                            onClick={() => setShowThumbnails(true)}
+                            onClick={() => setShowThumbnails(!showThumbnails)}
                         />
                     </div>
                 ))}
