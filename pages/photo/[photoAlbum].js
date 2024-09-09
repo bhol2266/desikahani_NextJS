@@ -14,6 +14,7 @@ import Carousel from "../../components/Carousel";
 function Album({ data }) {
 
 
+  const { showCarousel, setshowCarausel, CarouselIndex, setCarouselIndex } = useContext(videosContext);
 
   const router = useRouter();
   if (router.isFallback) {
@@ -71,11 +72,11 @@ function Album({ data }) {
 
         <div className="flex flex-wrap justify-center">
         {data.imageArray.map((img, index) => (
-            <div key={index} className="relative overflow-hidden">
+            <div onClick={() => { setshowCarausel(true); setCarouselIndex(index) }} key={index} className="relative overflow-hidden">
               <img
                 src={img}
                 alt={img}
-                className="w-auto h-[200px] object-cover m-0.5 rounded object-cover transition-transform duration-300 ease-in-out transform hover:scale-110 "
+                className="w-auto h-[200px] object-cover m-1 rounded object-cover transition-transform duration-300 ease-in-out transform hover:scale-105 "
               />
             </div>
           ))}
