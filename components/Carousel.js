@@ -62,7 +62,7 @@ const Carousel = ({ imageUrls }) => {
             {/* Slider indicators */}
             <div
                 className={`absolute z-30 flex left-1/2 -translate-x-1/2 bottom-5 space-x-2 transition-opacity duration-300 w-full ${showThumbnails ? 'opacity-100' : 'opacity-0'}`}
-            
+            >
                 <div className='flex space-x-1 items-center justify-center w-full overflow-x-auto scrollbar-hide'>
                     {imageUrls.map((image, index) => (
                         <img
