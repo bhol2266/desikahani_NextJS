@@ -59,7 +59,7 @@ function MyApp({ Component, pageProps }) {
         <div className='bg-orange-50'>
 
           <div className=' 4xl:w-[85%] 3xl:w-[90%] flex mx-auto justify-center pt-1 md:pt-3  px-1   '>
-            <Sidebar />
+            {/* <Sidebar /> */}
             <Component {...pageProps} />
           </div>
         </div>

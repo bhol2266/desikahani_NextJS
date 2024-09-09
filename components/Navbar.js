@@ -1,25 +1,19 @@
-import { useState, useRef, useEffect, } from 'react';
-import { useContext } from 'react'
-import videosContext from '../context/videos/videosContext'
-import ReactCountryFlag from "react-country-flag"
+import { useContext, useEffect, useState } from 'react';
+import ReactCountryFlag from "react-country-flag";
+import videosContext from '../context/videos/videosContext';
 import { categories } from '../JsonData/stories/categories_list';
 
-import { Fragment } from 'react'
+import { Fragment } from 'react';
 
 import {
-
-} from '@heroicons/react/solid'
-import {
-    MoonIcon,
-    MenuIcon,
-    SunIcon,
-    ChevronDownIcon, UserIcon
-
-} from '@heroicons/react/outline'
+    ChevronDownIcon,
+    MenuIcon
+} from '@heroicons/react/outline';
+import { } from '@heroicons/react/solid';
 import { useRouter } from 'next/router';
 
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { XIcon } from '@heroicons/react/outline'
+import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 
 var navigation = [
@@ -111,7 +105,7 @@ function Navbar() {
 
 
 
-                                    <Disclosure.Button className="lg:hidden items-center justify-center   rounded-md text-black hover:text-white hover:bg-gray-700 p-2">
+                                    <Disclosure.Button className="lg:hidden items-center justify-center ring-0   rounded-md text-black hover:text-white hover:bg-orange-800 p-2">
                                         <span className="sr-only">Open main menu</span>
                                         {open ? (
                                             <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -134,22 +128,22 @@ function Navbar() {
                                 leaveTo="transform opacity-0 scale-95"
                             >
                                 <Disclosure.Panel className="sm:flex">
-                                    <div className="px-2 pt-2 pb-3 space-y-1">
+                                    <div className="px-2 pt-2 pb-3 space-y-1 w-full">
                                         {navigation.map((item) => (
 
 
-                                            <a href={item.href} key={item.name}  >
+                                            <Link href={item.href} key={item.name}  >
                                                 <Disclosure.Button
                                                     as="a"
                                                     className={classNames(
-                                                        item.current ? 'bg-sb text-white' : 'text-sb font-inter hover:bg-sb hover:text-white',
+                                                        item.current ? 'bg-orange-800 text-white' : 'text-sb font-inter hover:bg-orange-800 hover:text-white',
                                                         'block px-3 py-2 rounded-md  font-medium text-sb'
                                                     )}
                                                     aria-current={item.current ? 'page' : undefined}
                                                 >
                                                     {item.name}
                                                 </Disclosure.Button>
-                                            </a>
+                                            </Link>
                                         ))}
                                     </div>
                                 </Disclosure.Panel>

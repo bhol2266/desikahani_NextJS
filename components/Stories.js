@@ -9,7 +9,6 @@ function Stories({ stories }) {
             <div className='grid grid-cols-1 p-1 md:grid-cols-1 gap-2 md:gap-3 lg:gap-4'>
                 {
                     stories.map(story => {
-                        console.log(story.href);
                         return (
                             <StoryThumbnail key={story.Title} story_details={story} />
                         );

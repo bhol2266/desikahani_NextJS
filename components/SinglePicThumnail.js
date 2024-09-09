@@ -2,7 +2,8 @@ import { initializeApp } from 'firebase/app';
 import 'firebase/storage';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import videosContext from '../context/videos/videosContext';
 
 
 // Your Firebase configuration
@@ -21,21 +22,20 @@ const firebaseConfig = {
 
 
 function SinglePicThumnail({ picURL, index }) {
+    const { showCarousel, setshowCarausel, CarouselIndex, setCarouselIndex } = useContext(videosContext);
 
 
 
     return (
         <>
-            <div key={picURL} className={` mb-2 animate-fade flex   flex-col justify-center  cursor-pointer  shadow-md  border-2 rounded-lg overflow-hidden	 md:hover:scale-105 transform transition duration-150 bg-white`}>
-                <a target="_self" href={picURL}>
-                    <img
-                        loading="lazy"
-                        alt={picURL}
-                        src={picURL}
-                        height={1080}
-                        width={1920}
-                    ></img>
-                </a>
+            <div onClick={() => { setshowCarausel(true); setCarouselIndex(index) }} key={picURL} className={` mb-2 animate-fade flex   flex-col justify-center  cursor-pointer  shadow-md  border-2 rounded-lg overflow-hidden	 md:hover:scale-105 transform transition duration-150 bg-white`}>
+                <img
+                    loading="lazy"
+                    alt={picURL}
+                    src={picURL}
+                    height={1080}
+                    width={1920}
+                ></img>
             </div>
 
         </>
