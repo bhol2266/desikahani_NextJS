@@ -41,7 +41,7 @@ const Carousel = ({ imageUrls }) => {
 
     return (
         <div className={`${showCarousel ? "fixed" : "hidden"} inset-0 flex items-center justify-center bg-black bg-opacity-90 select-none`} data-carousel="slide">
-            <div className='absolute right-4 top-4 lg:top-8 lg:right-8 p-1 z-50 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
+            <div className='absolute right-4 top-4 lg:top-8 lg:right-8 p-3 z-50 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
                 <IoIosCloseCircleOutline onClick={() => { setshowCarausel(false) }} className="cursor-pointer  text-white text-[50px] lg:text-[70px] " />
             </div>
 
@@ -81,7 +81,7 @@ const Carousel = ({ imageUrls }) => {
             {/* Slider controls */}
             <button
                 type="button"
-                className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                className="select-none absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 onClick={handlePrev}
                 data-carousel-prev
             >
@@ -92,7 +92,7 @@ const Carousel = ({ imageUrls }) => {
 
             <button
                 type="button"
-                className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                className="select-none absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 onClick={handleNext}
                 data-carousel-next
             >
