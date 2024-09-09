@@ -69,8 +69,17 @@ function Album({ data }) {
           {title}
         </h1>
 
-        <div className={` grid grid-cols-2  gap-2 md:gap-3 lg:gap-4  md:grid-cols-3 `} >
-          {displaypics}
+        <div className="flex flex-wrap justify-center">
+        {data.imageArray.map((img, index) => (
+            <div key={index} className="relative overflow-hidden">
+              <img
+                src={img}
+                alt={img}
+                className="w-auto h-[200px] object-cover m-0.5 rounded object-cover transition-transform duration-300 ease-in-out transform hover:scale-110 "
+              />
+            </div>
+          ))}
+
         </div>
 
 

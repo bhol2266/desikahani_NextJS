@@ -1,6 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { IoIosCloseCircleOutline } from "react-icons/io";
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline';
+import React, { useContext, useEffect, useState } from 'react';
+import { IoIosClose } from "react-icons/io";
 
 import videosContext from '../context/videos/videosContext';
 
@@ -41,8 +41,8 @@ const Carousel = ({ imageUrls }) => {
 
     return (
         <div className={`${showCarousel ? "fixed" : "hidden"} inset-0 flex items-center justify-center bg-black bg-opacity-90 select-none`} data-carousel="slide">
-            <div className='absolute right-4 top-4 lg:top-8 lg:right-8 p-3 z-50 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
-                <IoIosCloseCircleOutline onClick={() => { setshowCarausel(false) }} className="cursor-pointer  text-gray-300 text-[30px] lg:text-[40px] " />
+            <div className='absolute right-4 top-4 lg:top-8 lg:right-8 p-2 z-50 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
+                <IoIosClose onClick={() => { setshowCarausel(false) }} className="cursor-pointer  text-gray-300 text-[30px] lg:text-[40px] " />
             </div>
 
             {/* Carousel wrapper */}
