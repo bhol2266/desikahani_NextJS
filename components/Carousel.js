@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline';
 
 import videosContext from '../context/videos/videosContext';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline';
 
 const Carousel = ({ imageUrls }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [showThumbnails, setShowThumbnails] = useState(false);
 
     // Get context values
     const { showCarousel, setshowCarausel, CarouselIndex } = useContext(videosContext);
@@ -17,68 +18,79 @@ const Carousel = ({ imageUrls }) => {
         }
     }, [CarouselIndex, imageUrls.length]);
 
+    // Show thumbnails when an image is clicked and hide them after 3 seconds
+    useEffect(() => {
+        if (showThumbnails) {
+            const timer = setTimeout(() => setShowThumbnails(false), 100000);
+            return () => clearTimeout(timer);
+        }
+    }, [showThumbnails]);
+
     const handlePrev = () => {
         setCurrentIndex((prevIndex) =>
             prevIndex === 0 ? imageUrls.length - 1 : prevIndex - 1
         );
+        setShowThumbnails(true); // Show thumbnails when navigating
     };
 
     const handleNext = () => {
         setCurrentIndex((prevIndex) =>
             prevIndex === imageUrls.length - 1 ? 0 : prevIndex + 1
         );
+        setShowThumbnails(true); // Show thumbnails when navigating
     };
 
     const handleIndicatorClick = (index) => {
         setCurrentIndex(index);
+        setShowThumbnails(true); // Show thumbnails when clicking on indicator
     };
 
     return (
-        <div className={`${showCarousel ? "fixed" : "hidden"}  inset-0 flex items-center justify-center bg-black bg-opacity-90 select-none`} data-carousel="slide">
-
+        <div className={`${showCarousel ? "fixed" : "hidden"} inset-0 flex items-center justify-center bg-black bg-opacity-90 select-none`} data-carousel="slide">
 
             <IoIosCloseCircleOutline onClick={() => { setshowCarausel(false) }} className="cursor-pointer absolute z-50 text-white text-[50px] lg:text-[70px] right-4 top-4 lg:top-8 lg:right-8 p-1" />
 
             {/* Carousel wrapper */}
-            <div className="w-full">
+            <div className="relative w-full">
                 {imageUrls.map((image, index) => (
                     <div key={index} className={`${index === currentIndex ? 'block' : 'hidden'} duration-700 ease-in-out`} data-carousel-item>
                         <img
                             src={image}
                             className="rounded-lg w-screen h-screen object-contain"
                             alt={`Slide ${index + 1}`}
+                            onClick={() => setShowThumbnails(true)}
                         />
                     </div>
                 ))}
             </div>
 
             {/* Slider indicators */}
-            <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-                {imageUrls.map((_, index) => (
-                    <button
-                        key={index}
-                        type="button"
-                        className={`w-3 h-3 rounded-full ${index === currentIndex ? 'bg-gray-800' : 'bg-gray-300'}`}
-                        aria-current={index === currentIndex}
-                        aria-label={`Slide ${index + 1}`}
-                        onClick={() => handleIndicatorClick(index)}
-                        data-carousel-slide-to={index}
-                    />
-                ))}
+            <div className={`absolute z-30 flex left-1/2 -translate-x-1/2 bottom-5 space-x-2 transition-opacity duration-300 w-full ${showThumbnails ? 'opacity-100' : 'opacity-0'}`}>
+                <div className='flex space-x-1 items-center justify-center w-full'>
+
+                    {imageUrls.map((image, index) => (
+                        <img
+                            key={index}
+                            src={image}
+                            className={` h-16 w-12 object-cover rounded-lg cursor-pointer ${index === currentIndex ? 'border-2 border-white scale-125' : ''}`}
+                            alt={`Thumbnail ${index + 1}`}
+                            onClick={() => handleIndicatorClick(index)}
+                            aria-label={`Thumbnail ${index + 1}`}
+                        />
+                    ))}
+                </div>
             </div>
 
             {/* Slider controls */}
             <button
                 type="button"
-                className=" absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 onClick={handlePrev}
                 data-carousel-prev
             >
-
                 <div className='h-10 w-10 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
                     <ChevronLeftIcon className="w-4 h-4 text-white " aria-hidden="true" />
                 </div>
-
             </button>
 
             <button
@@ -90,7 +102,6 @@ const Carousel = ({ imageUrls }) => {
                 <div className='h-10 w-10 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
                     <ChevronRightIcon className="w-4 h-4 text-white " aria-hidden="true" />
                 </div>
-
             </button>
         </div>
     );
