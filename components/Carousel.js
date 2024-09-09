@@ -1,12 +1,12 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { IoIosClose } from "react-icons/io";
-
 import videosContext from '../context/videos/videosContext';
 
 const Carousel = ({ imageUrls }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showThumbnails, setShowThumbnails] = useState(false);
+    const thumbnailsRef = useRef(null);
 
     // Get context values
     const { showCarousel, setshowCarausel, CarouselIndex } = useContext(videosContext);
@@ -18,7 +18,22 @@ const Carousel = ({ imageUrls }) => {
         }
     }, [CarouselIndex, imageUrls.length]);
 
-
+    // Center the selected thumbnail when currentIndex changes
+    useEffect(() => {
+        if (thumbnailsRef.current) {
+            const thumbnailElements = thumbnailsRef.current.children;
+            const selectedThumbnail = thumbnailElements[currentIndex];
+            if (selectedThumbnail) {
+                const containerWidth = thumbnailsRef.current.clientWidth;
+                const thumbnailWidth = selectedThumbnail.clientWidth;
+                const scrollLeft = selectedThumbnail.offsetLeft - (containerWidth / 2) + (thumbnailWidth / 2);
+                thumbnailsRef.current.scrollTo({
+                    left: scrollLeft,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    }, [currentIndex]);
 
     const handlePrev = () => {
         setCurrentIndex((prevIndex) =>
@@ -42,7 +57,7 @@ const Carousel = ({ imageUrls }) => {
     return (
         <div className={`${showCarousel ? "fixed" : "hidden"} inset-0 flex items-center justify-center bg-black bg-opacity-90 select-none`} data-carousel="slide">
             <div className='absolute right-4 top-4 lg:top-8 lg:right-8 p-2 z-50 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
-                <IoIosClose onClick={() => { setshowCarausel(false) }} className="cursor-pointer  text-gray-300 text-[30px] lg:text-[40px] " />
+                <IoIosClose onClick={() => { setshowCarausel(false) }} className="cursor-pointer text-gray-300 text-[30px] lg:text-[40px]" />
             </div>
 
             {/* Carousel wrapper */}
@@ -61,14 +76,14 @@ const Carousel = ({ imageUrls }) => {
 
             {/* Slider indicators */}
             <div
-                className={`absolute z-30 flex left-1/2 -translate-x-1/2 bottom-5 space-x-2 transition-opacity duration-300 w-full ${showThumbnails ? 'opacity-100' : 'opacity-0'}`}
+                className={`absolute z-30 flex left-1/2 -translate-x-1/2 bottom-5 transition-opacity duration-300 w-full ${showThumbnails ? 'opacity-100' : 'opacity-0'}`}
             >
-                <div className='flex space-x-1 items-center justify-center w-full'>
+                <div ref={thumbnailsRef} className='flex space-x-1 items-center mx-auto overflow-x-auto scrollbar-hide px-4'>
                     {imageUrls.map((image, index) => (
                         <img
                             key={index}
                             src={image}
-                            className={`h-16 w-12 object-cover rounded-lg cursor-pointer transition-transform duration-300 ${index === currentIndex ? 'border-2 border-white scale-125' : ''}`}
+                            className={`h-16 w-12 object-cover rounded-lg cursor-pointer transition-transform duration-300 my-2 ${index === currentIndex ? 'border-2 border-white scale-125 z-30' : ''}`}
                             alt={`Thumbnail ${index + 1}`}
                             onClick={() => handleIndicatorClick(index)}
                             aria-label={`Thumbnail ${index + 1}`}
@@ -77,27 +92,26 @@ const Carousel = ({ imageUrls }) => {
                 </div>
             </div>
 
-
             {/* Slider controls */}
             <button
                 type="button"
-                className="select-none absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                className="select-none absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none focus:ring-0"
                 onClick={handlePrev}
                 data-carousel-prev
             >
                 <div className='h-10 w-10 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
-                    <ChevronLeftIcon className="w-4 h-4 text-white " aria-hidden="true" />
+                    <ChevronLeftIcon className="w-4 h-4 text-white" aria-hidden="true" />
                 </div>
             </button>
 
             <button
                 type="button"
-                className="select-none absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                className="select-none absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none focus:ring-0"
                 onClick={handleNext}
                 data-carousel-next
             >
                 <div className='h-10 w-10 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
-                    <ChevronRightIcon className="w-4 h-4 text-white " aria-hidden="true" />
+                    <ChevronRightIcon className="w-4 h-4 text-white" aria-hidden="true" />
                 </div>
             </button>
         </div>
