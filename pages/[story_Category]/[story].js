@@ -303,7 +303,9 @@ function Story({ story_details }) {
 
             </div>
 
-            <DisqusComments story_details={story_details}/>
+    
+
+            <DisqusComments data={{ identifier: story_details.href, title: story_details.Title }} />
 
             <BannerAds />
             <Outstreams />

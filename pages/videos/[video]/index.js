@@ -13,6 +13,7 @@ import { BeatLoader } from 'react-spinners'
 import Outstreams from '../../../components/Ads/Outstream'
 import Videos from '../../../components/Videos'
 import videosContext from '../../../context/videos/videosContext'
+import DisqusComments from '../../../components/DisqusComments'
 
 
 function Video({ video_details, relatetdVideos }) {
@@ -22,7 +23,7 @@ function Video({ video_details, relatetdVideos }) {
 
     const [VideoErrorCounter, setVideoErrorCounter] = useState(0);
 
-  
+
 
     const router = useRouter();
     if (router.isFallback) {
@@ -111,6 +112,9 @@ function Video({ video_details, relatetdVideos }) {
                 <p className='mt-4 mb-2  text-lg text-red-800 font-semibold px-2'>ऐसी ही कुछ और वीडियो</p>
 
                 < Videos finalDataArray={relatetdVideos} />
+
+                <DisqusComments data={{ identifier: video_details.id, title: video_details.title }} />
+
 
                 <div className='sm:flex items-center justify-center sm:w-1/2 lg:w-1/4 mx-auto mt-4'>
                     <Outstreams />

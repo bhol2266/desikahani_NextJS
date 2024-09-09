@@ -1,18 +1,21 @@
 import React from 'react'
 import { DiscussionEmbed } from 'disqus-react'
 
-const DisqusComments = ({ story_details }) => {
+const DisqusComments = ({ data }) => {
 
 
   const pageurl = typeof window !== 'undefined' ? window.location.href : ""
   const disqusConfig = {
     url: pageurl,
-    identifier: story_details.href,
-    title: story_details.Title
+    identifier: data.identifier,
+    title: data.title
   }
   return (
-    <DiscussionEmbed shortname='https-www-hindisexstory-app' config={disqusConfig} />
+    <div className='mt-6'>
 
+      <DiscussionEmbed shortname='https-www-hindisexstory-app' config={disqusConfig} />
+
+    </div>
 
   )
 }
