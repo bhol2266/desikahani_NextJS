@@ -76,14 +76,14 @@ const Carousel = ({ imageUrls }) => {
 
             {/* Slider indicators */}
             <div
-                className={`absolute z-30 flex left-1/2 -translate-x-1/2 bottom-5 transition-opacity duration-300 w-full ${showThumbnails ? 'opacity-100' : 'opacity-0'}`}
+                className={`absolute z-40 flex left-1/2 -translate-x-1/2 bottom-5 transition-opacity duration-300 w-full ${showThumbnails ? 'opacity-100' : 'opacity-0'}`}
             >
                 <div ref={thumbnailsRef} className='flex space-x-1 items-center mx-auto overflow-x-auto scrollbar-hide px-4'>
                     {imageUrls.map((image, index) => (
                         <img
                             key={index}
                             src={image}
-                            className={`h-16 w-12 object-cover rounded-lg cursor-pointer transition-transform duration-300 my-2 ${index === currentIndex ? 'border-2 border-white scale-125 z-30' : ''}`}
+                            className={`h-16 w-12 object-cover rounded-lg cursor-pointer transition-transform duration-300 my-2 ${index === currentIndex ? 'border-2 border-white scale-125 z-50' : ''}`}
                             alt={`Thumbnail ${index + 1}`}
                             onClick={() => handleIndicatorClick(index)}
                             aria-label={`Thumbnail ${index + 1}`}
