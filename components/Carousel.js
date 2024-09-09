@@ -47,8 +47,9 @@ const Carousel = ({ imageUrls }) => {
 
     return (
         <div className={`${showCarousel ? "fixed" : "hidden"} inset-0 flex items-center justify-center bg-black bg-opacity-90 select-none`} data-carousel="slide">
-
-            <IoIosCloseCircleOutline onClick={() => { setshowCarausel(false) }} className="cursor-pointer absolute z-50 text-white text-[50px] lg:text-[70px] right-4 top-4 lg:top-8 lg:right-8 p-1" />
+            <div className='absolute right-4 top-4 lg:top-8 lg:right-8 p-1 z-50 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
+                <IoIosCloseCircleOutline onClick={() => { setshowCarausel(false) }} className="cursor-pointer  text-white text-[50px] lg:text-[70px] " />
+            </div>
 
             {/* Carousel wrapper */}
             <div className="relative w-full">

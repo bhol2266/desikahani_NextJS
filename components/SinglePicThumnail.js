@@ -28,7 +28,7 @@ function SinglePicThumnail({ picURL, index }) {
 
     return (
         <>
-            <div onClick={() => { setshowCarausel(true); setCarouselIndex(index) }} key={picURL} className={` mb-2 animate-fade flex   flex-col justify-center  cursor-pointer  shadow-md  border-2 rounded-lg overflow-hidden	 md:hover:scale-105 transform transition duration-150 bg-white`}>
+            <div onClick={() => { setshowCarausel(true); setCarouselIndex(index) }} key={picURL} className={` mb-2 animate-fade flex   flex-col justify-center  cursor-pointer   rounded-lg overflow-hidden	 md:hover:scale-105 transform transition duration-150 bg-transparent`}>
                 <img
                     loading="lazy"
                     alt={picURL}
