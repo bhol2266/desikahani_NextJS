@@ -36,7 +36,7 @@ const Carousel = ({ imageUrls }) => {
 
     const handleIndicatorClick = (index) => {
         setCurrentIndex(index);
-        setShowThumbnails(true); 
+        setShowThumbnails(true);
     };
 
     return (
@@ -60,14 +60,15 @@ const Carousel = ({ imageUrls }) => {
             </div>
 
             {/* Slider indicators */}
-            <div className={`absolute z-30 flex left-1/2 -translate-x-1/2 bottom-5 space-x-2 transition-opacity duration-300 w-full ${showThumbnails ? 'opacity-100' : 'opacity-0'}`}>
-                <div className='flex space-x-1 items-center justify-center w-full'>
-
+            <div
+                className={`absolute z-30 flex left-1/2 -translate-x-1/2 bottom-5 space-x-2 transition-opacity duration-300 w-full ${showThumbnails ? 'opacity-100' : 'opacity-0'}`}
+            
+                <div className='flex space-x-1 items-center justify-center w-full overflow-x-auto scrollbar-hide'>
                     {imageUrls.map((image, index) => (
                         <img
                             key={index}
                             src={image}
-                            className={` h-16 w-12 object-cover rounded-lg cursor-pointer ${index === currentIndex ? 'border-2 border-white scale-125' : ''}`}
+                            className={`h-16 w-12 object-cover rounded-lg cursor-pointer transition-transform duration-300 ${index === currentIndex ? 'border-2 border-white scale-125' : ''}`}
                             alt={`Thumbnail ${index + 1}`}
                             onClick={() => handleIndicatorClick(index)}
                             aria-label={`Thumbnail ${index + 1}`}
@@ -75,6 +76,7 @@ const Carousel = ({ imageUrls }) => {
                     ))}
                 </div>
             </div>
+
 
             {/* Slider controls */}
             <button
