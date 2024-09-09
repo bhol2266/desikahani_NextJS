@@ -98,6 +98,8 @@ const Carousel = ({ imageUrls }) => {
                 className="select-none absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none focus:ring-0"
                 onClick={handlePrev}
                 data-carousel-prev
+                style={{ WebkitTapHighlightColor: 'transparent' }}
+
             >
                 <div className='h-10 w-10 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
                     <ChevronLeftIcon className="w-4 h-4 text-white" aria-hidden="true" />
@@ -109,6 +111,8 @@ const Carousel = ({ imageUrls }) => {
                 className="select-none absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none focus:ring-0"
                 onClick={handleNext}
                 data-carousel-next
+                style={{ WebkitTapHighlightColor: 'transparent' }}
+
             >
                 <div className='h-10 w-10 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
                     <ChevronRightIcon className="w-4 h-4 text-white" aria-hidden="true" />
