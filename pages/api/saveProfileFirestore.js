@@ -27,6 +27,8 @@ if (!admin.apps.length) {
 
 const db = admin.firestore();
 
+
+
 export async function saveUserProfile(firstName, lastName, email, profilePic, hashpass, verified, country, loggedIn, membership, keywords) {
     const data = {
         firstName,

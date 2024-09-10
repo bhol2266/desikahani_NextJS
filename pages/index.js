@@ -1,15 +1,20 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import Script from 'next/script';
-import { useContext, useEffect } from 'react';
-import React from 'react';
-import videosContext from '../context/videos/videosContext';
+import React, { useContext, useEffect } from 'react';
 import Pagination from '../components/Pagination';
 import Stories from '../components/Stories';
-import Link from 'next/link';
+import videosContext from '../context/videos/videosContext';
+
+
+
 export default function Home({ finalDataArray, pagination_nav_pages, currentPage }) {
   const { setcurrentLocation } = useContext(videosContext);
 
   useEffect(() => {
+
+
+
     async function fetchData() {
       let location = {};
       if (localStorage.getItem("location") === null) {

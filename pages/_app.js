@@ -1,17 +1,16 @@
 import Head from 'next/head'
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
 import NProgress from 'nprogress'
 import Footer from '../components/Footer'
 import { ModalFeedbackForm } from '../components/ModalFeedbackForm'
 import Navbar from '../components/Navbar'
-import Sidebar from '../components/Sidebar'
 import VideoState from '../context/videos/VideoState'
 import '../styles/globals.css'
 import '../styles/nProgress.css'
-import { useRouter } from 'next/router'
 
+import { useEffect } from 'react'
 import VideoFilterButton from '../components/VideoFilterButton'
-import Outstreams from '../components/Ads/Outstream'
+import { subscribeToTopic } from '../firebase'
 function MyApp({ Component, pageProps }) {
 
   const router = useRouter();
@@ -29,6 +28,11 @@ function MyApp({ Component, pageProps }) {
 
 
 
+  useEffect(() => {
+  
+    subscribeToTopic()
+
+  }, [])
 
 
   return (

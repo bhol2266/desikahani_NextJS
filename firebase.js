@@ -1,11 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getMessaging, getToken } from 'firebase/messaging';
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCqjCkKYZSOnpXpWxtgp1yxEIv8WxkaZTo",
   authDomain: "desikahaninextjs-ffab3.firebaseapp.com",
@@ -18,3 +15,57 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+let messaging;
+if (typeof window !== 'undefined') {
+  // Code that depends on `window` or `navigator`
+  import('firebase/messaging').then(({ getMessaging }) => {
+    messaging = getMessaging(app);
+  });
+}
+
+
+
+async function generateFCMToken() {
+  const permission = await Notification.requestPermission()
+  
+
+  if (permission === "granted") {
+    const token = await getToken(messaging, { vapidKey: 'BEiYd6zjEbT9O_yiU6hYTNRdbufiNQTn_To8jv7StZjPAIJaG7RsTG_afRmr5ebY4nkIUZVI_fI_b_K8_dWye2M' });
+    return token
+  }
+
+  return null
+
+}
+
+
+async function subscribeToTopic() {
+  const token = await generateFCMToken()
+  if (token == null) {
+    return
+  }
+
+  try {
+    console.log(token);
+    
+    const response = await fetch("/api/subscribeToTopic", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ token, topic: "all" }),
+    });
+    const data = await response.json();
+    if (data.success) {
+      console.log(`Successfully subscribed to topic: all`);
+    } else {
+      console.log(`Failed to subscribe to topic: ${data.message}`);
+    }
+  } catch (error) {
+    console.error("Error subscribing to topic:", error);
+  }
+}
+
+
+
+export { generateFCMToken, subscribeToTopic };
