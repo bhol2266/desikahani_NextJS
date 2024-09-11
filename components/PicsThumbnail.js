@@ -1,21 +1,9 @@
 import 'firebase/storage';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import PopunderAds from './Ads/Popunder';
-import Outstreams from './Ads/Outstream';
 import BannerAds from './Ads/BannerAds';
+import PopunderAds from './Ads/Popunder';
 
-
-// Your Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyCqjCkKYZSOnpXpWxtgp1yxEIv8WxkaZTo",
-    authDomain: "desikahaninextjs-ffab3.firebaseapp.com",
-    projectId: "desikahaninextjs-ffab3",
-    storageBucket: "desikahaninextjs-ffab3.appspot.com",
-    messagingSenderId: "21881549608",
-    appId: "1:21881549608:web:b0bfec2a195101cd2b161d",
-    measurementId: "G-3YK1YFJBV1"
-};
 
 
 function PicsThumbnail({ data }) {
@@ -27,6 +15,47 @@ function PicsThumbnail({ data }) {
     const url = data.fullalbum_href;
     const parts = url.split('/');
     const href = parts[parts.length - 2];
+
+    const [imageSrc, setImageSrc] = useState(data.thumbnail);
+
+
+    const handleImageError = async () => {
+        try {
+            // Send a POST request with the image URL in the request body
+            const response = await fetch('/api/getImageData', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url: data.thumbnail }),
+            });
+
+            // Check if the response is OK
+            if (!response.ok) {
+                throw new Error('Failed to fetch image data');
+            }
+
+            // Parse the JSON response to get the base64-encoded string
+            const dataa = await response.json();
+            const base64Image = dataa.base64;
+            console.log(base64Image);
+
+            // Update the image source
+            setImageSrc(base64Image);
+        } catch (error) {
+            console.error('Error fetching image data:', error);
+            // Optionally handle the error (e.g., show a placeholder image)
+            setImageSrc('/path/to/placeholder-image.jpg'); // Fallback placeholder image
+        }
+    };
+
+
+
+
+
+
+
+
 
     return (
         <div>
@@ -40,7 +69,9 @@ function PicsThumbnail({ data }) {
                         className='object-contain '
                         loading="lazy"
                         alt={data.Title}
-                        src={data.thumbnail}
+                        src={imageSrc}
+                        onError={handleImageError} // Call this function if the image fails to load
+
 
                     ></img>
                     <h1 className='text-xs lg:text-sm p-1 font-bold font-inter'>{data.title}</h1>

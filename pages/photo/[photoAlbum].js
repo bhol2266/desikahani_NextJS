@@ -35,12 +35,7 @@ function Album({ data }) {
     } catch (error) { }
   }
 
-  const displaypics = data.imageArray.map((picURL, index) => {
-    let indexx = index + 1;
-    return (
-      <SinglePicThumnail key={picURL} picURL={picURL} index={index} />
-    );
-  });
+  
 
   const relatedPics = data.relatedAlbums.map((picData) => {
     return <PicsThumbnail key={picData.title} data={picData} />;
@@ -71,14 +66,9 @@ function Album({ data }) {
         </h1>
 
         <div className="flex flex-wrap justify-center">
-        {data.imageArray.map((img, index) => (
-            <div onClick={() => { setshowCarausel(true); setCarouselIndex(index) }} key={index} className="relative overflow-hidden">
-              <img
-                src={img}
-                alt={img}
-                className="w-auto h-[200px] object-cover m-1 rounded object-cover transition-transform duration-300 ease-in-out transform hover:scale-105 "
-              />
-            </div>
+
+          {data.imageArray.map((img, index) => (
+            <SinglePicThumnail key={img} picURL={img} index={index} />
           ))}
 
         </div>
