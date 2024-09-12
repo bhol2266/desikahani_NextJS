@@ -14,6 +14,7 @@ import Outstreams from '../../../components/Ads/Outstream'
 import Videos from '../../../components/Videos'
 import videosContext from '../../../context/videos/videosContext'
 import DisqusComments from '../../../components/DisqusComments'
+import Script from 'next/script'
 
 
 function Video({ video_details, relatetdVideos }) {
@@ -62,14 +63,29 @@ function Video({ video_details, relatetdVideos }) {
             </div>
 
 
+            <Script
+                src="//imasdk.googleapis.com/js/sdkloader/ima3.js"
+                onLoad={() => {
+                    const script = document.createElement("script");
+                    script.src = "/vastAd.js";
+                    document.body.appendChild(script);
+                }}
+            />
+
+
             <div className=' hover:brightness-75 group  relative mb-4 xl:mb-8 '>
 
-                <div className=' shadow-2xl mb-2'>
+                <div id="mainContainer" className={`relative w-full aspect-video object-contain  group  shadow-2xl sm:ml-2 lg:ml-4  mb-2`}>
 
-                    <video key={video_details.videoSrc} ref={videoPlayerRef} poster={video_details.thumbnail} autoPlay className={`w-full aspect-video object-contain`} width="852" height="480 " controls >
+                    <video id="contentElement" key={video_details.videoSrc} ref={videoPlayerRef} poster={video_details.thumbnail} autoPlay className={`w-full aspect-video object-contain`} width="852" height="480 " controls >
                         <source onError={videoErrorHandling} src={video_details.videoSrc} type="video/mp4" />
 
                     </video>
+
+                    <div className={`absolute top-0 left-0 `} id="adContainer"></div>
+                    <button className="hidden" id="playButton">Play</button>
+
+
                 </div>
 
 
