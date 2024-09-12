@@ -30,6 +30,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     subscribeToTopic() //firebase push notification 
+
   }, [])
 
 
