@@ -73,7 +73,7 @@ function Video({ video_details, relatetdVideos }) {
             />
 
 
-            <div className=' hover:brightness-75 group  relative mb-4 xl:mb-8 '>
+            <div className=' hover:brightness-90 group  relative mb-4 xl:mb-8 '>
 
                 <div id="mainContainer" className={`relative w-full aspect-video object-contain  group  shadow-2xl sm:ml-2 lg:ml-4  mb-2`}>
 
