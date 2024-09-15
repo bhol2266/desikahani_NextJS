@@ -207,7 +207,6 @@ export async function getStaticProps(context) {
 
     const resData = await rawResponse.json();
 
-    console.log(resData.video_details);
 
     return {
         props: {

@@ -7,6 +7,8 @@ const Carousel = ({ imageUrls }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showThumbnails, setShowThumbnails] = useState(false);
     const thumbnailsRef = useRef(null);
+    const [images, setImages] = useState(imageUrls);
+
 
     // Get context values
     const { showCarousel, setshowCarausel, CarouselIndex } = useContext(videosContext);
@@ -54,6 +56,41 @@ const Carousel = ({ imageUrls }) => {
         setShowThumbnails(true);
     };
 
+
+
+
+    const handleImageError = async () => {
+        try {
+            // Send a POST request with the image URL in the request body
+            const response = await fetch('/api/getImageData', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url: picURL }),
+            });
+
+            // Check if the response is OK
+            if (!response.ok) {
+                throw new Error('Failed to fetch image data');
+            }
+
+            // Parse the JSON response to get the base64-encoded string
+            const data = await response.json();
+            const base64Image = data.base64;
+
+            const updatedImages = [...images];
+            updatedImages[index] = base64Image;
+
+            // Set the updated images array
+            setImages(updatedImages);
+
+        } catch (error) {
+            console.error('Error fetching image data:', error);
+        }
+    };
+
+
     return (
         <div className={`${showCarousel ? "fixed" : "hidden"} inset-0 flex items-center justify-center bg-black bg-opacity-90 select-none`} data-carousel="slide">
             <div className='absolute right-4 top-4 lg:top-8 lg:right-8 p-2 z-50 rounded-full bg-black bg-opacity-50 flex justify-center items-center'>
@@ -62,8 +99,12 @@ const Carousel = ({ imageUrls }) => {
 
             {/* Carousel wrapper */}
             <div className="relative w-full">
-                {imageUrls.map((image, index) => (
-                    <div key={index} className={`${index === currentIndex ? 'block' : 'hidden'} duration-700 ease-in-out`} data-carousel-item>
+                {images.map((image, index) => (
+                    <div
+                        key={index}
+                        className={`${index === currentIndex ? 'block' : 'hidden'} duration-700 ease-in-out`}
+                        data-carousel-item
+                    >
                         <img
                             src={image}
                             className="rounded-lg w-screen h-screen object-contain"
@@ -79,7 +120,7 @@ const Carousel = ({ imageUrls }) => {
                 className={`absolute z-40 flex left-1/2 -translate-x-1/2 bottom-5 transition-opacity duration-300 w-full ${showThumbnails ? 'opacity-100' : 'opacity-0'}`}
             >
                 <div ref={thumbnailsRef} className='flex space-x-1 items-center mx-auto overflow-x-auto scrollbar-hide px-4'>
-                    {imageUrls.map((image, index) => (
+                    {images.map((image, index) => (
                         <img
                             key={index}
                             src={image}
@@ -87,6 +128,8 @@ const Carousel = ({ imageUrls }) => {
                             alt={`Thumbnail ${index + 1}`}
                             onClick={() => handleIndicatorClick(index)}
                             aria-label={`Thumbnail ${index + 1}`}
+                            onError={() => handleImageError(index)}
+
                         />
                     ))}
                 </div>
