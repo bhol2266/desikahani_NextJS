@@ -69,7 +69,6 @@ const Carousel = ({ imageUrls }) => {
                             className="rounded-lg w-screen h-screen object-contain"
                             alt={`Slide ${index + 1}`}
                             onClick={() => setShowThumbnails(!showThumbnails)}
-                            onError={handleImageError}
                         />
                     </div>
                 ))}
