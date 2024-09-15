@@ -355,14 +355,14 @@ export async function getStaticProps(context) {
 
     if (isAudioStory) {
 
-        const rawResponse2 = fetch(`${process.env.CLOUDFLARE_WORKER}uploadAudio_CloudflareR2`, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ story: story, audiolink: story_details.data.audiolink })
-        });
+        // const rawResponse2 = fetch(`${process.env.CLOUDFLARE_WORKER}uploadAudio_CloudflareR2`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({ story: story, audiolink: story_details.data.audiolink })
+        // });
 
     }
 
