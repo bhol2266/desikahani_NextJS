@@ -16,6 +16,11 @@ function Album({ data }) {
 
   const { showCarousel, setshowCarausel, CarouselIndex, setCarouselIndex, setImageUrls } = useContext(videosContext);
 
+  useEffect(() => {
+    setImageUrls(data.imageArray)
+  }, [])
+
+
   const router = useRouter();
   if (router.isFallback) {
     return (
@@ -25,9 +30,7 @@ function Album({ data }) {
     );
   }
 
-  useEffect(() => {
-    setImageUrls(data.imageArray)
-  }, [])
+  
 
 
   const { photoAlbum } = router.query;
