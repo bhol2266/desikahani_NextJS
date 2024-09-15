@@ -1,8 +1,8 @@
-import { MdOutlineRemoveRedEye } from "react-icons/md";
-import Link from 'next/link';
-import { FaRegThumbsUp } from "react-icons/fa";
 import { ClockIcon } from "@heroicons/react/solid";
+import Link from 'next/link';
 import { useState } from "react";
+import { FaRegThumbsUp } from "react-icons/fa";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
 
 function VideoThumbnail({ videoObj }) {
 

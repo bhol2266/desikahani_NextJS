@@ -17,8 +17,8 @@ import {
 import { BeatLoader } from 'react-spinners'
 import BannerAds from '../../components/Ads/BannerAds'
 import Outstreams from '../../components/Ads/Outstream'
-import { BannedUrls } from '../../JsonData/BannedUrls'
 import DisqusComments from '../../components/DisqusComments'
+import { BannedUrls } from '../../JsonData/BannedUrls'
 
 
 function Story({ story_details }) {

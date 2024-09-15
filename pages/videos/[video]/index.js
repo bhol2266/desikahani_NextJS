@@ -1,28 +1,18 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import React, { useContext, useEffect, useState } from 'react'
 import {
     ClockIcon,
-    CogIcon,
     EyeIcon,
-    LockClosedIcon,
-    MinusIcon,
-    PlusIcon,
+    TagIcon,
     ThumbUpIcon
 } from '@heroicons/react/solid';
-import {
-    TagIcon,
-    VideoCameraIcon
-} from '@heroicons/react/solid'
-import { getCookie, setCookie } from 'cookies-next'
-import { useRef } from 'react'
-import { BeatLoader } from 'react-spinners'
-import Outstreams from '../../../components/Ads/Outstream'
-import Videos from '../../../components/Videos'
-import videosContext from '../../../context/videos/videosContext'
-import DisqusComments from '../../../components/DisqusComments'
-import Script from 'next/script'
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Script from 'next/script';
+import React, { useRef, useState } from 'react';
+import { BeatLoader } from 'react-spinners';
+import Outstreams from '../../../components/Ads/Outstream';
+import DisqusComments from '../../../components/DisqusComments';
+import Videos from '../../../components/Videos';
 
 import { FaCloudUploadAlt } from "react-icons/fa";
 
