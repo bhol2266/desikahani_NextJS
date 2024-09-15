@@ -3,15 +3,17 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { IoIosClose } from "react-icons/io";
 import videosContext from '../context/videos/videosContext';
 
-const Carousel = ({ imageUrls }) => {
+
+const Carousel = () => {
+
+    const { showCarousel, setshowCarausel, CarouselIndex, imageUrls,setImageUrls } = useContext(videosContext);
+
+
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showThumbnails, setShowThumbnails] = useState(false);
     const thumbnailsRef = useRef(null);
-    const [images, setImages] = useState(imageUrls);
 
 
-    // Get context values
-    const { showCarousel, setshowCarausel, CarouselIndex } = useContext(videosContext);
 
     // Update currentIndex when CarouselIndex from context changes
     useEffect(() => {
@@ -83,12 +85,13 @@ const Carousel = ({ imageUrls }) => {
             updatedImages[index] = base64Image;
 
             // Set the updated images array
-            setImages(updatedImages);
+            setImageUrls(updatedImages);
 
         } catch (error) {
             console.error('Error fetching image data:', error);
         }
     };
+
 
 
     return (
@@ -99,7 +102,7 @@ const Carousel = ({ imageUrls }) => {
 
             {/* Carousel wrapper */}
             <div className="relative w-full">
-                {images.map((image, index) => (
+                {imageUrls.map((image, index) => (
                     <div
                         key={index}
                         className={`${index === currentIndex ? 'block' : 'hidden'} duration-700 ease-in-out`}
@@ -120,7 +123,7 @@ const Carousel = ({ imageUrls }) => {
                 className={`absolute z-40 flex left-1/2 -translate-x-1/2 bottom-5 transition-opacity duration-300 w-full ${showThumbnails ? 'opacity-100' : 'opacity-0'}`}
             >
                 <div ref={thumbnailsRef} className='flex space-x-1 items-center mx-auto overflow-x-auto scrollbar-hide px-4'>
-                    {images.map((image, index) => (
+                    {imageUrls.map((image, index) => (
                         <img
                             key={index}
                             src={image}

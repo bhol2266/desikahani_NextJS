@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BeatLoader } from "react-spinners";
 import Outstreams from "../../components/Ads/Outstream";
 import PicsThumbnail from "../../components/PicsThumbnail";
@@ -14,7 +14,7 @@ import Carousel from "../../components/Carousel";
 function Album({ data }) {
 
 
-  const { showCarousel, setshowCarausel, CarouselIndex, setCarouselIndex } = useContext(videosContext);
+  const { showCarousel, setshowCarausel, CarouselIndex, setCarouselIndex, setImageUrls } = useContext(videosContext);
 
   const router = useRouter();
   if (router.isFallback) {
@@ -24,6 +24,10 @@ function Album({ data }) {
       </div>
     );
   }
+
+  useEffect(() => {
+    setImageUrls(data.imageArray)
+  }, [])
 
 
   const { photoAlbum } = router.query;
@@ -35,7 +39,7 @@ function Album({ data }) {
     } catch (error) { }
   }
 
-  
+
 
   const relatedPics = data.relatedAlbums.map((picData) => {
     return <PicsThumbnail key={picData.title} data={picData} />;
@@ -98,7 +102,7 @@ function Album({ data }) {
         ))}
       </div>
 
-      <Carousel imageUrls={data.imageArray} />
+      <Carousel />
       <Outstreams />
     </div>
   );
