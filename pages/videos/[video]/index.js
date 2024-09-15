@@ -67,9 +67,9 @@ function Video({ video_details, relatetdVideos }) {
                 <meta name="description" content={"video_details.description"} />
 
             </Head>
-            <div className='flex items-center justify-between'>
+            <div className='flex items-center justify-between sm:ml-2 lg:ml-4'>
 
-                <h1 className='text-[18px] sm:text-[27px] text-orange-800 font-inter px-2'>{video_details.title}</h1>
+                <h1 className='text-[18px] lg:text-[24px] text-orange-800 font-inter '>{video_details.title}</h1>
 
             </div>
 
@@ -88,9 +88,9 @@ function Video({ video_details, relatetdVideos }) {
 
                 <div className='w-full  hover:brightness-90 group  relative mb-4 xl:mb-8 sm:ml-2 lg:ml-4'>
 
-                    <div id="mainContainer" className={`relative w-full aspect-video object-contain  group  shadow-2xl   mb-2`}>
+                    <div id="mainContainer" className={` relative w-full aspect-video object-contain  group  shadow-2xl   mb-2`}>
 
-                        <video id="contentElement" key={video_details.videoSrc} ref={videoPlayerRef} poster={video_details.thumbnail} autoPlay className={`w-full aspect-video object-contain`} width="852" height="480 " controls >
+                        <video id="contentElement" key={video_details.videoSrc} ref={videoPlayerRef} poster={video_details.thumbnail} autoPlay className={`rounded w-full aspect-video object-contain`} width="852" height="480 " controls >
                             <source onError={videoErrorHandling} src={video_details.videoSrc} type="video/mp4" />
 
                         </video>
