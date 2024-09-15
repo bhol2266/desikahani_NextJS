@@ -2,7 +2,15 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useContext, useEffect, useState } from 'react'
-
+import {
+    ClockIcon,
+    CogIcon,
+    EyeIcon,
+    LockClosedIcon,
+    MinusIcon,
+    PlusIcon,
+    ThumbUpIcon
+} from '@heroicons/react/solid';
 import {
     TagIcon,
     VideoCameraIcon
@@ -16,8 +24,11 @@ import videosContext from '../../../context/videos/videosContext'
 import DisqusComments from '../../../components/DisqusComments'
 import Script from 'next/script'
 
+import { FaCloudUploadAlt } from "react-icons/fa";
 
 function Video({ video_details, relatetdVideos }) {
+
+
 
 
     const videoPlayerRef = useRef(null)
@@ -72,50 +83,81 @@ function Video({ video_details, relatetdVideos }) {
                 }}
             />
 
-
-            <div className=' hover:brightness-90 group  relative mb-4 xl:mb-8 '>
-
-                <div id="mainContainer" className={`relative w-full aspect-video object-contain  group  shadow-2xl sm:ml-2 lg:ml-4  mb-2`}>
-
-                    <video id="contentElement" key={video_details.videoSrc} ref={videoPlayerRef} poster={video_details.thumbnail} autoPlay className={`w-full aspect-video object-contain`} width="852" height="480 " controls >
-                        <source onError={videoErrorHandling} src={video_details.videoSrc} type="video/mp4" />
-
-                    </video>
-
-                    <div className={`absolute top-0 left-0 `} id="adContainer"></div>
-                    <button className="hidden" id="playButton">Play</button>
+            <div className='flex lg:space-x-4 '>
 
 
-                </div>
+                <div className='w-full  hover:brightness-90 group  relative mb-4 xl:mb-8 sm:ml-2 lg:ml-4'>
+
+                    <div id="mainContainer" className={`relative w-full aspect-video object-contain  group  shadow-2xl   mb-2`}>
+
+                        <video id="contentElement" key={video_details.videoSrc} ref={videoPlayerRef} poster={video_details.thumbnail} autoPlay className={`w-full aspect-video object-contain`} width="852" height="480 " controls >
+                            <source onError={videoErrorHandling} src={video_details.videoSrc} type="video/mp4" />
+
+                        </video>
+
+                        <div className={`absolute top-0 left-0 `} id="adContainer"></div>
+                        <button className="hidden" id="playButton">Play</button>
 
 
-                <div className='flex'>
-                    <VideoCameraIcon className='icon text-orange-700' />
-                    <p>{video_details.title}</p>
-                </div>
-                <div className='flex'>
-                    <TagIcon className='icon text-orange-700' />
-                    <div className='flex flex-wrap space-x-1'>
-
-                        {video_details.tags.map(tag => {
-                            return (
-                                <Link key={tag} href={`/videos/tag/${tag.replace(/ /g, "-")}`}>
-                                    <p className='hover:text-red-800 cursor-pointer font-semibold underline rounded text-xs m- border-gray-500  ' >{tag}</p>
-                                </Link>
-
-                            )
-                        })}
                     </div>
+
+
+                    <div className="flex justify-start items-center space-x-4 lg:space-x-6 md:text-lg ">
+
+                        <div className='flex items-center space-x-1'>
+                            <ClockIcon className='h-5 hover:scale-100 text-red-700 lg:h-7' />
+                            <p className='font- font-semibold text-[16px] lg:text-[20px] text-gray-600'>{video_details.duration.substring(0, 5)}</p>
+                        </div>
+                        <div className='flex items-center space-x-1'>
+                            <EyeIcon className="h-5 text-blue-600  lg:h-7" />
+                            <p className='font- font-semibold text-[16px] lg:text-[20px] text-gray-600'>{video_details.views}</p>
+                        </div>
+                        <div className='flex items-center space-x-1'>
+                            <ThumbUpIcon className="h-5 text-green-500  lg:h-7" />
+                            <p className='font- font-semibold text-[16px] lg:text-[20px] text-gray-600'>{video_details.likePercent}</p>
+                        </div>
+
+                        <div className='flex items-center space-x-1'>
+                        <FaCloudUploadAlt  className="h-5 w-5 text-gray-500  lg:h-7 lg:w-7" />
+
+                            <p className='text-[16px] lg:text-[18px]  font-inter text-gray-600'> {video_details.addedTime}</p>
+                        </div>
+
+
+
+                    </div>
+
+                    <div className='flex mt-2 items-center flex-wrap'>
+                        <TagIcon className='h-5 lg:h-7 text-orange-700 mr-2' />
+                        <div className='flex flex-wrap space-x-2'>
+
+                            {video_details.tags.map(tag => {
+                                return (
+                                    <Link key={tag} href={`/videos/tag/${tag.replace(/ /g, "-")}`}>
+                                        <p className='border-[1px] border-gray-200 rounded px-3 py-1 hover:bg-red-800  hover:text-white hover:border-red-800 cursor-pointer font-inter  rounded text-xs m- border-gray-500  ' >{tag}</p>
+                                    </Link>
+
+                                )
+                            })}
+                        </div>
+                    </div>
+
+
+
+
                 </div>
 
 
+
+                <div className='lg:flex hidden items-start justify-start lg:w-[24%] xl:w-[30%] '>
+                    <Outstreams />
+                    <Outstreams />
+                    <Outstreams />
+
+                </div>
 
 
             </div>
-
-
-
-
 
 
 
@@ -131,12 +173,6 @@ function Video({ video_details, relatetdVideos }) {
 
                 <DisqusComments data={{ identifier: video_details.id, title: video_details.title }} />
 
-
-                <div className='sm:flex items-center justify-center sm:w-1/2 lg:w-1/4 mx-auto mt-4'>
-                    <Outstreams />
-                    <Outstreams />
-                    <Outstreams />
-                </div>
 
             </div>
 
@@ -180,6 +216,9 @@ export async function getStaticProps(context) {
     });
 
     const resData = await rawResponse.json();
+
+    console.log(resData.video_details);
+
     return {
         props: {
             video_details: resData.video_details,

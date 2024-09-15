@@ -7,10 +7,12 @@ import Navbar from '../components/Navbar'
 import VideoState from '../context/videos/VideoState'
 import '../styles/globals.css'
 import '../styles/nProgress.css'
-
 import { useEffect } from 'react'
 import VideoFilterButton from '../components/VideoFilterButton'
 import { subscribeToTopic } from '../firebase'
+import Outstreams from '../components/Ads/Outstream'
+import BannerAds from '../components/Ads/BannerAds'
+
 function MyApp({ Component, pageProps }) {
 
   const router = useRouter();
@@ -61,7 +63,7 @@ function MyApp({ Component, pageProps }) {
         <Navbar />
         <div className='bg-orange-50'>
 
-          <div className=' 4xl:w-[85%] 3xl:w-[90%] flex mx-auto justify-center pt-1 md:pt-3  px-1   '>
+          <div className=' 4xl:w-[85%] 3xl:w-[95%] flex mx-auto justify-center pt-1 md:pt-3  px-1   '>
             {/* <Sidebar /> */}
             <Component {...pageProps} />
           </div>
@@ -76,6 +78,12 @@ function MyApp({ Component, pageProps }) {
 
         <ModalFeedbackForm />
 
+
+        <div className='flex items-center justify-center sm:w-1/2 lg:w-1/4 mx-auto mt-4'>
+          <Outstreams />
+          <Outstreams />
+          <Outstreams />
+        </div>
         <Footer />
 
       </VideoState>

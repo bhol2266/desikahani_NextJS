@@ -15,8 +15,8 @@ function Outstreams() {
 
     return (
 
-        <div className="  ">
-            <div id="ts_ad_video_yioip"></div>
+        <div className=" w-fit ">
+            <div className="w-fit" id="ts_ad_video_yioip"></div>
 
             <Script src="//cdn.tsyndicate.com/sdk/v1/outstream.video.js" strategy="beforeInteractive" />
             <Script

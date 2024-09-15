@@ -64,6 +64,8 @@ function VideoThumbnail({ videoObj }) {
                 </div>
             </div>
 
+
+
             <div className='flex flex-nowrap overflow-x-auto space-x-2 lg:space-x-2 w-full scrollbar-hide'>
                 {tags.map(tag => (
                     <Link
