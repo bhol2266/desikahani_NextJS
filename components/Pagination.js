@@ -72,7 +72,7 @@ const Pagination = ({ data }) => {
             )}
             {isVideoPage && (
 
-                <div className={`md:hidden mx-[16px] mt-4 grid grid-cols-3 py-3 sm:grid-cols-3 gap-2 md:gap-3 lg:gap-4 md:grid-cols-4 lg:grid-cols-5`}>
+                <div className={`mx-[16px] mt-4 grid grid-cols-3 py-3 sm:grid-cols-3 gap-2 md:gap-3 lg:gap-4 md:grid-cols-4 lg:grid-cols-5`}>
                     {video_categories.map(category => {
                         const imageSrc = `/CategoryPics/${category.category.replace(/ /g, '-')}.jpg`;
                         const categorySlug = category.category.toLowerCase().trim().substring(0, category.category.indexOf('.png'));
