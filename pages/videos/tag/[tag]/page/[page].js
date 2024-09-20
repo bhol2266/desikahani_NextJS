@@ -33,7 +33,7 @@ function TagPage({ finalDataArray, categoryTitle, categoryDescription, paginatio
     return (
         <div>
             <Head>
-                <title>{`${categoryTitle}- Free Desi Kahani Sex Stories`} </title>
+                <title>{`${categoryTitle} - Sex Videos`} </title>
                 <meta name="description"
                     content={`${categoryDescription}`} />
             </Head>

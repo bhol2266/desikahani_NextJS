@@ -34,7 +34,7 @@ function Tag({ finalDataArray, categoryTitle, categoryDescription, pagination_na
     return (
         <div>
             <Head>
-                <title>{`${categoryTitle}- Free Desi Kahani Sex Stories`} </title>
+                <title>{`${categoryTitle} - Sex Videos`} </title>
                 <meta name="description"
                     content={`${categoryDescription}`} />
             </Head>
