@@ -81,6 +81,11 @@ export async function getStaticProps(context) {
 
     const resData = await rawResponse.json();
 
+    console.log("********************************************************");
+    console.log(resData.data.finalDataArray);
+    console.log("********************************************************");
+    
+
     if (!resData.success) {
         // Handle error
         return {
@@ -88,6 +93,7 @@ export async function getStaticProps(context) {
         };
     }
 
+   
 
     return {
         props: {
