@@ -82,7 +82,7 @@ export async function getStaticProps(context) {
     const resData = await rawResponse.json();
 
     console.log("********************************************************");
-    console.log(resData.data.finalDataArray);
+    console.log(resData);
     console.log("********************************************************");
     
 
