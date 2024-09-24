@@ -66,7 +66,7 @@ function Pics({ finalDataArray, currentPage, pagination_nav_pages }) {
 export default Pics
 
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     const data = { page: "1" };
 
     const rawResponse = await fetch(`https://my-worker.ukdevelopers007.workers.dev/desikahaniya/getHomepagePics`, {
