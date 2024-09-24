@@ -18,10 +18,10 @@ import Link from 'next/link';
 
 var navigation = [
     { name: 'Home', href: '/', current: true },
-    { name: 'Desi Girls - Video Chat', href: 'https://play.google.com/store/apps/details?id=com.bhola.livevideochat&hl=en-IN', current: false },
+    // { name: 'Desi Girls - Video Chat', href: 'https://play.google.com/store/apps/details?id=com.bhola.livevideochat&hl=en-IN', current: false },
     { name: 'Nude Pics', href: '/photo', current: false },
     { name: 'Audio Sex Story', href: `/tag/audio-sex-story`, current: false },
-    { name: 'Mobile App', href: "https://play.google.com/store/apps/details?id=com.bhola.desiKahaniyaAdult", current: false },
+    { name: 'Mobile App', href: "https://play.google.com/store/apps/details?id=com.bhola.desiKahaniya&hl=en", current: false },
     { name: 'Sex Videos', href: "/videos", current: false },  // route "/videos"
     { name: 'अपनी कहानी भेजे', href: "/submitStory", current: false },
 
