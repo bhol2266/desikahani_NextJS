@@ -12,7 +12,10 @@ import VideoFilterButton from '../components/VideoFilterButton'
 import { subscribeToTopic } from '../firebase'
 import Outstreams from '../components/Ads/Outstream'
 import BannerAds from '../components/Ads/BannerAds'
- 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 function MyApp({ Component, pageProps }) {
 
   const router = useRouter();
@@ -77,6 +80,7 @@ function MyApp({ Component, pageProps }) {
         }
 
         <ModalFeedbackForm />
+        <ToastContainer />
 
 
         <div className='flex items-center justify-center sm:w-1/2 lg:w-1/4 mx-auto mt-4'>

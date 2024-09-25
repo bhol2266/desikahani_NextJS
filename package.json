@@ -47,6 +47,7 @@
     "react-paginate": "^8.1.0",
     "react-player": "^2.9.0",
     "react-spinners": "^0.11.0",
+    "react-toastify": "^10.0.5",
     "sharp": "^0.29.3",
     "stream": "^0.0.3",
     "tailwind-scrollbar-hide": "^1.1.7",
