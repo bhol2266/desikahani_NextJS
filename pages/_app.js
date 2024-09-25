@@ -12,7 +12,7 @@ import VideoFilterButton from '../components/VideoFilterButton'
 import { subscribeToTopic } from '../firebase'
 import Outstreams from '../components/Ads/Outstream'
 import BannerAds from '../components/Ads/BannerAds'
-
+ 
 function MyApp({ Component, pageProps }) {
 
   const router = useRouter();
