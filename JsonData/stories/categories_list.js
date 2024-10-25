@@ -9,8 +9,6 @@ export const categories = [
         
         Aunty sex stories about sex relation with neighbor aunties, elderly ladies`
     },
-
-
     {
         category_title: 'Bhabhi Sex',
         href: 'bhabhi-sex',
@@ -89,14 +87,14 @@ export const categories = [
         क्सक्सक्स इन्डियन चुदाई कहानी, गर्म जवान लड़की, आंटी के साथ सेक्स स्टोरी हिंदी में पढ़ें और मजा लें.`
     },
     {
-        category_title: 'अन्तर्वासना',
+        category_title: 'Antarvasna',
         href: 'antarvasna',
         description: `असली अन्तर्वासना कामुकता से भरी हिंदी सेक्स कहानियाँ,
         Original Antarvasna Hindi sex stories for free
         यह अन्तर्वासना सेक्स स्टोरीज की नयी साईट है. अन्तर्वासना के खुलने में परेशानी के कारण इस नयी साईट को शुरू किया गया है.`
     },
     {
-        category_title: 'हिंदी सेक्स स्टोरीज',
+        category_title: 'Hindi Sex Stories',
         href: 'hindi-sex-stories',
         description: `Hindi Sex Stories of Desi Indian girl sex, bhabhi aunty Chut Chudai
         हिंदी सेक्स स्टोरी भाभी साली चाची की चूत चुदाई की, गांड चुदाई की कहानी

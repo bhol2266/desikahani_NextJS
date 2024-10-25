@@ -11,10 +11,12 @@ import videosContext from '../context/videos/videosContext';
 export default function Home({ finalDataArray, pagination_nav_pages, currentPage }) {
   const { setcurrentLocation } = useContext(videosContext);
 
+  console.log(finalDataArray[0].tagsArray);
+
+
+
+
   useEffect(() => {
-
-
-
     async function fetchData() {
       let location = {};
       if (localStorage.getItem("location") === null) {
@@ -70,7 +72,7 @@ export default function Home({ finalDataArray, pagination_nav_pages, currentPage
           </div>
 
 
-          <Stories stories={finalDataArray} />
+            <Stories stories={finalDataArray} />
 
           <Pagination data={{ url: '', currentPage: currentPage, lastPage: pagination_nav_pages[1] }} />
         </div>
@@ -87,7 +89,7 @@ export default function Home({ finalDataArray, pagination_nav_pages, currentPage
 
 export async function getStaticProps() {
   const data = { page: "1" };
-  const rawResponse = await fetch(`${process.env.BACKEND_URL}HomepageStoriesUpdate`, {
+  const rawResponse = await fetch(`${process.env.BACKEND_URL}HomepageStories`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -97,6 +99,9 @@ export async function getStaticProps() {
   });
 
   const resData = await rawResponse.json();
+
+  console.log(resData);
+
 
   return {
     props: {

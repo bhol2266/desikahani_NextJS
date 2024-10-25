@@ -1,164 +1,140 @@
-import React, { useRef } from 'react'
-
-import { getCookie, setCookie } from 'cookies-next'
-import Head from 'next/head'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { Fragment, useEffect, useState } from 'react'
-
-import { Menu, Transition } from '@headlessui/react'
-import {
-    ChevronRightIcon,
-    EyeIcon,
-    FolderIcon,
-    PencilAltIcon,
-    TagIcon
-} from '@heroicons/react/solid'
-import { BeatLoader } from 'react-spinners'
-import BannerAds from '../../components/Ads/BannerAds'
-import Outstreams from '../../components/Ads/Outstream'
-import DisqusComments from '../../components/DisqusComments'
-import { BannedUrls } from '../../JsonData/BannedUrls'
-
+import React, { useRef, useEffect, useState, Fragment } from 'react';
+import { getCookie, setCookie } from 'cookies-next';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { Menu, Transition } from '@headlessui/react';
+import { ChevronRightIcon, EyeIcon, FolderIcon, PencilAltIcon, TagIcon } from '@heroicons/react/solid';
+import { BeatLoader } from 'react-spinners';
+import BannerAds from '../../components/Ads/BannerAds';
+import Outstreams from '../../components/Ads/Outstream';
+import DisqusComments from '../../components/DisqusComments';
+import { BannedUrls } from '../../JsonData/BannedUrls';
 
 function Story({ story_details }) {
-
     const router = useRouter();
+    const videoPlayerRef = useRef(null);
+    const [videoErrorCounter, setVideoErrorCounter] = useState(0);
+    const [storyRemoved, setStoryRemoved] = useState(false);
+    const [textSize, setTextSize] = useState('20px');
+    const [storyArray, setStoryArray] = useState(story_details.newStoryArray);
+    const [title, setTitle] = useState(story_details.newTitle);
 
-    const videoPlayerRef = useRef(null)
-    const [VideoErrorCounter, setVideoErrorCounter] = useState(0);
-    const [storyRemoved, setStoryRemoved] = useState(false)
 
-
-    useEffect(() => {
-        const currentUrl = window.location.href;
-        const isBanned = BannedUrls.some(url => currentUrl === url);
-        if (isBanned) {
-            setStoryRemoved(true);
-        } else {
-            setStoryRemoved(false); // Optionally handle the case when the URL is not banned
-        }
-    }, [router.query]);
-
-    useEffect(() => {
-
-        if (typeof getCookie("AdSeenCounter") == "undefined") {
-            setCookie("AdSeenCounter", 0)
-        }
-
-        setTimeout(() => {
-            var AdSeenCounter = parseInt(getCookie("AdSeenCounter"));
-
-            if (AdSeenCounter < 2) {
-                console.log(AdSeenCounter + 1);
-                setCookie("AdSeenCounter", AdSeenCounter + 1)
-            }
-        }, 120000);
-
-    }, []);
-
-    const [textSize, settextSize] = useState('20px')
-
-    if (router.isFallback) {
-        return (
-            <div className="flex justify-center mx-auto mt-10 ">
-                <BeatLoader loading size={25} color={'orange'} />
-            </div>
-        )
-    }
-
-    if (storyRemoved) {
-        return (
-            <div className="flex justify-center mx-auto mt-10">
-                <p className="text-red-600 text-2xl font-bold">
-                    Story removed
-                </p>
-            </div>
-        )
-    }
+    const [language, setLanguage] = useState("english");
 
     const { story, story_Category } = router.query;
 
-    const filter = [{ sizeName: 'Small', sizecode: '15px' }, { sizeName: 'Medium', sizecode: '20px' }, { sizeName: 'Large', sizecode: '25px' }, { sizeName: 'XL', sizecode: '30px' }, { sizeName: '2XL', sizecode: '35px' }, { sizeName: '3XL', sizecode: '40px' }]
+    useEffect(() => {
+        const currentUrl = window.location.href;
+        setStoryRemoved(BannedUrls.includes(currentUrl));
+    }, [router.query]);
+
+
+
+    const filter = [
+        { sizeName: 'Small', sizecode: '15px' },
+        { sizeName: 'Medium', sizecode: '20px' },
+        { sizeName: 'Large', sizecode: '25px' },
+        { sizeName: 'XL', sizecode: '30px' },
+        { sizeName: '2XL', sizecode: '35px' },
+        { sizeName: '3XL', sizecode: '40px' }
+    ];
+
+    const capitalizeWords = (str) => str.split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+
+    const handleLanguageToggle = () => {
+        if (language === "english") {
+            setTitle(story_details.Title);
+            setStoryArray(story_details.description);
+            setLanguage("hindi");
+        } else {
+            setTitle(story_details.newTitle);
+            setStoryArray(story_details.newStoryArray);
+            setLanguage("english");
+        }
+    };
 
     const textSizeChangerOnclick = (sizeCode) => {
-        settextSize(sizeCode)
-    }
-
-    const audioError = () => {
-        console.log("Audio Src Error  ", VideoErrorCounter);
-        setVideoErrorCounter(VideoErrorCounter + 1)
-        if (VideoErrorCounter > 2) {
-            return
-        }
-        videoPlayerRef.current.src = story_details.audiolink
-        videoPlayerRef.current.load();
-        videoPlayerRef.current.play();
-
-    }
+        setTextSize(sizeCode);
+    };
 
     const checkAudioDuration = async () => {
+        const audioPlayer = videoPlayerRef.current;
+        if (!audioPlayer) return;
 
-        const response = await fetch("https://bucket2266.s3.ap-south-1.amazonaws.com/Sexstory_Audiofiles/aage-peechhe-doubble-sex.mp3");
-        const status = response.status;
-        if (status == 403) {
-            alert(status)
+        const response = await fetch(story_details.audiolink);
+        if (response.status === 403) {
+            alert("Audio access forbidden.");
+            return;
         }
 
-        const audioPlayer = videoPlayerRef.current;
-        if (audioPlayer) {
-            const duration = audioPlayer.duration;
-            if (duration < 30) {
-
-
-                const response = await fetch("https://bucket2266.s3.ap-south-1.amazonaws.com/Sexstory_Audiofiles/" + story + ".mp3");
-                const status = response.status;
-                if (status == 200) {
-                    audioPlayer.src = "https://bucket2266.s3.ap-south-1.amazonaws.com/Sexstory_Audiofiles/" + story + ".mp3"
-                    audioPlayer.load();
-                } else {
-
-                    const options = {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ href: story_details.href, date: story_details.date })
-                    };
-
-                    await fetch(process.env.BACKEND_URL + "downloadAudio", options)
-                        .then(response => response.json())
-                        .then(result => {
-                            audioPlayer.src = "https://bucket2266.s3.ap-south-1.amazonaws.com/Sexstory_Audiofiles/" + story + ".mp3"
-                            audioPlayer.load();
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
-
-                }
-
+        const duration = audioPlayer.duration;
+        if (duration < 30) {
+            const newAudioUrl = `https://bucket2266.s3.ap-south-1.amazonaws.com/Sexstory_Audiofiles/${story}.mp3`;
+            const newResponse = await fetch(newAudioUrl);
+            if (newResponse.status === 200) {
+                audioPlayer.src = newAudioUrl;
+                audioPlayer.load();
+            } else {
+                const options = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ href: story_details.href, date: story_details.date }),
+                };
+                await fetch(`${process.env.BACKEND_URL}downloadAudio`, options);
+                audioPlayer.src = newAudioUrl;
+                audioPlayer.load();
             }
         }
     };
 
+    const audioError = () => {
+        setVideoErrorCounter(prev => prev + 1);
+        if (videoErrorCounter <= 2) {
+            videoPlayerRef.current.src = story_details.audiolink;
+            videoPlayerRef.current.load();
+            videoPlayerRef.current.play();
+        }
+    };
+
+
+    const storiesLink_insideParagrapgh_Onclick = async (storyTitle_Hindi) => {
+
+
+    }
+    const relatedStoriesLinks_Onclick = async storyTitle_Hindi => {
+        
+
+
+    }
 
 
 
+
+    if (storyRemoved) {
+        return (
+            <div className="flex justify-center mx-auto mt-10">
+                <p className="text-red-600 text-2xl font-bold">Story removed</p>
+            </div>
+        );
+    }
 
 
     return (
         <div className="md:w-3/5 p-4   rounded-lg "  >
             <Head>
                 <meta name="referrer" content="no-referrer" />
-                <title>{`${story_Category.replace('-', ' ')} - ${story_details.Title}`}</title>
+                <title>{`${story_details.category.replace('-', ' ')} - ${story_details.Title}`}</title>
                 <meta name="description" content={story_details.description[0]} />
 
             </Head>
 
             <div className='flex items-center justify-between'>
 
-                <h1 itemProp="headline" className='text-[24px] sm:text-[27px] text-orange-800 font-inter'>{story_details.Title}</h1>
+                <h1 itemProp="headline" className='text-[24px] sm:text-[27px] text-orange-800 font-inter'>{capitalizeWords(title)}</h1>
                 <Menu as="div" className={` relative  text-left  md:scale-125 `}>
                     <div className=' w-fit '>
                         <Menu.Button className="inline-flex justify-center cursor-pointer  w-full rounded-md  shadow-sm px-2 py-2 bg-orange-200 text-sm font-medium text-gray-700 ">
@@ -205,14 +181,17 @@ function Story({ story_details }) {
 
                 <div className='flex  items-center '>
                     <PencilAltIcon className='icon text-red-500' />
-                    <p onClick={() => { router.push(`/author/${story_details.author.href.substring(story_details.author.href.indexOf('author/') + 7, story_details.author.href.length - 1)}`) }} className='cursor-pointer underline hover:text-red-500 font-semibold text-gray-600' >{story_details.author.name}</p>
+                    <p onClick={() => { router.push(`/author/${story_details.author.href.substring(story_details.author.href.indexOf('author/') + 7, story_details.author.href.length - 1)}`) }} className='cursor-pointer underline hover:text-red-500 font-semibold text-gray-600' >{story_details.author.name_english.length > 20 ? story_details.author.name : story_details.author.name_english}</p>
                 </div>
-                <p className='font-semibold text-gray-600'>{story_details.date}</p>
+                <p className='font-semibold text-gray-600'>{story_details.date.day}-{story_details.date.month}-{story_details.date.year}</p>
 
                 <div className='flex items-center'>
                     <EyeIcon className='icon text-blue-500' />
                     <p className='font-semibold text-gray-600'>{story_details.views}</p>
                 </div>
+
+                <p onClick={() => { handleLanguageToggle() }} className='font-inter font-semibold text-orange-800 text-gray-600 underline cursor-pointer hover'>{language == "english" ? "हिंदी में पढ़ें" : "Read in English"}</p>
+
             </div>
 
             {story_details.audiolink &&
@@ -223,11 +202,11 @@ function Story({ story_details }) {
                     controls onError={audioError} />
             }
 
-            {story_details.description.map(p => {
+            {storyArray.map(p => {
                 return (
                     <div key={p}>
                         <p style={{ fontSize: textSize }} className={`text-gray-800 font-hindi tracking-wide`} >
-                            {p}
+                            {p.charAt(0).toUpperCase() + p.slice(1)}
                             <br />
                         </p>
                         <br></br>
@@ -236,11 +215,10 @@ function Story({ story_details }) {
             })}
             <BannerAds />
 
-
             <div >
                 <div className='flex'>
                     <FolderIcon className='icon text-orange-700' />
-                    <p>{story_details.category.title}</p>
+                    <p>{story_details.category}</p>
                 </div>
                 <div className='flex'>
                     <TagIcon className='icon text-orange-700' />
@@ -261,17 +239,11 @@ function Story({ story_details }) {
                 <div className='my-2 font-kalam tracking-wider'>
                     {story_details.storiesLink_insideParagrapgh.map(item => {
 
-                        const rough = item.href.substring(item.href.indexOf('.com/') + 5, item.href.length - 1)
-                        const category = rough.substring(0, rough.indexOf('/'))
-                        const title = rough.substring(rough.indexOf('/') + 1, rough.length)
-
-
                         return (
-                            <div key={item.name} className='flex'>
+                            <div key={item} className='flex'>
                                 <ChevronRightIcon className='icon' />
-                                <Link href={`/${category}/${title}`}>
-                                    <p className='underline hover:text-red-800 cursor-pointer '>{item.title}</p>
-                                </Link>
+                                <p onClick={() => { storiesLink_insideParagrapgh_Onclick(item) }} className='underline hover:text-red-800 cursor-pointer '>{item}</p>
+
                             </div>
                         )
                     })}
@@ -285,17 +257,13 @@ function Story({ story_details }) {
 
                 <div className='my-2 font-kalam tracking-wider'>
                     {story_details.relatedStoriesLinks.map(item => {
-                        const rough = item.href.substring(item.href.indexOf('.com/') + 5, item.href.length - 1)
-                        const category = rough.substring(0, rough.indexOf('/'))
-                        const title = rough.substring(rough.indexOf('/') + 1, rough.length)
 
 
                         return (
-                            <div key={item.name} className='flex'>
+                            <div key={item} className='flex'>
                                 <ChevronRightIcon className='icon' />
-                                <Link href={`/${category}/${title}`}>
-                                    <p className='underline hover:text-red-800 cursor-pointer '>{item.title}</p>
-                                </Link>
+                                <p onClick={() => { relatedStoriesLinks_Onclick(item) }} className='underline hover:text-red-800 cursor-pointer '>{item}</p>
+
                             </div>
                         )
                     })}
@@ -303,7 +271,7 @@ function Story({ story_details }) {
 
             </div>
 
-    
+
 
             <DisqusComments data={{ identifier: story_details.href, title: story_details.Title }} />
 
@@ -328,7 +296,7 @@ export async function getStaticPaths() {
                 story: 'sister-ass-fuck-story'
             }
         }],
-        fallback: true // false or 'blocking'
+        fallback: 'blocking' // false or 'blocking'
     };
 }
 

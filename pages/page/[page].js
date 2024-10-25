@@ -62,7 +62,7 @@ export async function getStaticProps(context) {
     const { page } = context.params
 
     const data = { page: page }
-    const rawResponse = await fetch(`${process.env.BACKEND_URL}HomepageStoriesUpdate`, {
+    const rawResponse = await fetch(`${process.env.BACKEND_URL}HomepageStories`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

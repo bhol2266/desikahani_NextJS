@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import ReactCountryFlag from "react-country-flag";
 import videosContext from '../context/videos/videosContext';
-import { categories } from '../JsonData/stories/categories_list';
+import categories from "../JsonData/stories/Categories.json"
 
 import { Fragment } from 'react';
 
